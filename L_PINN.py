@@ -106,14 +106,14 @@ class ANN(nn.Module):
         self.residual_blocks = nn.ModuleList()
         self.dropout_layers = nn.ModuleList()
 
-        # Add linear layers and residual blocks
+
         for i in range(len(self.layers) - 1):
             self.linear_layers.append(nn.Linear(self.layers[i], self.layers[i + 1]))
             if i < len(self.layers) - 2:
                 self.residual_blocks.append(ResidualBlock(self.layers[i + 1]))
                 self.dropout_layers.append(nn.Dropout(p=dropout_prob))
         
-        # Initialize weights using Xavier initialization
+  
         self.apply(self.xavier_initialization)
 
     def xavier_initialization(self, layer):
@@ -123,7 +123,7 @@ class ANN(nn.Module):
                 nn.init.zeros_(layer.bias)
 
     def forward(self, x, flag_print=False, activation='tanh'):
-        # Normalize input
+    
         H = (x - self.lb) / (self.ub - self.lb)
 
         for i, layer in enumerate(self.linear_layers[:-1]):
@@ -137,7 +137,6 @@ class ANN(nn.Module):
         # Output layer
         Y = self.linear_layers[-1](H)
         
-        # Apply the chosen activation function
         if activation == 'sigmoid':
             Y = torch.sigmoid(Y)
         elif activation == 'tanh':
@@ -217,8 +216,7 @@ class VAE_convLSTM(nn.Module):
             ))
         encoder = nn.Sequential(*encoder_layers)   
         self.encoder=encoder 
-        
-        #self.SA = SpatialAttention(self.input_size) #SpatialAttention
+
         self.MHSA = MultiHeadSpatialAttention(self.input_size)
         
         # ConvLSTM ==> temporal evolution
@@ -246,11 +244,7 @@ class VAE_convLSTM(nn.Module):
         init.xavier_uniform_(self.fc1.weight)
         init.xavier_uniform_(self.fc_mu.weight)
         init.xavier_uniform_(self.fc_logvar.weight)        
-        
-        # instance of the EncodeBlock
-        #self.Encode_LSTM = EncodeBlock_convLSTM(encoder, convLSTM, self.flat_dim, self.inter_dim, self.latent_dim)
-    
-        #self.Temporal_Attention= TemporalAttention(hidden_channels[-1])
+
         
         # Decoder
         decoder_layers = []
@@ -266,8 +260,7 @@ class VAE_convLSTM(nn.Module):
             
         decoder = nn.Sequential(*decoder_layers)        
         self.Decode = DecodeBlock(decoder, self.flat_dim, self.inter_dim,self.latent_dim,self.encoder(self.input_tensor).shape)
-        
-        #self.linear_reshape = LinearReshape(input_channels=128*8*8, output_channels=64*8*8)
+
         
         self.decoder=decoder
         
@@ -322,10 +315,6 @@ class VAE_convLSTM(nn.Module):
             # global loss
             global_loss =  mse_loss(predicted, true) 
 
-            # Extract interfacial regions 
-            #predicted_interfacial, true_interfacial = self.extract_interfacial_regions(predicted, true)
-            #interfacial_loss = self.mae_loss(predicted_interfacial, true_interfacial)
-
             return global_loss #+ interfacial_loss
     ######################################################
     #"""
@@ -338,7 +327,6 @@ class VAE_convLSTM(nn.Module):
         outputs_ann = []
         second_last_state = None
         loss_vae = torch.tensor(0, dtype=self.dtype)
-        #self.alpha = nn.Parameter(torch.tensor(0.9))  # Start with equal weighting
         process = psutil.Process()
 
         _, _, Nx, Ny = x.shape
@@ -435,7 +423,6 @@ class VAE_convLSTM(nn.Module):
     ################################################################
     def translate_grid(self, input_grid, Nx, Ny, dx, dy):
         """Translate each point in the input grid by small random deltas within the specified range."""
-        # Define small translation deltas within the grid spacing
         max_translation_x = int((1 / dx) * 0.02)  # 10% of the grid spacing in x direction
         max_translation_y = int((1 / dy) * 0.02)  # 10% of the grid spacing in y direction
         
@@ -445,11 +432,8 @@ class VAE_convLSTM(nn.Module):
         x_coords = torch.arange(0, Nx).unsqueeze(1).expand(Nx, Ny)
         y_coords = torch.arange(0, Ny).unsqueeze(0).expand(Nx, Ny)
 
-        # Compute new coordinates with translations
         new_x_coords = torch.clamp(x_coords + translation_x, 0, Nx - 1)
-        new_y_coords = torch.clamp(y_coords + translation_y, 0, Ny - 1)
 
-        # Flatten the coordinates for indexing
         flat_new_x_coords = new_x_coords.view(-1)
         flat_new_y_coords = new_y_coords.view(-1)
         flat_input_grid = input_grid.view(-1)
@@ -471,36 +455,31 @@ class VAE_convLSTM(nn.Module):
         gw = torch.stack(gw)  
 
         with torch.no_grad():
-            # Compute the relative loss change (loss_ratio)
             loss_ratio = loss.detach() / l0
-            
-            # Compute the score values (rt) and gradient norms using self.alpha
+
             rt = loss_ratio / loss_ratio.mean()
             gw_avg = gw.mean().detach()  # Average gradient norm
             constant = (gw_avg * rt ** self.alpha).detach()  # The target gradient norm
         
-        # Compute the GradNorm loss as the sum of the differences between gradient norms and the target
+
         gradnorm_loss = torch.abs(gw - constant).sum()
         
-        # Update weights based on GradNorm loss
-        #self.update_weights(weights, gradnorm_loss, gw, constant)
+
         
         return gradnorm_loss, gw, constant
     ################################################################
     def update_weights(self, weights, gw, constant):
         with torch.no_grad():
             for i in range(len(weights)):
-                # Calculate the updated weight following the formula
                 hat_lambda_i = weights[i] * (constant[i] / gw[i])
-                
-                # Apply the update rule
+
                 weights[i] = (1 - self.beta) * weights[i] + self.beta * hat_lambda_i
 
     ################################################################
     def train(self, new_autoencoder,input, initial_state, n_iters, learning_rate,save_path,model_ann_save_path,\
             TL_VAE_convLSTM=False,TL_VAE=False,get_data=False,alpha=0.16,opt="ori", log=False):
 
-        # Paths to the saved encoder and decoder checkpoints
+
         encoder_checkpoint_path = 'models/Encode_checkpoint.pt'
         decoder_checkpoint_path = 'models/Decode_checkpoint.pt'
         save_path_figs = 'figures'
@@ -676,24 +655,12 @@ class VAE_convLSTM(nn.Module):
                         self.save_figs_ann(outputs_ann_copy.clone().detach(),Grund_truth,filename_micro="micro_evol_ann",radius_filename = "ann_radius_evolution")
                         if flag_down_ANN == False: 
                             self.save_figs_ann(output.clone().detach(),Grund_truth,filename_micro="micro_evol_lstm",radius_filename = "lstm_radius_evolution")
-                        #self.save_figs_ann(output, filename_micro="pred_evol_truth", radius_filename="pred_truth_radius")
+                      
                     loss_pde, loss_Energy, loss_diff = loss_PDE_instance.compute_loss(output, output_latent[:, 0:latent_channels, :, :], outputs_ann_copy) # #
-            
-                    """
-                    phi_colloc=self.translate_grid(phi_0.squeeze(0).squeeze(0), self.Nx, self.Ny, self.dx, self.dy).unsqueeze(0).unsqueeze(0)
-                    output_colloc, output_latent_colloc,_, _,_= self.forward(hidden_state, phi_colloc, time_batch_idx,N_current,t_current)
-                    output_colloc = torch.cat((phi_colloc, torch.cat(output_colloc, dim=0)), dim=0)
-                    #plt.imshow(phi_modif.squeeze(0).squeeze(0))
-                    #plt.savefig("phi_colloc")
-                    #plt.close()
-                    if  N_current<=1:
-                        loss_pde_colloc, loss_Energy_colloc, loss_diff_colloc =torch.zeros_like(loss_vae),torch.zeros_like(loss_vae),torch.zeros_like(loss_vae)
-                    else:
-                        loss_pde_colloc, loss_Energy_colloc, loss_diff_colloc = loss_PDE_instance.compute_loss(output_colloc, output_latent[:, 0:latent_channels, :, :],outputs_ann,outputs_ann_copy,Grund_truth) # 
-                    """
+
                     loss_pde_colloc=torch.zeros_like(loss_vae)
                     if time_batch_idx == 0:
-                        loss_IC =torch.zeros_like(loss_vae)##self.loss_IC(u_1_pred, u1_true) #                    
+                        loss_IC =torch.zeros_like(loss_vae)                 
                     # grad norm 
                     if flag_down_ANN == False: 
                         loss = loss_ann + self.pde * (loss_pde + loss_pde_L) + loss_vae +loss_diff+ loss_IC # + self.ic_lstm* loss_IC 
@@ -721,13 +688,8 @@ class VAE_convLSTM(nn.Module):
                         self.pde=1 
                         self.ic_lstm=1 
                         loss= self.pde * (loss_pde+loss_pde_L)  + self.ic_lstm* loss_IC 
-                        loss_ann=loss_IC_ann=grid_motion_loss= torch.zeros_like(loss_vae)
-                        #retain_graph=False 
-                        
-                    # desactivated block for gradnorm 
-                    #optimizer_gn.zero_grad()
-                    #gradnorm_loss.backward()
-                    #optimizer_gn.step()
+                        loss_ann=loss_IC_ann=grid_motion_loss= torch.zeros_like(loss_vae)                        
+
 
                     self.optimizer.step() 
                     self.ANN.optimizer.step()
@@ -762,13 +724,8 @@ class VAE_convLSTM(nn.Module):
                 ###############  L-BFGS-B Optimizer   ##############
                 # call scipy optimizer if loss > thresh
 
-                if epoch > 0 and epoch_scipy % 20e5==0 :# and running_loss > Threshold :   
-                    #"""    
-                    #loss = lbfgs_optimizer.step(closure)
-                    #loss_pde = closure.loss_pde
-                    #loss_Energy = closure.loss_Energy
-                    #loss_ann = closure.loss_ann
-                    #"""
+                if epoch > 0 and epoch_scipy % 20e5==0 :
+
                     global clone_input_batch, clone_hidden_state, clone_time_batch_idx, clone_N_current, clone_t_currect
                     clone_input_batch, clone_hidden_state, clone_time_batch_idx, clone_N_current, \
                         clone_t_currect = input_batch, hidden_state, time_batch_idx, N_current, t_current
@@ -782,7 +739,7 @@ class VAE_convLSTM(nn.Module):
                     model=self.ANN   # to change ANN
                     params =self.get_weights(model).detach().numpy()
                     tf.print("ANN param", len(self.get_weights(self.ANN).detach().numpy()))
-                    #tf.print("convLSTM param", len(self.get_weights(self.convLSTM).detach().numpy()))
+        
                     
                     results = scipy.optimize.minimize(
                         fun=self.optimizerfunc,             # Objective function
@@ -815,14 +772,13 @@ class VAE_convLSTM(nn.Module):
                 if epoch == 0 or (epoch + 1) % 200 == 0:
                     print_cpu_memory_usage("Memory usage: ")
                 ###################################################    
-                # Print loss in each epoch
                 if epoch == 0 or (epoch + 1) % 20 == 0:
                     print_epoch_progress(epoch,n_iters,running_pde_loss, running_Energy_loss, running_pde_L_loss, 
                     running_vae_loss, running_IC_loss, running_ann_loss,running_diff_loss, running_data_loss, running_loss,running_colloc_loss )
                         
                 # save PINN
                 if running_loss < Threshold and epoch_scipy > 10    and (epoch+1) % 27 == 0:  
-                    #Threshold=running_loss  
+                    #Threshold=running_loss  (optional)
                     if flag_down_ANN== False:
                         outputs_ann_current[incr+1]=output[-1].unsqueeze(0).clone() # ANN updated with good conv-LSTM prediction
                         tf.print("outputs_ann: ", outputs_ann.shape)  # should be always two (current t_min - t_max)
@@ -848,9 +804,7 @@ class VAE_convLSTM(nn.Module):
                     tf.print("output: ", output.shape)
                     tf.print("new Threshold: ", Threshold)
                     
-                    #self.release_memory_with_checkpoint( scheduler,optimizer_ann, model_ann_save_path)
-                
-                    # Threshold=running_loss
+
 
 
                 if  (epoch+1) % 1000 == 0 and flag_down_ANN== False: # periodic saving 
@@ -890,7 +844,6 @@ class VAE_convLSTM(nn.Module):
         Get all model parameters as a single 1D tensor.
         This is useful for optimizers that operate on flattened parameters.
         """
-        # Flatten all parameters into a single 1D tensor
         parameters_1d = torch.cat([param.view(-1) for param in model.parameters()])
         return parameters_1d
     #######################################################################    
@@ -907,7 +860,7 @@ class VAE_convLSTM(nn.Module):
         index = 0
         for param in model.parameters():
             param_elements = param.numel()
-            # Extract the corresponding part of the flattened tensor and reshape it to match the parameter
+
             new_param_values = flattened_weights[index:index + param_elements].view_as(param)
             param.data.copy_(new_param_values)  # Copy the new values into the parameter
             index += param_elements
@@ -954,9 +907,7 @@ class VAE_convLSTM(nn.Module):
         outputs_ann_copy = outputs_ann_current[:incr+2].clone().detach().requires_grad_(True)
         loss_ann, phi2D_ann, loss_IC_ann, grid_motion_loss, loss_E_phi, data_loss =self.get_physical_Loss_original_dim_int(outputs_ann_copy,t_current,Grund_truth)        
         outputs_ann_copy = torch.cat([outputs_ann_copy[:-1], phi2D_ann.clone().detach()], dim=0)       
-        
-        #loss_pde, loss_Energy, loss_diff = loss_PDE_instance.compute_loss(output, output_latent[:, 0:latent_channels, :, :], outputs_ann, outputs_ann_copy)
-        
+
         loss = loss_ann
         
         # grad norm  
@@ -1015,7 +966,6 @@ class VAE_convLSTM(nn.Module):
         outputs_ann_current[incr + 1] = outputs_ann[-1].unsqueeze(0).clone()
 
         self.convLSTM.train()
-        #loss_ann = self.get_physical_Loss_original_dim_int(outputs_ann, t_current)
         outputs_ann_copy = outputs_ann_current[:incr + 2].clone().detach().requires_grad_(True)
         loss_pde, loss_Energy, loss_diff = loss_PDE_instance.compute_loss(output, output_latent[:, 0:latent_channels, :, :], outputs_ann, outputs_ann_copy)
         
@@ -1130,15 +1080,14 @@ class VAE_convLSTM(nn.Module):
 
         g = torch.cat((x, y, t), dim=1)
         
-        # Forward pass through the model
+        # Forward pass
         phi = self.ANN(g) 
         if x_2D is not None: 
             phi2D_ann = phi.reshape(x_2D.shape)
-        # Compute gradients wrt t
         phi_t = torch.autograd.grad(outputs=phi, inputs=t, grad_outputs=torch.ones_like(phi),
                                     create_graph=True, retain_graph=True)[0]
 
-        # Compute gradients wrt x and y
+
         #"""
         phi_x = torch.autograd.grad(outputs=phi, inputs=x, grad_outputs=torch.ones_like(phi),
                                     create_graph=True, retain_graph=True)[0]
@@ -1176,7 +1125,6 @@ class VAE_convLSTM(nn.Module):
     ###############################
     def compute_gradients(self, x, y, t, x_2D):
     
-        # Ensure x, y, t require gradients
         x = x.clone().detach().requires_grad_(False)
         y = y.clone().detach().requires_grad_(False)
         t = t.clone().detach().requires_grad_(False)
@@ -1184,11 +1132,10 @@ class VAE_convLSTM(nn.Module):
         g = torch.cat((x, y, t), dim=1)
         g_prev =  torch.cat((x, y, torch.zeros_like(t)), dim=1)# torch.cat((x, y, t-self.dt), dim=1)
 
-        # Compute phi2D_ann and phi2D_ann_prev
+    
         phi2D_ann_prev = torch.clamp(self.ANN(g_prev)[:, 0], 0, 1).reshape(x_2D.shape)
         phi2D_ann = torch.clamp(self.ANN(g)[:, 0], 0, 1).reshape(x_2D.shape)
 
-        # Compute the difference
         phi_diff = phi2D_ann - phi2D_ann_prev
 
         # Compute the derivative using autograd
@@ -1206,11 +1153,9 @@ class VAE_convLSTM(nn.Module):
         grad_phi_x = torch.autograd.grad(phi2D_ann.sum(), x, create_graph=True)[0].reshape(x_2D.shape)
         grad_phi_y = torch.autograd.grad(phi2D_ann.sum(), y, create_graph=True)[0].reshape(x_2D.shape)
 
-        # Compute the second derivatives (Laplacian components)
         laplace_phi_x = torch.autograd.grad(grad_phi_x.sum(), x, create_graph=True)[0].reshape(x_2D.shape)
         laplace_phi_y = torch.autograd.grad(grad_phi_y.sum(), y, create_graph=True)[0].reshape(x_2D.shape)
 
-        # Sum the second derivatives to get the Laplacian
         laplace_phi = laplace_phi_x + laplace_phi_y
         #"""
         return phi2D_ann, phi_t, laplace_phi 
@@ -1241,7 +1186,6 @@ class VAE_convLSTM(nn.Module):
     ########################################################
     def get_physical_Loss_original_dim_int(self, Phi, t_current, Grund_truth):
         process = psutil.Process()
-        # Create grid
         lb, ub = self.lb, self.ub
         x = torch.linspace(lb[0], ub[0], self.Nx)
         y = torch.linspace(lb[1], ub[1], self.Ny)
@@ -1272,6 +1216,7 @@ class VAE_convLSTM(nn.Module):
         x_seq, y_seq, t_seq = X_Y_T[:, 0:1].requires_grad_(True), X_Y_T[:, 1:2].requires_grad_(True), X_Y_T[:, 2:3].requires_grad_(True)
         #memory_info = process.memory_info()
         #tf.print(f"Epoch {epoch} - before compute_loss_terms: RSS = {memory_info.rss / 1e6} MB, VMS = {memory_info.vms / 1e6} MB") 
+        
         # Loss terms for the physical model
         if len(Phi)>=2:
             f_phi, phi2D_ann = self.compute_loss_terms(x_seq, y_seq, t_seq, phi_ini_)
@@ -1279,7 +1224,6 @@ class VAE_convLSTM(nn.Module):
             loss_whole_seq = torch.zeros_like(grid_motion_loss)
 
         # Whole sequence loss (PDE terms)
-        #loss_whole_seq = torch.zeros_like(grid_motion_loss)
         if len(Phi) > 2:
             phi_t = (Phi[1:] - Phi[:-1]) / self.dt
             laplace_phi = (torch.roll(Phi, 1, 2) + torch.roll(Phi, -1, 2) + torch.roll(Phi, 1, 3) + torch.roll(Phi, -1, 3) - 4 * Phi) / (self.dx * self.dy)
@@ -1355,7 +1299,6 @@ class VAE_convLSTM(nn.Module):
 
         # Process the sequence in time batches
         for time_batch_idx in range(1): #range(0, Nsteps, time_batch_size):
-            #tf.print("time_batch_idx",time_batch_idx)
 
             if time_batch_idx == 0:
                 hidden_state = initial_state

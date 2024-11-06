@@ -161,9 +161,6 @@ class loss_PDE(nn.Module):
             square_root_term = torch.sqrt(square_term)
         except ValueError:
             raise ValueError("Cannot calculate the square root of a negative number")
-        #else:
-        #    if torch.isnan(square_root_term).any():
-        #        raise ValueError("Square root term resulted in NaN values")
         return np.pi / self.eta  * square_root_term
 
     ###############################
@@ -309,7 +306,6 @@ class loss_PDE(nn.Module):
                 number_points_per_batch=10
             )
             
-            #phi_pred = self.model.ANN(torch.tensor(collocation_points, dtype=torch.float32)).detach()
             t_seq = torch.tensor(collocation_points[:, 2:3], dtype=self.dtype, requires_grad=True)
             x_seq = torch.tensor(collocation_points[:, 0:1], dtype=self.dtype, requires_grad=True)
             y_seq = torch.tensor(collocation_points[:, 1:2], dtype=self.dtype, requires_grad=True)
@@ -322,53 +318,17 @@ class loss_PDE(nn.Module):
                 
             phi_term = (np.pi**2 / self.eta**2) * (phi_pred - 0.5)
             right_side_eqn = self.mu * self.sigma * (lap_phi + phi_term) #+ self.delta_g * self.h(phi_flattened))
-            f_phi = torch.tensor(phi_t - right_side_eqn, dtype=self.dtype)
-
-            """                    
-            plt.figure(figsize=(8, 6))
-            plt.imshow(phi_seq, cmap='viridis')
-            plt.colorbar(label='phi')
-            plt.xlabel('x')
-            plt.ylabel('y')
-            plt.title(f'Interfacial Points (phi) at time {t_current:.2f}')
-            plt.savefig(f"phi_{i}.png")
-            plt.close()               
-            """
-                            
-            """                    
-            plt.figure(figsize=(8, 6))
-            plt.scatter(collocation_points[:, 0], collocation_points[:, 1], c=collocation_points[:, 2] , cmap='viridis')
-            plt.colorbar(label='phi')
-            plt.xlabel('x')
-            plt.ylabel('y')
-            plt.title(f'Interfacial Points (phi) at time {t_current:.2f}')
-            plt.savefig(f"scatter_phi_{i}.png")
-            plt.close()               
-            """
-        
+            f_phi = torch.tensor(phi_t - right_side_eqn, dtype=self.dtype)        
             
             time = np.full_like(x, t_current)
             time_flat = np.repeat(time[:, np.newaxis], self.Ny, axis=1).flatten()
             g = np.stack((X_flat, Y_flat, time_flat), axis=1)
             g = torch.tensor(g, dtype=self.dtype)
             phi_2d = self.model.ANN(g).detach().numpy().reshape(self.Nx, self.Ny)
-            """
-            #tf.print("seq ", i,"g", g.shape)
-            #tf.print("seq ", i,"phi_2d", phi_2d.shape)
-            plt.figure(figsize=(8, 6))
-            plt.contourf(X, Y, phi_2d, levels=100, cmap='viridis')
-            plt.colorbar(label='phi')
-            plt.xlabel('x')
-            plt.ylabel('y')
-            plt.savefig(f"phi_{i+1}.png")
-            plt.close() 
-            """
             phi_seq= phi_2d
             loss_sequence =  mse_loss(f_phi, torch.zeros_like(f_phi)) 
-            #tf.print("seq ", i, " loss_sequence Loss:", loss_sequence)
 
             cumulative_loss = cumulative_loss +loss_sequence
-        #tf.print("Cumulative Loss:", cumulative_loss)
         
         return cumulative_loss
     ##########################################################
@@ -459,37 +419,6 @@ class loss_PDE(nn.Module):
         phi= output[:, 0:max_ch, ::]
 
         #
-        """ ConvLaplacian
-        laplace_phi = self.laplace_dim(output[start:,  ::])  # [t,c,h,w]
-        dx_phi = self.dx_op_dim(output[start:,  ::])
-        dy_phi = self.dy_op_dim(output[start:,  ::])
-        dx2_phi = self.dx_op_dim(dx_phi[:,  ::])
-        dy2_phi = self.dy_op_dim(dy_phi[:,  ::])
-        laplace_phi=dx2_phi+dy2_phi
-        """     
-        
-        """  Conv_dt
-        # temporal derivative - u
-        phi_to_deriv=phi[:, :, :, :]
-        lent = phi_to_deriv.shape[0]
-        lenx = phi_to_deriv.shape[3]
-        leny = phi_to_deriv.shape[2]
-        len_ch=phi_to_deriv.shape[1]
-        phi_conv1d =phi_to_deriv.permute(2, 3, 1, 0)  # [height(Y), width(X), c, step]
-        phi_conv1d = phi_conv1d.reshape(lenx*leny,len_ch,lent)
-        phi_t = self.dt_op_dim(phi_conv1d)  # lent ==> lent-2 due to no-padding
-        phi_t = phi_t.reshape(leny, lenx, len_ch, lent)
-        phi_t = phi_t.permute(3, 2, 0, 1)  # [step, c, height(Y), width(X)]
-        """
-        """
-        laplace_phi=compute_laplacian_base(phi, self.dx,self.dy)#compute_laplacian_batch(phi, ksize=5, delta_x=self.dx, delta_y=self.dx)
-        laplace_phi= laplace_phi[:-1]  
-        phi_t = (phi[1:] - phi[:-1]) / self.dt
-        phi = phi[:-1]                          
-        
-        assert laplace_phi.shape == phi.shape
-        assert laplace_phi.shape == phi_t.shape
-        """
         ###########################
         ###########################
         ###########################
@@ -526,18 +455,14 @@ class loss_PDE(nn.Module):
             residual = phi_t_np- right_side_eqn_np# np.where((phi_new_unclipped < 0) | (phi_new_unclipped > 1), 0, phi_t.cpu().detach().numpy() - right_side_eqn_np)
             max_res = np.max(residual)
             mse_f_phi = np.mean(np.square(residual - np.zeros_like(residual)))
-            tf.print("MSE for f_phi:", mse_f_phi)
+
             
         if check_residual:
-            #tf.print("phi:", phi.shape)
             max_res = 0
             for t in range(1,phi.shape[0] - 1): 
             
                 phi_current = phi[t].cpu().unsqueeze(0).detach().numpy()
                 phi_prev = phi[t-1].cpu().unsqueeze(0).detach().numpy()
-                                
-                #phi_tensor = torch.tensor(phi_current).unsqueeze(0).unsqueeze(0)  
-                #laplacian = compute_laplacian_batch(torch.tensor(phi_current), ksize=5, delta_x=self.dx, delta_y=self.dy).squeeze(0).squeeze(0).numpy()
                 laplacian = (np.roll(phi_prev, shift=1, axis=2) + np.roll(phi_prev, shift=-1, axis=2) +
                 np.roll(phi_prev, shift=1, axis=3) + np.roll(phi_prev, shift=-1, axis=3) - 
                 4 * phi_prev) / (self.dx * self.dy)     
@@ -562,7 +487,6 @@ class loss_PDE(nn.Module):
                 if t % 100 == 0:  
                     tf.print(f"Time step = {t}: residual min = {residual_min}, residual max = {residual_max}")
             
-            tf.print(f" max_res 2 = {max_res}")
             
         if check_residual:
             self.plot_residuals(F,dF_dt, RHS,out_t)
@@ -580,53 +504,14 @@ class loss_PDE(nn.Module):
     def get_physical_Loss_latent(self,output_latent):
 
         def compute_laplacian(phi, dx, dy):
-            # Use torch.roll to shift the tensor along specified dimensions
             laplacian = (torch.roll(phi, shifts=1, dims=2) + torch.roll(phi, shifts=-1, dims=2) +
                         torch.roll(phi, shifts=1, dims=3) + torch.roll(phi, shifts=-1, dims=3) - 4 * phi) / (dx * dy)
             return laplacian   
-        #self.dx=dx
         start=0
         end=-1
         max_ch=output_latent.shape[1]
         phi=output_latent[:, start:max_ch, ::]
 
-        #laplace_phi = self.laplace(phi)  # [t,c,h,w]
-
-        """
-        #dx_phi = self.dx_op(output_latent[start:end,  ::])
-        #dy_phi = self.dy_op(output_latent[start:end,  ::])
-        #print("laplace_phi: " ,laplace_phi.shape)
-        #print("dx_phi",dx_phi.shape)
-        #print("dy_phi",dy_phi.shape)
-        #dx2_phi = self.dx_op(dx_phi[start:end,  ::])
-        #print("dx2_phi",dx2_phi.shape)
-
-                    
-        # temporal derivative - u
-        phi = output_latent[start:, ::] # due to padding 
-        print("phi: ",phi.shape)
-        phi_to_deriv=phi[:, :, :, :]
-        
-        lent = phi_to_deriv.shape[0]
-        lenx = phi_to_deriv.shape[3]
-        leny = phi_to_deriv.shape[2]
-        len_ch=phi_to_deriv.shape[1]
-        
-        phi_conv1d =phi_to_deriv.permute(2, 3, 1, 0)  # [height(Y), width(X), c, step]       
-
-        phi_conv1d = phi_conv1d.reshape(lenx*leny,len_ch,lent)
-        print("phi_conv1d: ",phi_conv1d.shape)
-        
-        phi_t = self.dt_op_Lat(phi_conv1d)  # lent ==> lent-2 due to no-padding
-        print("phi_t: ",phi_t.shape)
-        
-        phi_t = phi_t.reshape(leny, lenx, len_ch, lent)
-        
-        phi_t = phi_t.permute(3, 2, 0, 1)  # [step, c, height(Y), width(X)]
-
-        phi = output_latent[start:, 0:max_ch, :, :]  # [t, c, height(Y), width(X)]
-        
-        """
         laplace_phi= (
             torch.roll(phi, shifts=1, dims=2) +
             torch.roll(phi, shifts=-1, dims=2) +
@@ -635,7 +520,6 @@ class loss_PDE(nn.Module):
             4 * phi
         ) / (self.dx * self.dy) 
 
-        #laplace_phi=compute_laplacian(phi,self.dx,self.dx)
         
         laplace_phi= laplace_phi[:-1]  
         phi_t = (phi[1:] - phi[:-1]) / self.dt
@@ -649,40 +533,10 @@ class loss_PDE(nn.Module):
         sigma=self.sigma
         eta=self.eta
         delta_g=self.delta_g
-        #phi_term = (np.pi**2 /eta**2  ) * (phi - 1/2) 
         phi_term = (np.pi**2 /eta**2  ) * (phi - 1/2) 
-        #phi=torch.clamp(phi.clone(), min=0.0 , max=1.0)
         right_side_eqn =  mu*  (sigma * (laplace_phi+ phi_term )  ) # 
-        #right_side_eqn =  1*  (1 * (laplace_phi + phi_term ) + self.h_term(phi)* self.delta_g  ) # 
         f_phi = phi_t -right_side_eqn
 
-        """
-        
-        f_phi = torch.zeros_like(phi)
-        
-        for t in range(1, phi.shape[0] - 1):
-            phi_prev = phi[t-1].unsqueeze(0)
-                        
-            laplacian = (torch.roll(phi_prev, shifts=1, dims=2) + torch.roll(phi_prev, shifts=-1, dims=2) +
-                        torch.roll(phi_prev, shifts=1, dims=3) + torch.roll(phi_prev, shifts=-1, dims=3) - 
-                        4 * phi_prev) / (self.dx * self.dy)
-
-            right_side_eqn = self.mu * self.sigma * \
-                            (laplacian + (torch.pi**2 / (2 * self.eta**2)) * (2 * phi_prev - 1))
-
-            phi_current = phi_prev +  self.dt * right_side_eqn
-            phi_current=torch.clamp(phi_current,0,1)
-            phi_t = (phi_current - phi_prev) / self.dt
-
-            residual = phi_t - right_side_eqn
-            f_phi += residual
-
-        max_res = torch.max(torch.abs(residual))        
-        #tf.print("max_res: ",max_res)
-
-        min_f_phi = f_phi.min().item()
-        max_f_phi = f_phi.max().item()
-        """
         return f_phi
     ###############################
     ###############################
@@ -709,26 +563,15 @@ class loss_PDE(nn.Module):
         global flag_scipy
         
         # compute te loss on the latent dimension
-        #"""
         if self.opt=="latent":  # the loss is computed on the latent dimension 
             f_phi  = self.get_physical_Loss_latent(output_latent)
             loss_phi = mse_loss(f_phi, torch.zeros_like(f_phi)) 
             return loss_phi
 
         else:
-            ### FFT loss
-            #f_phi_k=self.get_physical_Loss_original_dim_fft(output)
-            #f_phi_dim= f_phi_k.real
-            
-            ## Original dimension 
             f_phi_lstm, f_E_phi_lstm= self.get_physical_Loss_original_dim(output)
             
             f_phi_ann, f_E_phi_ann= self.get_physical_Loss_original_dim(outputs_ann_current)
-
-
-            ## Only interfaces 
-            #loss_interfaces = self.get_physical_Loss_original_dim_int(outputs_ann)
-            #tf.print("loss_interfaces",loss_interfaces) 
 
         loss_phi_lstm = mse_loss(f_phi_lstm, torch.zeros_like(f_phi_lstm)) 
         
@@ -737,56 +580,6 @@ class loss_PDE(nn.Module):
 
         loss_diff = mse_loss(output[1:], outputs_ann_current[1:]) if output.shape == outputs_ann_current.shape else torch.zeros_like(loss_phi_lstm)
 
-        """
-        phi_lstm = output[-1, 0].detach().numpy()
-        phi_lstm_min = phi_lstm.min()
-        phi_lstm_max = phi_lstm.max()
-        
-        plt.figure(figsize=(8, 6))
-        plt.imshow(phi_lstm, cmap='viridis')  # Choose a colormap
-        plt.colorbar()
-        plt.title("LSTM Output")
-        plt.text(0.95, 0.05, f'Min: {phi_lstm_min:.2f}', 
-                horizontalalignment='right', verticalalignment='center', 
-                transform=plt.gca().transAxes, color='white', fontsize=12, 
-                bbox=dict(facecolor='black', alpha=0.5))
-        plt.text(0.95, 0.95, f'Max: {phi_lstm_max:.2f}', 
-                horizontalalignment='right', verticalalignment='center', 
-                transform=plt.gca().transAxes, color='white', fontsize=12, 
-                bbox=dict(facecolor='black', alpha=0.5))
-        plt.savefig("phi_lstm.png")
-        plt.clf()  # Clear the figure
-        plt.close()  # Close the figure
-
-
-        del phi_lstm
-        gc.collect()  # Force garbage collection
-
-        # Process and save ANN output
-        phi_ann = outputs_ann[-1, 0].detach().numpy()
-        phi_ann_min = phi_ann.min()
-        phi_ann_max = phi_ann.max()
-        
-        plt.figure(figsize=(8, 6))
-        plt.imshow(phi_ann, cmap='viridis')  # Choose a colormap
-        plt.colorbar()
-        plt.title("ANN Output")
-        plt.text(0.95, 0.05, f'Min: {phi_ann_min:.2f}', 
-                horizontalalignment='right', verticalalignment='center', 
-                transform=plt.gca().transAxes, color='white', fontsize=12, 
-                bbox=dict(facecolor='black', alpha=0.5))
-        plt.text(0.95, 0.95, f'Max: {phi_ann_max:.2f}', 
-                horizontalalignment='right', verticalalignment='center', 
-                transform=plt.gca().transAxes, color='white', fontsize=12, 
-                bbox=dict(facecolor='black', alpha=0.5))
-        plt.savefig("phi_ann.png")
-        plt.clf()  # Clear the figure
-        plt.close()  # Close the figure
-        
-        # Clear ANN variables to free memory
-        del phi_ann
-        gc.collect()  # Force garbage collection
-        """
         loss_E_phi=   mse_loss(f_E_phi_lstm, torch.zeros_like(f_E_phi_lstm)) 
 
         return  loss_phi_lstm , loss_E_phi, loss_diff  
@@ -802,65 +595,10 @@ class loss_PDE(nn.Module):
     def compute_residual(self, phi, dt, mu, sigma, eta, delta_g):
         if len(phi)>5:
             phi=phi[1:] 
-        # without considering the phase correction we get the zero-residual
-        
-        """
-        f_phi = torch.zeros_like(phi)
-        for i in range(0, phi.shape[0] -1):
-            t_current = i * self.dt
-            phi_current = phi[i].requires_grad_(True)
-            phi_next= phi[i+1].requires_grad_(True)
-
-            laplacian = (torch.roll(phi[i].unsqueeze(0), shifts=1, dims=2) + torch.roll(phi[i].unsqueeze(0), shifts=-1, dims=2) +
-                        torch.roll(phi[i].unsqueeze(0), shifts=1, dims=3) + torch.roll(phi[i].unsqueeze(0), shifts=-1, dims=3) - 
-                        4 * phi[i].unsqueeze(0)) / (self.dx * self.dy)
-
-            laplacian_current= laplacian
-            phi_t = (phi_next - phi_current) / self.dt
-
-            right_side_eqn = self.mu * self.sigma * \
-                            (laplacian_current + (torch.pi**2 / (2 * self.eta**2)) * (2 * phi_current - 1))
-            
-            residual = phi_t - right_side_eqn
-
-            f_phi += residual
-
-            mae_residual = torch.mean(torch.abs(residual))
-        """
 
         ###############################
         ########### Conv deriv ########
         ###############################
-        """
-        #phi=phi[:-1]
-        # ConvLaplacian
-        #laplace_phi = self.laplace_dim(phi)  # [t,c,h,w]
-        dx_phi = self.dx_op_dim(phi)
-        dy_phi = self.dy_op_dim(phi)
-        dx2_phi = self.dx_op_dim(dx_phi[:,  ::])
-        dy2_phi = self.dy_op_dim(dy_phi[:,  ::])
-        laplace_phi=dx2_phi+dy2_phi
-        
-        # temporal derivative - u
-        phi_to_deriv=phi[:, :, :, :]
-        lent = phi_to_deriv.shape[0]
-        lenx = phi_to_deriv.shape[3]
-        leny = phi_to_deriv.shape[2]
-        len_ch=phi_to_deriv.shape[1]
-        phi_conv1d =phi_to_deriv.permute(2, 3, 1, 0)  # [height(Y), width(X), c, step]
-        phi_conv1d = phi_conv1d.reshape(lenx*leny,len_ch,lent)
-        phi_t = self.dt_op_dim(phi_conv1d)  # lent ==> lent-2 due to no-padding
-        phi_t = phi_t.reshape(leny, lenx, len_ch, lent)
-        phi_t = phi_t.permute(3, 2, 0, 1)  # [step, c, height(Y), width(X)]
-        
-        assert laplace_phi.shape == phi.shape
-        assert laplace_phi.shape == phi_t.shape       
-        
-        right_side_eqn = mu * (sigma * (laplace_phi + torch.pi**2 / (2 * eta**2) * (2 * phi - 1)))  # +h_term(phi, eta) * delta_g if applicable
-        
-        f_phi = phi_t - right_side_eqn
-
-        """
         
         ###############################
         ########## Roll or csv Method  
@@ -905,7 +643,6 @@ class loss_PDE(nn.Module):
             return F
 
         Phi_t = (Phi[1:] - Phi[:-1]) / self.dt  # Time derivative of Phi
-        #tf.print("Phi_t",Phi_t.shape, "Phi", Phi.shape)
         
         L = np.pi**2 * self.mu / (8 * self.eta)
 
@@ -923,8 +660,7 @@ class loss_PDE(nn.Module):
 
             right_side_eqn = self.mu * self.sigma * \
                             (laplacian + (torch.pi**2 / (2 * self.eta**2)) * (2 * phi_prev - 1))
-
-            # Use the corresponding element of Phi_t
+                            
             phi_t = Phi_t[istep - 1]  # Correctly index into Phi_t
             t = istep * self.dt  # Current time
 
@@ -946,9 +682,6 @@ class loss_PDE(nn.Module):
         out_time_ = torch.tensor(out_time_, dtype=self.dtype)
 
         f_E_phi = out_energy_deriv_ - out_rhs_ # Compute difference using tensors
-        # f_E_phi = out_energy_deriv_[-3:] - out_rhs_[-3:]
-        #tf.print("here",f_E_phi.shape, F.shape, out_energy_deriv_.shape, out_rhs_.shape, out_time_.shape)
-        
 
         return f_E_phi, F, out_energy_deriv_, out_rhs_, out_time_
 

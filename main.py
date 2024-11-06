@@ -212,16 +212,7 @@ VAE = VariationaAutoencoder( input_tensor=input,   input_channels = num_phases, 
 
 
 
-# %%
-import L_PINN
-reload(L_PINN)  # mandatory to reload content at each re-call atfer modification
-from L_PINN import *
 
-num_samples = datasets.size(0)  # Update with your desired number of samples
-
-random_index = torch.randint(0, num_samples, (1,)).item()
-
-random_sample =  datasets[random_index]
 
 
 new_VAE= VariationaAutoencoder( input_tensor=input,  input_channels = num_phases, # one phase 
@@ -239,8 +230,6 @@ scheduler = StepLR(optimizer, step_size=100, gamma=0.97)
 checkpoint_path = 'models/VAE_checkpoint.pt'
 
 new_VAE, optimizer, scheduler=new_VAE.load_checkpoint(optimizer, scheduler,checkpoint_path)
-
-#new_VAE.check_IC(datasets,save_dir)
 
 
 
