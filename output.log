@@ -1,0 +1,1277 @@
+2024-09-15 17:59:23.094781: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-09-15 17:59:23.698481: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-09-15 17:59:27.805736: E tensorflow/compiler/xla/stream_executor/cuda/cuda_driver.cc:268] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-09-15 17:59:27.805800: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:168] retrieving CUDA diagnostic information for host: WS8692.zit.bam.de
+2024-09-15 17:59:27.805813: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:175] hostname: WS8692.zit.bam.de
+2024-09-15 17:59:27.805865: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:199] libcuda reported version is: 535.183.1
+2024-09-15 17:59:27.805916: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:203] kernel reported version is: 535.183.1
+2024-09-15 17:59:27.805931: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:309] kernel version seems to match DSO: 535.183.1
+len(datasets) 30
+datasets torch.Size([30, 1, 1, 64, 64])
+/home/selfetni/.local/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+Pretrained VAE model loaded!
+/home-1/selfetni/Sequential_Learning/V94S/main.py:385: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  input = torch.tensor(phi_0).clone().detach().to(dtype).unsqueeze(0).unsqueeze(0)
+input.shape:  torch.Size([1, 1, 64, 64])
+/home/selfetni/.local/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+/home-1/selfetni/Sequential_Learning/V94S/L_PINN.py:100: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.lb = torch.tensor(lb, dtype=torch.float32).squeeze()
+/home-1/selfetni/Sequential_Learning/V94S/L_PINN.py:101: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.ub = torch.tensor(ub, dtype=torch.float32).squeeze()
+input torch.Size([1, 1, 64, 64])
+grund_th torch.Size([51, 1, 64, 64])
+u1_true torch.Size([1, 1, 64, 64])
+Pretrained model loaded!
+ Transfer of Learning done ==> PINN
+real-time process, outputs shapes:  torch.Size([51, 1, 64, 64])
+Total number of training intervals: 1
+outputs_ann_current torch.Size([51, 1, 64, 64])
+
+  Weights at epoch 0: {'IC_ann': 0.08352053165435791, 'Motion': 2.6308159828186035, 'PDE': 0.2856631875038147}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9002, requires_grad=True) 
+ 
+!!! resample IC points !!!
+ 
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 5439.4296875 MB, VMS: 25674.01953125 MB
+
+Epoch 1/500000 (0.00%) - PDE Loss: 3.608e-04, Latent Loss: 0.000e+00, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 3.054e-02, Diff Loss: 4.759e-03, Data Loss: 7.050e-03, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 3.566e-02, 
+
+
+
+ Epoch 0: Tracking dictionary updated and saved to disk. 
+
+Epoch 20/500000 (0.00%) - PDE Loss: 6.586e-04, Latent Loss: 0.000e+00, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.139e-01, Diff Loss: 1.813e-03, Data Loss: 1.439e-01, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 2.162e-01, 
+
+
+
+  Weights at epoch 25: {'IC_ann': 0.303362101316452, 'Motion': 2.068002223968506, 'PDE': 0.6286355257034302}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9049, requires_grad=True) 
+ 
+Epoch 40/500000 (0.01%) - PDE Loss: 4.156e-04, Latent Loss: 0.000e+00, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 5.175e-02, Diff Loss: 3.693e-03, Data Loss: 2.616e-02, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 5.572e-02, 
+
+
+
+  Weights at epoch 50: {'IC_ann': 0.39873868227005005, 'Motion': 1.470435619354248, 'PDE': 1.1308256387710571}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9094, requires_grad=True) 
+ 
+
+ Epoch 50: Tracking dictionary updated and saved to disk. 
+
+Epoch 60/500000 (0.01%) - PDE Loss: 3.869e-04, Latent Loss: 0.000e+00, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 4.183e-02, Diff Loss: 3.717e-03, Data Loss: 2.163e-02, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 4.566e-02, 
+
+
+
+  Weights at epoch 75: {'IC_ann': 0.2955624461174011, 'Motion': 1.9146885871887207, 'PDE': 0.7897489070892334}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9141, requires_grad=True) 
+ 
+Epoch 80/500000 (0.02%) - PDE Loss: 3.510e-04, Latent Loss: 0.000e+00, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.328e-02, Diff Loss: 2.931e-03, Data Loss: 4.347e-03, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 2.641e-02, 
+
+
+Epoch 100/500000 (0.02%) - PDE Loss: 3.518e-04, Latent Loss: 0.000e+00, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.777e-02, Diff Loss: 2.605e-03, Data Loss: 7.193e-03, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 3.067e-02, 
+
+
+
+  Weights at epoch 100: {'IC_ann': 0.27697649598121643, 'Motion': 2.054659128189087, 'PDE': 0.6683643460273743}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9186, requires_grad=True) 
+ 
+
+ Epoch 100: Tracking dictionary updated and saved to disk. 
+
+!!! resample IC points !!!
+ 
+Epoch 120/500000 (0.02%) - PDE Loss: 3.596e-04, Latent Loss: 0.000e+00, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 3.737e-02, Diff Loss: 2.302e-03, Data Loss: 1.475e-02, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 4.030e-02, 
+
+
+
+  Weights at epoch 125: {'IC_ann': 0.3121947646141052, 'Motion': 1.6456713676452637, 'PDE': 1.0421338081359863}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9231, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([2, 1, 64, 64])
+outputs_ann_current:  torch.Size([2, 1, 64, 64])
+
+ Threshold reached at epoch  134 N_current=  3 incr:  1 
+
+output:  torch.Size([2, 1, 64, 64])
+new Threshold:  0.03
+Epoch 140/500000 (0.03%) - PDE Loss: 3.140e-04, Latent Loss: 3.743e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 6.187e-02, Diff Loss: 6.454e-03, Data Loss: 1.441e-02, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 6.884e-02, 
+
+
+
+  Weights at epoch 150: {'IC_ann': 0.28680264949798584, 'Motion': 2.0112037658691406, 'PDE': 0.7019935250282288}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9263, requires_grad=True) 
+ 
+
+ Epoch 150: Tracking dictionary updated and saved to disk. 
+
+Epoch 160/500000 (0.03%) - PDE Loss: 2.919e-04, Latent Loss: 3.738e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 5.263e-02, Diff Loss: 3.301e-03, Data Loss: 7.084e-03, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 5.658e-02, 
+
+
+
+  Weights at epoch 175: {'IC_ann': 0.3193495571613312, 'Motion': 1.8810558319091797, 'PDE': 0.7995944023132324}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9285, requires_grad=True) 
+ 
+Epoch 180/500000 (0.04%) - PDE Loss: 2.937e-04, Latent Loss: 3.675e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 6.276e-02, Diff Loss: 4.371e-03, Data Loss: 9.522e-03, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 6.804e-02, 
+
+
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 9697.99609375 MB, VMS: 29931.1796875 MB
+
+Epoch 200/500000 (0.04%) - PDE Loss: 2.935e-04, Latent Loss: 3.594e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.634e-02, Diff Loss: 1.761e-03, Data Loss: 1.375e-03, Energy Loss: 0.000e+00, Colloc Loss: 0.000e+00, Original Total Loss: 2.904e-02, 
+
+
+
+  Weights at epoch 200: {'IC_ann': 0.3449631333351135, 'Motion': 1.8702945709228516, 'PDE': 0.7847422957420349}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9307, requires_grad=True) 
+ 
+
+ Epoch 200: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([3, 1, 64, 64])
+outputs_ann_current:  torch.Size([3, 1, 64, 64])
+
+ Threshold reached at epoch  215 N_current=  4 incr:  2 
+
+output:  torch.Size([3, 1, 64, 64])
+new Threshold:  0.03
+Epoch 220/500000 (0.04%) - PDE Loss: 2.944e-04, Latent Loss: 3.641e-04, IC Loss: 0.000e+00, VAE Loss: 3.576e-08, ANN Loss: 4.520e-02, Diff Loss: 7.829e-03, Data Loss: 6.693e-03, Energy Loss: 1.892e-06, Colloc Loss: 0.000e+00, Original Total Loss: 5.363e-02, 
+
+
+
+  Weights at epoch 225: {'IC_ann': 0.2177509367465973, 'Motion': 2.0886194705963135, 'PDE': 0.6936295032501221}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9328, requires_grad=True) 
+ 
+Epoch 240/500000 (0.05%) - PDE Loss: 2.798e-04, Latent Loss: 3.626e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.354e-02, Diff Loss: 1.800e-03, Data Loss: 1.051e-03, Energy Loss: 1.240e-06, Colloc Loss: 0.000e+00, Original Total Loss: 2.582e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([4, 1, 64, 64])
+outputs_ann_current:  torch.Size([4, 1, 64, 64])
+
+ Threshold reached at epoch  242 N_current=  5 incr:  3 
+
+output:  torch.Size([4, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 250: {'IC_ann': 0.2143241912126541, 'Motion': 2.0992777347564697, 'PDE': 0.6863981485366821}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9346, requires_grad=True) 
+ 
+
+ Epoch 250: Tracking dictionary updated and saved to disk. 
+
+Epoch 260/500000 (0.05%) - PDE Loss: 2.655e-04, Latent Loss: 3.655e-04, IC Loss: 0.000e+00, VAE Loss: 1.230e-07, ANN Loss: 3.765e-02, Diff Loss: 1.954e-03, Data Loss: 1.176e-02, Energy Loss: 7.985e-07, Colloc Loss: 0.000e+00, Original Total Loss: 4.021e-02, 
+
+
+
+  Weights at epoch 275: {'IC_ann': 0.1962558925151825, 'Motion': 2.1060433387756348, 'PDE': 0.6977007985115051}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9364, requires_grad=True) 
+ 
+Epoch 280/500000 (0.06%) - PDE Loss: 2.661e-04, Latent Loss: 3.634e-04, IC Loss: 0.000e+00, VAE Loss: 5.962e-09, ANN Loss: 3.015e-02, Diff Loss: 1.187e-03, Data Loss: 8.099e-03, Energy Loss: 7.226e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.241e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([5, 1, 64, 64])
+outputs_ann_current:  torch.Size([5, 1, 64, 64])
+
+ Threshold reached at epoch  296 N_current=  6 incr:  4 
+
+output:  torch.Size([5, 1, 64, 64])
+new Threshold:  0.03
+Epoch 300/500000 (0.06%) - PDE Loss: 2.570e-04, Latent Loss: 3.597e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.461e-02, Diff Loss: 3.420e-03, Data Loss: 1.093e-03, Energy Loss: 5.870e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.858e-02, 
+
+
+
+  Weights at epoch 300: {'IC_ann': 0.15992918610572815, 'Motion': 1.9891548156738281, 'PDE': 0.8509159684181213}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9380, requires_grad=True) 
+ 
+
+ Epoch 300: Tracking dictionary updated and saved to disk. 
+
+Epoch 320/500000 (0.06%) - PDE Loss: 2.613e-04, Latent Loss: 3.697e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 3.389e-02, Diff Loss: 7.826e-03, Data Loss: 4.602e-03, Energy Loss: 7.483e-07, Colloc Loss: 0.000e+00, Original Total Loss: 4.221e-02, 
+
+
+
+  Weights at epoch 325: {'IC_ann': 0.17604327201843262, 'Motion': 2.0615994930267334, 'PDE': 0.762357234954834}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9394, requires_grad=True) 
+ 
+Epoch 340/500000 (0.07%) - PDE Loss: 2.593e-04, Latent Loss: 3.605e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.843e-02, Diff Loss: 4.988e-03, Data Loss: 2.449e-03, Energy Loss: 6.152e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.382e-02, 
+
+
+
+  Weights at epoch 350: {'IC_ann': 0.18504521250724792, 'Motion': 2.089040756225586, 'PDE': 0.725913941860199}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9407, requires_grad=True) 
+ 
+
+ Epoch 350: Tracking dictionary updated and saved to disk. 
+
+Epoch 360/500000 (0.07%) - PDE Loss: 2.529e-04, Latent Loss: 3.646e-04, IC Loss: 0.000e+00, VAE Loss: 5.417e-10, ANN Loss: 2.209e-02, Diff Loss: 7.689e-04, Data Loss: 1.617e-03, Energy Loss: 5.305e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.339e-02, 
+
+
+
+  Weights at epoch 375: {'IC_ann': 0.17633533477783203, 'Motion': 2.070606231689453, 'PDE': 0.7530583143234253}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9418, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([6, 1, 64, 64])
+outputs_ann_current:  torch.Size([6, 1, 64, 64])
+
+ Threshold reached at epoch  377 N_current=  7 incr:  5 
+
+output:  torch.Size([6, 1, 64, 64])
+new Threshold:  0.03
+Epoch 380/500000 (0.08%) - PDE Loss: 2.499e-04, Latent Loss: 3.674e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 3.300e-02, Diff Loss: 1.790e-03, Data Loss: 5.964e-03, Energy Loss: 5.908e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.522e-02, 
+
+
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 18523.6796875 MB, VMS: 38833.8203125 MB
+
+Epoch 400/500000 (0.08%) - PDE Loss: 2.554e-04, Latent Loss: 3.615e-04, IC Loss: 0.000e+00, VAE Loss: 8.132e-08, ANN Loss: 2.395e-02, Diff Loss: 8.713e-04, Data Loss: 1.050e-03, Energy Loss: 6.887e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.523e-02, 
+
+
+
+  Weights at epoch 400: {'IC_ann': 0.38163048028945923, 'Motion': 1.8840776681900024, 'PDE': 0.7342919707298279}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9426, requires_grad=True) 
+ 
+
+ Epoch 400: Tracking dictionary updated and saved to disk. 
+
+Epoch 420/500000 (0.08%) - PDE Loss: 2.610e-04, Latent Loss: 3.660e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.639e-02, Diff Loss: 3.305e-03, Data Loss: 2.457e-03, Energy Loss: 8.027e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.025e-02, 
+
+
+
+  Weights at epoch 425: {'IC_ann': 0.27888768911361694, 'Motion': 2.126060962677002, 'PDE': 0.5950515270233154}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9432, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([7, 1, 64, 64])
+outputs_ann_current:  torch.Size([7, 1, 64, 64])
+
+ Threshold reached at epoch  431 N_current=  8 incr:  6 
+
+output:  torch.Size([7, 1, 64, 64])
+new Threshold:  0.03
+Epoch 440/500000 (0.09%) - PDE Loss: 2.585e-04, Latent Loss: 3.696e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.469e-02, Diff Loss: 1.072e-03, Data Loss: 5.462e-04, Energy Loss: 9.381e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.614e-02, 
+
+
+
+  Weights at epoch 450: {'IC_ann': 0.3200502097606659, 'Motion': 2.042572259902954, 'PDE': 0.6373775601387024}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9434, requires_grad=True) 
+ 
+
+ Epoch 450: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([8, 1, 64, 64])
+outputs_ann_current:  torch.Size([8, 1, 64, 64])
+
+ Threshold reached at epoch  458 N_current=  9 incr:  7 
+
+output:  torch.Size([8, 1, 64, 64])
+new Threshold:  0.03
+Epoch 460/500000 (0.09%) - PDE Loss: 2.594e-04, Latent Loss: 3.627e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.412e-02, Diff Loss: 1.409e-03, Data Loss: 1.548e-03, Energy Loss: 1.066e-06, Colloc Loss: 0.000e+00, Original Total Loss: 2.585e-02, 
+
+
+
+  Weights at epoch 475: {'IC_ann': 0.3763597011566162, 'Motion': 2.024264097213745, 'PDE': 0.5993762016296387}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9433, requires_grad=True) 
+ 
+Epoch 480/500000 (0.10%) - PDE Loss: 2.651e-04, Latent Loss: 3.671e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.596e-02, Diff Loss: 2.024e-03, Data Loss: 1.916e-03, Energy Loss: 9.575e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.830e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([9, 1, 64, 64])
+outputs_ann_current:  torch.Size([9, 1, 64, 64])
+
+ Threshold reached at epoch  485 N_current=  10 incr:  8 
+
+output:  torch.Size([9, 1, 64, 64])
+new Threshold:  0.03
+Epoch 500/500000 (0.10%) - PDE Loss: 2.607e-04, Latent Loss: 3.666e-04, IC Loss: 0.000e+00, VAE Loss: 2.177e-08, ANN Loss: 2.690e-02, Diff Loss: 1.642e-03, Data Loss: 1.435e-03, Energy Loss: 9.228e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.880e-02, 
+
+
+
+  Weights at epoch 500: {'IC_ann': 0.08166547864675522, 'Motion': 2.4968113899230957, 'PDE': 0.4215233325958252}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9430, requires_grad=True) 
+ 
+
+ Epoch 500: Tracking dictionary updated and saved to disk. 
+
+Epoch 520/500000 (0.10%) - PDE Loss: 2.630e-04, Latent Loss: 3.671e-04, IC Loss: 0.000e+00, VAE Loss: 3.988e-08, ANN Loss: 2.604e-02, Diff Loss: 1.485e-03, Data Loss: 1.535e-03, Energy Loss: 9.232e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.778e-02, 
+
+
+
+  Weights at epoch 525: {'IC_ann': 0.10066350549459457, 'Motion': 2.478384256362915, 'PDE': 0.4209522306919098}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9427, requires_grad=True) 
+ 
+Epoch 540/500000 (0.11%) - PDE Loss: 2.658e-04, Latent Loss: 3.614e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.611e-02, Diff Loss: 1.841e-03, Data Loss: 2.457e-03, Energy Loss: 9.260e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.827e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([10, 1, 64, 64])
+outputs_ann_current:  torch.Size([10, 1, 64, 64])
+
+ Threshold reached at epoch  539 N_current=  11 incr:  9 
+
+output:  torch.Size([10, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 550: {'IC_ann': 0.3142353892326355, 'Motion': 2.143007755279541, 'PDE': 0.5427569150924683}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9423, requires_grad=True) 
+ 
+
+ Epoch 550: Tracking dictionary updated and saved to disk. 
+
+Epoch 560/500000 (0.11%) - PDE Loss: 2.621e-04, Latent Loss: 3.648e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.668e-02, Diff Loss: 2.151e-03, Data Loss: 2.008e-03, Energy Loss: 8.923e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.908e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([11, 1, 64, 64])
+outputs_ann_current:  torch.Size([11, 1, 64, 64])
+
+ Threshold reached at epoch  566 N_current=  12 incr:  10 
+
+output:  torch.Size([11, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 575: {'IC_ann': 0.23444131016731262, 'Motion': 2.2770016193389893, 'PDE': 0.4885571002960205}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9418, requires_grad=True) 
+ 
+Epoch 580/500000 (0.12%) - PDE Loss: 2.696e-04, Latent Loss: 3.634e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.868e-02, Diff Loss: 2.763e-03, Data Loss: 4.362e-03, Energy Loss: 8.345e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.174e-02, 
+
+
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 28447.93359375 MB, VMS: 48883.41796875 MB
+
+Epoch 600/500000 (0.12%) - PDE Loss: 2.566e-04, Latent Loss: 3.696e-04, IC Loss: 0.000e+00, VAE Loss: 6.469e-09, ANN Loss: 3.202e-02, Diff Loss: 4.705e-03, Data Loss: 6.538e-03, Energy Loss: 7.395e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.704e-02, 
+
+
+
+  Weights at epoch 600: {'IC_ann': 0.12814880907535553, 'Motion': 2.396165609359741, 'PDE': 0.47568565607070923}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9413, requires_grad=True) 
+ 
+
+ Epoch 600: Tracking dictionary updated and saved to disk. 
+
+Epoch 620/500000 (0.12%) - PDE Loss: 2.592e-04, Latent Loss: 3.627e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.388e-02, Diff Loss: 9.496e-04, Data Loss: 8.591e-04, Energy Loss: 6.358e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.520e-02, 
+
+
+
+  Weights at epoch 625: {'IC_ann': 0.2964242994785309, 'Motion': 2.057755470275879, 'PDE': 0.6458203792572021}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9409, requires_grad=True) 
+ 
+Epoch 640/500000 (0.13%) - PDE Loss: 2.639e-04, Latent Loss: 3.660e-04, IC Loss: 0.000e+00, VAE Loss: 3.443e-11, ANN Loss: 3.535e-02, Diff Loss: 5.960e-03, Data Loss: 7.182e-03, Energy Loss: 6.656e-07, Colloc Loss: 0.000e+00, Original Total Loss: 4.175e-02, 
+
+
+
+  Weights at epoch 650: {'IC_ann': 0.1549561321735382, 'Motion': 2.2196035385131836, 'PDE': 0.6254404783248901}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9409, requires_grad=True) 
+ 
+
+ Epoch 650: Tracking dictionary updated and saved to disk. 
+
+Epoch 660/500000 (0.13%) - PDE Loss: 2.646e-04, Latent Loss: 3.628e-04, IC Loss: 0.000e+00, VAE Loss: 1.061e-08, ANN Loss: 3.478e-02, Diff Loss: 6.604e-03, Data Loss: 7.868e-03, Energy Loss: 6.966e-07, Colloc Loss: 0.000e+00, Original Total Loss: 4.172e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([12, 1, 64, 64])
+outputs_ann_current:  torch.Size([12, 1, 64, 64])
+
+ Threshold reached at epoch  674 N_current=  13 incr:  11 
+
+output:  torch.Size([12, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 675: {'IC_ann': 0.13664919137954712, 'Motion': 2.284376621246338, 'PDE': 0.578974187374115}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9408, requires_grad=True) 
+ 
+Epoch 680/500000 (0.14%) - PDE Loss: 2.660e-04, Latent Loss: 3.610e-04, IC Loss: 0.000e+00, VAE Loss: 1.777e-08, ANN Loss: 3.106e-02, Diff Loss: 5.251e-03, Data Loss: 5.668e-03, Energy Loss: 6.675e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.660e-02, 
+
+
+Epoch 700/500000 (0.14%) - PDE Loss: 2.653e-04, Latent Loss: 3.609e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.727e-02, Diff Loss: 3.070e-03, Data Loss: 2.961e-03, Energy Loss: 5.941e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.062e-02, 
+
+
+
+  Weights at epoch 700: {'IC_ann': 0.5021284818649292, 'Motion': 1.764620304107666, 'PDE': 0.7332513928413391}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9408, requires_grad=True) 
+ 
+
+ Epoch 700: Tracking dictionary updated and saved to disk. 
+
+Epoch 720/500000 (0.14%) - PDE Loss: 2.634e-04, Latent Loss: 3.621e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.414e-02, Diff Loss: 1.296e-03, Data Loss: 8.655e-04, Energy Loss: 6.004e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.575e-02, 
+
+
+
+  Weights at epoch 725: {'IC_ann': 0.13894975185394287, 'Motion': 2.3339099884033203, 'PDE': 0.527140200138092}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9407, requires_grad=True) 
+ 
+Epoch 740/500000 (0.15%) - PDE Loss: 2.622e-04, Latent Loss: 3.628e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.426e-02, Diff Loss: 1.125e-03, Data Loss: 1.215e-03, Energy Loss: 6.323e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.567e-02, 
+
+
+
+  Weights at epoch 750: {'IC_ann': 0.11607550084590912, 'Motion': 2.4060325622558594, 'PDE': 0.4778917729854584}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9407, requires_grad=True) 
+ 
+
+ Epoch 750: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([13, 1, 64, 64])
+outputs_ann_current:  torch.Size([13, 1, 64, 64])
+
+ Threshold reached at epoch  755 N_current=  14 incr:  12 
+
+output:  torch.Size([13, 1, 64, 64])
+new Threshold:  0.03
+Epoch 760/500000 (0.15%) - PDE Loss: 2.627e-04, Latent Loss: 3.634e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.760e-02, Diff Loss: 1.701e-03, Data Loss: 2.640e-03, Energy Loss: 6.303e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.967e-02, 
+
+
+
+  Weights at epoch 775: {'IC_ann': 0.19115936756134033, 'Motion': 2.364997625350952, 'PDE': 0.4438428282737732}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9408, requires_grad=True) 
+ 
+Epoch 780/500000 (0.16%) - PDE Loss: 2.627e-04, Latent Loss: 3.640e-04, IC Loss: 0.000e+00, VAE Loss: 1.919e-07, ANN Loss: 2.612e-02, Diff Loss: 1.941e-03, Data Loss: 2.107e-03, Energy Loss: 6.918e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.831e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([14, 1, 64, 64])
+outputs_ann_current:  torch.Size([14, 1, 64, 64])
+
+ Threshold reached at epoch  782 N_current=  15 incr:  13 
+
+output:  torch.Size([14, 1, 64, 64])
+new Threshold:  0.03
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 37781.51953125 MB, VMS: 58213.97265625 MB
+
+Epoch 800/500000 (0.16%) - PDE Loss: 2.668e-04, Latent Loss: 3.607e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.387e-02, Diff Loss: 1.181e-03, Data Loss: 4.862e-04, Energy Loss: 7.644e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.529e-02, 
+
+
+
+  Weights at epoch 800: {'IC_ann': 0.26331377029418945, 'Motion': 2.1846096515655518, 'PDE': 0.5520766377449036}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9409, requires_grad=True) 
+ 
+
+ Epoch 800: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([15, 1, 64, 64])
+outputs_ann_current:  torch.Size([15, 1, 64, 64])
+
+ Threshold reached at epoch  809 N_current=  16 incr:  14 
+
+output:  torch.Size([15, 1, 64, 64])
+new Threshold:  0.03
+Epoch 820/500000 (0.16%) - PDE Loss: 2.706e-04, Latent Loss: 3.640e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.453e-02, Diff Loss: 1.738e-03, Data Loss: 1.140e-03, Energy Loss: 7.321e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.664e-02, 
+
+
+
+  Weights at epoch 825: {'IC_ann': 0.18950921297073364, 'Motion': 2.258089065551758, 'PDE': 0.5524017214775085}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9409, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([16, 1, 64, 64])
+outputs_ann_current:  torch.Size([16, 1, 64, 64])
+
+ Threshold reached at epoch  836 N_current=  17 incr:  15 
+
+output:  torch.Size([16, 1, 64, 64])
+new Threshold:  0.03
+Epoch 840/500000 (0.17%) - PDE Loss: 2.682e-04, Latent Loss: 3.611e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.428e-02, Diff Loss: 1.035e-03, Data Loss: 5.225e-04, Energy Loss: 6.812e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.584e-02, 
+
+
+
+  Weights at epoch 850: {'IC_ann': 0.5803289413452148, 'Motion': 1.6473129987716675, 'PDE': 0.7723580002784729}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9411, requires_grad=True) 
+ 
+
+ Epoch 850: Tracking dictionary updated and saved to disk. 
+
+Epoch 860/500000 (0.17%) - PDE Loss: 2.686e-04, Latent Loss: 3.632e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.306e-02, Diff Loss: 1.021e-03, Data Loss: 3.234e-04, Energy Loss: 7.091e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.441e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([17, 1, 64, 64])
+outputs_ann_current:  torch.Size([17, 1, 64, 64])
+
+ Threshold reached at epoch  863 N_current=  18 incr:  16 
+
+output:  torch.Size([17, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 875: {'IC_ann': 0.2576342523097992, 'Motion': 2.1623282432556152, 'PDE': 0.5800377130508423}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9412, requires_grad=True) 
+ 
+Epoch 880/500000 (0.18%) - PDE Loss: 2.708e-04, Latent Loss: 3.648e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.338e-02, Diff Loss: 1.266e-03, Data Loss: 4.279e-04, Energy Loss: 6.561e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.500e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([18, 1, 64, 64])
+outputs_ann_current:  torch.Size([18, 1, 64, 64])
+
+ Threshold reached at epoch  890 N_current=  19 incr:  17 
+
+output:  torch.Size([18, 1, 64, 64])
+new Threshold:  0.03
+Epoch 900/500000 (0.18%) - PDE Loss: 2.691e-04, Latent Loss: 3.623e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.402e-02, Diff Loss: 1.293e-03, Data Loss: 5.543e-04, Energy Loss: 6.849e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.562e-02, 
+
+
+
+  Weights at epoch 900: {'IC_ann': 0.28893160820007324, 'Motion': 2.0571494102478027, 'PDE': 0.653918981552124}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9414, requires_grad=True) 
+ 
+
+ Epoch 900: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([19, 1, 64, 64])
+outputs_ann_current:  torch.Size([19, 1, 64, 64])
+
+ Threshold reached at epoch  917 N_current=  20 incr:  18 
+
+output:  torch.Size([19, 1, 64, 64])
+new Threshold:  0.03
+Epoch 920/500000 (0.18%) - PDE Loss: 2.735e-04, Latent Loss: 3.636e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.477e-02, Diff Loss: 1.905e-03, Data Loss: 1.240e-03, Energy Loss: 6.323e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.711e-02, 
+
+
+
+  Weights at epoch 925: {'IC_ann': 0.3326416015625, 'Motion': 1.984669804573059, 'PDE': 0.6826884746551514}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9416, requires_grad=True) 
+ 
+Epoch 940/500000 (0.19%) - PDE Loss: 2.654e-04, Latent Loss: 3.650e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.550e-02, Diff Loss: 1.836e-03, Data Loss: 2.583e-03, Energy Loss: 5.635e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.763e-02, 
+
+
+
+  Weights at epoch 950: {'IC_ann': 0.0860627144575119, 'Motion': 2.4945068359375, 'PDE': 0.4194301664829254}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9419, requires_grad=True) 
+ 
+
+ Epoch 950: Tracking dictionary updated and saved to disk. 
+
+Epoch 960/500000 (0.19%) - PDE Loss: 2.725e-04, Latent Loss: 3.589e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 3.123e-02, Diff Loss: 5.191e-03, Data Loss: 6.681e-03, Energy Loss: 5.771e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.677e-02, 
+
+
+
+  Weights at epoch 975: {'IC_ann': 0.09741581976413727, 'Motion': 2.4208290576934814, 'PDE': 0.48175522685050964}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9422, requires_grad=True) 
+ 
+Epoch 980/500000 (0.20%) - PDE Loss: 2.699e-04, Latent Loss: 3.636e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.444e-02, Diff Loss: 1.921e-03, Data Loss: 1.515e-03, Energy Loss: 5.490e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.670e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([20, 1, 64, 64])
+outputs_ann_current:  torch.Size([20, 1, 64, 64])
+
+ Threshold reached at epoch  998 N_current=  21 incr:  19 
+
+output:  torch.Size([20, 1, 64, 64])
+new Threshold:  0.03
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 48577.359375 MB, VMS: 69101.60546875 MB
+
+Epoch 1000/500000 (0.20%) - PDE Loss: 2.675e-04, Latent Loss: 3.587e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.627e-02, Diff Loss: 1.658e-03, Data Loss: 1.609e-03, Energy Loss: 5.370e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.825e-02, 
+
+
+real-time process, outputs shapes:  torch.Size([51, 1, 64, 64])
+
+  Weights at epoch 1000: {'IC_ann': 0.07999524474143982, 'Motion': 2.4586358070373535, 'PDE': 0.46136897802352905}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9427, requires_grad=True) 
+ 
+
+ Epoch 1000: Tracking dictionary updated and saved to disk. 
+
+Epoch 1020/500000 (0.20%) - PDE Loss: 2.656e-04, Latent Loss: 3.605e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.786e-02, Diff Loss: 2.401e-03, Data Loss: 2.492e-03, Energy Loss: 6.163e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.060e-02, 
+
+
+
+  Weights at epoch 1025: {'IC_ann': 0.13004164397716522, 'Motion': 2.3297815322875977, 'PDE': 0.5401768684387207}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9432, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([21, 1, 64, 64])
+outputs_ann_current:  torch.Size([21, 1, 64, 64])
+
+ Threshold reached at epoch  1025 N_current=  22 incr:  20 
+
+output:  torch.Size([21, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1040/500000 (0.21%) - PDE Loss: 2.665e-04, Latent Loss: 3.632e-04, IC Loss: 0.000e+00, VAE Loss: 4.182e-07, ANN Loss: 2.736e-02, Diff Loss: 2.509e-03, Data Loss: 3.782e-03, Energy Loss: 5.630e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.023e-02, 
+
+
+
+  Weights at epoch 1050: {'IC_ann': 0.5930995345115662, 'Motion': 1.627781629562378, 'PDE': 0.7791189551353455}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9434, requires_grad=True) 
+ 
+
+ Epoch 1050: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([22, 1, 64, 64])
+outputs_ann_current:  torch.Size([22, 1, 64, 64])
+
+ Threshold reached at epoch  1052 N_current=  23 incr:  21 
+
+output:  torch.Size([22, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1060/500000 (0.21%) - PDE Loss: 2.705e-04, Latent Loss: 3.601e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.399e-02, Diff Loss: 9.526e-04, Data Loss: 9.918e-04, Energy Loss: 5.399e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.530e-02, 
+
+
+
+  Weights at epoch 1075: {'IC_ann': 0.21088486909866333, 'Motion': 2.17704701423645, 'PDE': 0.612068235874176}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9437, requires_grad=True) 
+ 
+Epoch 1080/500000 (0.22%) - PDE Loss: 2.734e-04, Latent Loss: 3.617e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.649e-02, Diff Loss: 2.258e-03, Data Loss: 1.911e-03, Energy Loss: 5.564e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.911e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([23, 1, 64, 64])
+outputs_ann_current:  torch.Size([23, 1, 64, 64])
+
+ Threshold reached at epoch  1079 N_current=  24 incr:  22 
+
+output:  torch.Size([23, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1100/500000 (0.22%) - PDE Loss: 2.756e-04, Latent Loss: 3.622e-04, IC Loss: 0.000e+00, VAE Loss: 4.182e-09, ANN Loss: 2.459e-02, Diff Loss: 1.504e-03, Data Loss: 1.140e-03, Energy Loss: 6.195e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.659e-02, 
+
+
+
+  Weights at epoch 1100: {'IC_ann': 0.26206958293914795, 'Motion': 2.060417413711548, 'PDE': 0.6775130033493042}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9440, requires_grad=True) 
+ 
+
+ Epoch 1100: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([24, 1, 64, 64])
+outputs_ann_current:  torch.Size([24, 1, 64, 64])
+
+ Threshold reached at epoch  1106 N_current=  25 incr:  23 
+
+output:  torch.Size([24, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1120/500000 (0.22%) - PDE Loss: 2.736e-04, Latent Loss: 3.619e-04, IC Loss: 0.000e+00, VAE Loss: 1.156e-08, ANN Loss: 2.447e-02, Diff Loss: 1.127e-03, Data Loss: 8.427e-04, Energy Loss: 6.010e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.612e-02, 
+
+
+
+  Weights at epoch 1125: {'IC_ann': 0.26441991329193115, 'Motion': 1.9555926322937012, 'PDE': 0.7799875736236572}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9441, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([25, 1, 64, 64])
+outputs_ann_current:  torch.Size([25, 1, 64, 64])
+
+ Threshold reached at epoch  1133 N_current=  26 incr:  24 
+
+output:  torch.Size([25, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1140/500000 (0.23%) - PDE Loss: 2.782e-04, Latent Loss: 3.622e-04, IC Loss: 0.000e+00, VAE Loss: 7.365e-09, ANN Loss: 2.400e-02, Diff Loss: 1.242e-03, Data Loss: 8.293e-04, Energy Loss: 6.718e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.580e-02, 
+
+
+
+  Weights at epoch 1150: {'IC_ann': 0.4939653277397156, 'Motion': 1.6086134910583496, 'PDE': 0.8974213600158691}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9441, requires_grad=True) 
+ 
+
+ Epoch 1150: Tracking dictionary updated and saved to disk. 
+
+Epoch 1160/500000 (0.23%) - PDE Loss: 2.771e-04, Latent Loss: 3.623e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.403e-02, Diff Loss: 1.157e-03, Data Loss: 4.636e-04, Energy Loss: 6.772e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.575e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([26, 1, 64, 64])
+outputs_ann_current:  torch.Size([26, 1, 64, 64])
+
+ Threshold reached at epoch  1160 N_current=  27 incr:  25 
+
+output:  torch.Size([26, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1175: {'IC_ann': 0.33088257908821106, 'Motion': 1.8123033046722412, 'PDE': 0.8568143248558044}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9441, requires_grad=True) 
+ 
+Epoch 1180/500000 (0.24%) - PDE Loss: 2.781e-04, Latent Loss: 3.632e-04, IC Loss: 0.000e+00, VAE Loss: 3.752e-09, ANN Loss: 2.380e-02, Diff Loss: 1.089e-03, Data Loss: 7.116e-04, Energy Loss: 6.863e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.549e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([27, 1, 64, 64])
+outputs_ann_current:  torch.Size([27, 1, 64, 64])
+
+ Threshold reached at epoch  1187 N_current=  28 incr:  26 
+
+output:  torch.Size([27, 1, 64, 64])
+new Threshold:  0.03
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 64992.8671875 MB, VMS: 85596.43359375 MB
+
+Epoch 1200/500000 (0.24%) - PDE Loss: 2.818e-04, Latent Loss: 3.614e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.702e-02, Diff Loss: 2.206e-03, Data Loss: 2.622e-03, Energy Loss: 6.933e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.985e-02, 
+
+
+
+  Weights at epoch 1200: {'IC_ann': 0.3813849985599518, 'Motion': 1.71919846534729, 'PDE': 0.899416446685791}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9440, requires_grad=True) 
+ 
+
+ Epoch 1200: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([28, 1, 64, 64])
+outputs_ann_current:  torch.Size([28, 1, 64, 64])
+
+ Threshold reached at epoch  1214 N_current=  29 incr:  27 
+
+output:  torch.Size([28, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1220/500000 (0.24%) - PDE Loss: 2.700e-04, Latent Loss: 3.618e-04, IC Loss: 0.000e+00, VAE Loss: 2.537e-08, ANN Loss: 3.250e-02, Diff Loss: 3.790e-03, Data Loss: 8.324e-03, Energy Loss: 4.675e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.678e-02, 
+
+
+
+  Weights at epoch 1225: {'IC_ann': 0.1461087465286255, 'Motion': 2.2805562019348145, 'PDE': 0.5733349323272705}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9440, requires_grad=True) 
+ 
+Epoch 1240/500000 (0.25%) - PDE Loss: 2.734e-04, Latent Loss: 3.664e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.415e-02, Diff Loss: 1.213e-03, Data Loss: 1.231e-03, Energy Loss: 5.134e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.576e-02, 
+
+
+
+  Weights at epoch 1250: {'IC_ann': 0.17675983905792236, 'Motion': 2.1528635025024414, 'PDE': 0.6703767776489258}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9443, requires_grad=True) 
+ 
+
+ Epoch 1250: Tracking dictionary updated and saved to disk. 
+
+Epoch 1260/500000 (0.25%) - PDE Loss: 2.773e-04, Latent Loss: 3.632e-04, IC Loss: 0.000e+00, VAE Loss: 8.757e-09, ANN Loss: 2.703e-02, Diff Loss: 2.499e-03, Data Loss: 1.900e-03, Energy Loss: 5.487e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.003e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([29, 1, 64, 64])
+outputs_ann_current:  torch.Size([29, 1, 64, 64])
+
+ Threshold reached at epoch  1268 N_current=  30 incr:  28 
+
+output:  torch.Size([29, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1275: {'IC_ann': 0.2334444522857666, 'Motion': 2.117116689682007, 'PDE': 0.6494388580322266}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9446, requires_grad=True) 
+ 
+Epoch 1280/500000 (0.26%) - PDE Loss: 2.825e-04, Latent Loss: 3.626e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.789e-02, Diff Loss: 3.898e-03, Data Loss: 3.809e-03, Energy Loss: 6.290e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.227e-02, 
+
+
+Epoch 1300/500000 (0.26%) - PDE Loss: 2.842e-04, Latent Loss: 3.618e-04, IC Loss: 0.000e+00, VAE Loss: 1.059e-07, ANN Loss: 2.890e-02, Diff Loss: 4.468e-03, Data Loss: 4.600e-03, Energy Loss: 6.351e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.385e-02, 
+
+
+
+  Weights at epoch 1300: {'IC_ann': 0.4682263433933258, 'Motion': 1.7714269161224365, 'PDE': 0.7603468894958496}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9449, requires_grad=True) 
+ 
+
+ Epoch 1300: Tracking dictionary updated and saved to disk. 
+
+Epoch 1320/500000 (0.26%) - PDE Loss: 2.822e-04, Latent Loss: 3.600e-04, IC Loss: 0.000e+00, VAE Loss: 1.294e-07, ANN Loss: 2.511e-02, Diff Loss: 2.414e-03, Data Loss: 1.792e-03, Energy Loss: 6.142e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.791e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([30, 1, 64, 64])
+outputs_ann_current:  torch.Size([30, 1, 64, 64])
+
+ Threshold reached at epoch  1322 N_current=  31 incr:  29 
+
+output:  torch.Size([30, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1325: {'IC_ann': 0.1331099271774292, 'Motion': 2.2214772701263428, 'PDE': 0.6454131007194519}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9452, requires_grad=True) 
+ 
+Epoch 1340/500000 (0.27%) - PDE Loss: 2.785e-04, Latent Loss: 3.597e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.403e-02, Diff Loss: 1.248e-03, Data Loss: 7.911e-04, Energy Loss: 5.555e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.567e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([31, 1, 64, 64])
+outputs_ann_current:  torch.Size([31, 1, 64, 64])
+
+ Threshold reached at epoch  1349 N_current=  32 incr:  30 
+
+output:  torch.Size([31, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1350: {'IC_ann': 0.41909170150756836, 'Motion': 1.7559878826141357, 'PDE': 0.8249204158782959}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9452, requires_grad=True) 
+ 
+
+ Epoch 1350: Tracking dictionary updated and saved to disk. 
+
+Epoch 1360/500000 (0.27%) - PDE Loss: 2.785e-04, Latent Loss: 3.615e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.491e-02, Diff Loss: 1.269e-03, Data Loss: 8.859e-04, Energy Loss: 6.436e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.671e-02, 
+
+
+
+  Weights at epoch 1375: {'IC_ann': 0.32567298412323, 'Motion': 1.8413143157958984, 'PDE': 0.8330127000808716}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9455, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([32, 1, 64, 64])
+outputs_ann_current:  torch.Size([32, 1, 64, 64])
+
+ Threshold reached at epoch  1376 N_current=  33 incr:  31 
+
+output:  torch.Size([32, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1380/500000 (0.28%) - PDE Loss: 2.834e-04, Latent Loss: 3.610e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.317e-02, Diff Loss: 1.058e-03, Data Loss: 2.330e-04, Energy Loss: 6.656e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.475e-02, 
+
+
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 78552.21484375 MB, VMS: 99170.11328125 MB
+
+Epoch 1400/500000 (0.28%) - PDE Loss: 2.856e-04, Latent Loss: 3.633e-04, IC Loss: 0.000e+00, VAE Loss: 4.647e-08, ANN Loss: 2.439e-02, Diff Loss: 1.944e-03, Data Loss: 1.212e-03, Energy Loss: 6.677e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.689e-02, 
+
+
+
+  Weights at epoch 1400: {'IC_ann': 0.44446510076522827, 'Motion': 1.7097094058990479, 'PDE': 0.8458256721496582}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9455, requires_grad=True) 
+ 
+
+ Epoch 1400: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([33, 1, 64, 64])
+outputs_ann_current:  torch.Size([33, 1, 64, 64])
+
+ Threshold reached at epoch  1403 N_current=  34 incr:  32 
+
+output:  torch.Size([33, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1420/500000 (0.28%) - PDE Loss: 2.804e-04, Latent Loss: 3.615e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.667e-02, Diff Loss: 1.645e-03, Data Loss: 2.214e-03, Energy Loss: 6.247e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.888e-02, 
+
+
+
+  Weights at epoch 1425: {'IC_ann': 0.1914234757423401, 'Motion': 2.080491065979004, 'PDE': 0.7280853986740112}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9456, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([34, 1, 64, 64])
+outputs_ann_current:  torch.Size([34, 1, 64, 64])
+
+ Threshold reached at epoch  1430 N_current=  35 incr:  33 
+
+output:  torch.Size([34, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1440/500000 (0.29%) - PDE Loss: 2.841e-04, Latent Loss: 3.618e-04, IC Loss: 0.000e+00, VAE Loss: 5.389e-08, ANN Loss: 2.323e-02, Diff Loss: 9.748e-04, Data Loss: 4.806e-04, Energy Loss: 6.644e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.468e-02, 
+
+
+
+  Weights at epoch 1450: {'IC_ann': 0.18259237706661224, 'Motion': 2.11712384223938, 'PDE': 0.7002836465835571}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9456, requires_grad=True) 
+ 
+
+ Epoch 1450: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([35, 1, 64, 64])
+outputs_ann_current:  torch.Size([35, 1, 64, 64])
+
+ Threshold reached at epoch  1457 N_current=  36 incr:  34 
+
+output:  torch.Size([35, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1460/500000 (0.29%) - PDE Loss: 2.893e-04, Latent Loss: 3.602e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.465e-02, Diff Loss: 2.276e-03, Data Loss: 1.482e-03, Energy Loss: 6.891e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.753e-02, 
+
+
+
+  Weights at epoch 1475: {'IC_ann': 0.5256720781326294, 'Motion': 1.5915467739105225, 'PDE': 0.8827810287475586}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9456, requires_grad=True) 
+ 
+Epoch 1480/500000 (0.30%) - PDE Loss: 2.834e-04, Latent Loss: 3.620e-04, IC Loss: 0.000e+00, VAE Loss: 4.692e-09, ANN Loss: 2.416e-02, Diff Loss: 1.220e-03, Data Loss: 1.361e-03, Energy Loss: 6.367e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.595e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([36, 1, 64, 64])
+outputs_ann_current:  torch.Size([36, 1, 64, 64])
+
+ Threshold reached at epoch  1484 N_current=  37 incr:  35 
+
+output:  torch.Size([36, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1500/500000 (0.30%) - PDE Loss: 2.855e-04, Latent Loss: 3.623e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.311e-02, Diff Loss: 9.028e-04, Data Loss: 4.731e-04, Energy Loss: 6.591e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.452e-02, 
+
+
+
+  Weights at epoch 1500: {'IC_ann': 0.5814512968063354, 'Motion': 1.4906086921691895, 'PDE': 0.9279400706291199}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9456, requires_grad=True) 
+ 
+
+ Epoch 1500: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([37, 1, 64, 64])
+outputs_ann_current:  torch.Size([37, 1, 64, 64])
+
+ Threshold reached at epoch  1511 N_current=  38 incr:  36 
+
+output:  torch.Size([37, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1520/500000 (0.30%) - PDE Loss: 2.911e-04, Latent Loss: 3.626e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.464e-02, Diff Loss: 2.192e-03, Data Loss: 1.485e-03, Energy Loss: 7.062e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.743e-02, 
+
+
+
+  Weights at epoch 1525: {'IC_ann': 0.25408077239990234, 'Motion': 1.8206666707992554, 'PDE': 0.9252525568008423}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9457, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([38, 1, 64, 64])
+outputs_ann_current:  torch.Size([38, 1, 64, 64])
+
+ Threshold reached at epoch  1538 N_current=  39 incr:  37 
+
+output:  torch.Size([38, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1540/500000 (0.31%) - PDE Loss: 2.873e-04, Latent Loss: 3.600e-04, IC Loss: 0.000e+00, VAE Loss: 6.301e-08, ANN Loss: 2.376e-02, Diff Loss: 8.654e-04, Data Loss: 6.671e-04, Energy Loss: 6.464e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.518e-02, 
+
+
+
+  Weights at epoch 1550: {'IC_ann': 0.5870090126991272, 'Motion': 1.446387529373169, 'PDE': 0.9666033983230591}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9457, requires_grad=True) 
+ 
+
+ Epoch 1550: Tracking dictionary updated and saved to disk. 
+
+Epoch 1560/500000 (0.31%) - PDE Loss: 2.842e-04, Latent Loss: 3.623e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.570e-02, Diff Loss: 1.707e-03, Data Loss: 2.229e-03, Energy Loss: 6.418e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.790e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([39, 1, 64, 64])
+outputs_ann_current:  torch.Size([39, 1, 64, 64])
+
+ Threshold reached at epoch  1565 N_current=  40 incr:  38 
+
+output:  torch.Size([39, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1575: {'IC_ann': 0.29943710565567017, 'Motion': 1.808819055557251, 'PDE': 0.8917438983917236}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9458, requires_grad=True) 
+ 
+Epoch 1580/500000 (0.32%) - PDE Loss: 2.894e-04, Latent Loss: 3.632e-04, IC Loss: 0.000e+00, VAE Loss: 2.042e-10, ANN Loss: 2.388e-02, Diff Loss: 1.145e-03, Data Loss: 8.177e-04, Energy Loss: 6.716e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.562e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([40, 1, 64, 64])
+outputs_ann_current:  torch.Size([40, 1, 64, 64])
+
+ Threshold reached at epoch  1592 N_current=  41 incr:  39 
+
+output:  torch.Size([40, 1, 64, 64])
+new Threshold:  0.03
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 98352.3828125 MB, VMS: 119005.72265625 MB
+
+Epoch 1600/500000 (0.32%) - PDE Loss: 2.907e-04, Latent Loss: 3.590e-04, IC Loss: 0.000e+00, VAE Loss: 1.551e-08, ANN Loss: 2.297e-02, Diff Loss: 9.366e-04, Data Loss: 4.428e-04, Energy Loss: 7.606e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.454e-02, 
+
+
+
+  Weights at epoch 1600: {'IC_ann': 0.37982189655303955, 'Motion': 1.7163952589035034, 'PDE': 0.903782844543457}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9457, requires_grad=True) 
+ 
+
+ Epoch 1600: Tracking dictionary updated and saved to disk. 
+
+Epoch 1620/500000 (0.32%) - PDE Loss: 2.920e-04, Latent Loss: 3.594e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.275e-02, Diff Loss: 8.532e-04, Data Loss: 2.261e-04, Energy Loss: 7.626e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.421e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([41, 1, 64, 64])
+outputs_ann_current:  torch.Size([41, 1, 64, 64])
+
+ Threshold reached at epoch  1619 N_current=  42 incr:  40 
+
+output:  torch.Size([41, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1625: {'IC_ann': 0.7552033066749573, 'Motion': 1.226083755493164, 'PDE': 1.018713116645813}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9456, requires_grad=True) 
+ 
+Epoch 1640/500000 (0.33%) - PDE Loss: 2.916e-04, Latent Loss: 3.609e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.349e-02, Diff Loss: 1.019e-03, Data Loss: 6.999e-04, Energy Loss: 7.591e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.515e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([42, 1, 64, 64])
+outputs_ann_current:  torch.Size([42, 1, 64, 64])
+
+ Threshold reached at epoch  1646 N_current=  43 incr:  41 
+
+output:  torch.Size([42, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1650: {'IC_ann': 0.7879027128219604, 'Motion': 1.2165101766586304, 'PDE': 0.995587170124054}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9455, requires_grad=True) 
+ 
+
+ Epoch 1650: Tracking dictionary updated and saved to disk. 
+
+Epoch 1660/500000 (0.33%) - PDE Loss: 2.977e-04, Latent Loss: 3.593e-04, IC Loss: 0.000e+00, VAE Loss: 4.313e-09, ANN Loss: 2.554e-02, Diff Loss: 2.128e-03, Data Loss: 1.692e-03, Energy Loss: 8.455e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.832e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([43, 1, 64, 64])
+outputs_ann_current:  torch.Size([43, 1, 64, 64])
+
+ Threshold reached at epoch  1673 N_current=  44 incr:  42 
+
+output:  torch.Size([43, 1, 64, 64])
+new Threshold:  0.03
+
+  Weights at epoch 1675: {'IC_ann': 0.5064946413040161, 'Motion': 1.6126575469970703, 'PDE': 0.8808476328849792}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9456, requires_grad=True) 
+ 
+Epoch 1680/500000 (0.34%) - PDE Loss: 2.924e-04, Latent Loss: 3.587e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.354e-02, Diff Loss: 1.060e-03, Data Loss: 1.316e-03, Energy Loss: 7.590e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.523e-02, 
+
+
+Epoch 1700/500000 (0.34%) - PDE Loss: 2.880e-04, Latent Loss: 3.610e-04, IC Loss: 0.000e+00, VAE Loss: 2.178e-07, ANN Loss: 2.788e-02, Diff Loss: 2.389e-03, Data Loss: 4.693e-03, Energy Loss: 6.947e-07, Colloc Loss: 0.000e+00, Original Total Loss: 3.079e-02, 
+
+
+
+  Weights at epoch 1700: {'IC_ann': 0.4335223436355591, 'Motion': 1.7918574810028076, 'PDE': 0.7746202945709229}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9460, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([44, 1, 64, 64])
+outputs_ann_current:  torch.Size([44, 1, 64, 64])
+
+ Threshold reached at epoch  1700 N_current=  45 incr:  43 
+
+output:  torch.Size([44, 1, 64, 64])
+new Threshold:  0.03
+
+ Epoch 1700: Tracking dictionary updated and saved to disk. 
+
+Epoch 1720/500000 (0.34%) - PDE Loss: 2.917e-04, Latent Loss: 3.573e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.470e-02, Diff Loss: 1.359e-03, Data Loss: 2.511e-03, Energy Loss: 7.352e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.652e-02, 
+
+
+
+  Weights at epoch 1725: {'IC_ann': 0.3568068742752075, 'Motion': 1.901464819908142, 'PDE': 0.7417283654212952}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9466, requires_grad=True) 
+ 
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([45, 1, 64, 64])
+outputs_ann_current:  torch.Size([45, 1, 64, 64])
+
+ Threshold reached at epoch  1727 N_current=  46 incr:  44 
+
+output:  torch.Size([45, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1740/500000 (0.35%) - PDE Loss: 2.988e-04, Latent Loss: 3.583e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.278e-02, Diff Loss: 1.156e-03, Data Loss: 3.261e-04, Energy Loss: 8.849e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.445e-02, 
+
+
+
+  Weights at epoch 1750: {'IC_ann': 0.3349720239639282, 'Motion': 1.8333022594451904, 'PDE': 0.8317257165908813}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9468, requires_grad=True) 
+ 
+
+ Epoch 1750: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([46, 1, 64, 64])
+outputs_ann_current:  torch.Size([46, 1, 64, 64])
+
+ Threshold reached at epoch  1754 N_current=  47 incr:  45 
+
+output:  torch.Size([46, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1760/500000 (0.35%) - PDE Loss: 3.008e-04, Latent Loss: 3.593e-04, IC Loss: 0.000e+00, VAE Loss: 6.358e-08, ANN Loss: 2.266e-02, Diff Loss: 1.149e-03, Data Loss: 3.277e-04, Energy Loss: 9.554e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.445e-02, 
+
+
+
+  Weights at epoch 1775: {'IC_ann': 0.33562514185905457, 'Motion': 1.6955926418304443, 'PDE': 0.9687823057174683}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9466, requires_grad=True) 
+ 
+Epoch 1780/500000 (0.36%) - PDE Loss: 2.975e-04, Latent Loss: 3.582e-04, IC Loss: 0.000e+00, VAE Loss: 1.353e-09, ANN Loss: 2.330e-02, Diff Loss: 9.095e-04, Data Loss: 9.792e-04, Energy Loss: 8.827e-07, Colloc Loss: 0.000e+00, Original Total Loss: 2.475e-02, 
+
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([47, 1, 64, 64])
+outputs_ann_current:  torch.Size([47, 1, 64, 64])
+
+ Threshold reached at epoch  1781 N_current=  48 incr:  46 
+
+output:  torch.Size([47, 1, 64, 64])
+new Threshold:  0.03
+!*****************************************************
+ 
+Step: Memory usage: , RSS: 118749.55859375 MB, VMS: 139375.921875 MB
+
+Epoch 1800/500000 (0.36%) - PDE Loss: 3.028e-04, Latent Loss: 3.587e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.316e-02, Diff Loss: 1.468e-03, Data Loss: 8.193e-04, Energy Loss: 1.066e-06, Colloc Loss: 0.000e+00, Original Total Loss: 2.525e-02, 
+
+
+
+  Weights at epoch 1800: {'IC_ann': 0.43411579728126526, 'Motion': 1.6591262817382812, 'PDE': 0.9067578315734863}  
+
+  weighting gamma : Parameter containing:
+tensor(0.9466, requires_grad=True) 
+ 
+
+ Epoch 1800: Tracking dictionary updated and saved to disk. 
+
+outputs_ann:  torch.Size([2, 1, 64, 64])
+output:  torch.Size([48, 1, 64, 64])
+outputs_ann_current:  torch.Size([48, 1, 64, 64])
+
+ Threshold reached at epoch  1808 N_current=  49 incr:  47 
+
+output:  torch.Size([48, 1, 64, 64])
+new Threshold:  0.03
+Epoch 1820/500000 (0.36%) - PDE Loss: 3.011e-04, Latent Loss: 3.573e-04, IC Loss: 0.000e+00, VAE Loss: 0.000e+00, ANN Loss: 2.293e-02, Diff Loss: 8.563e-04, Data Loss: 7.350e-04, Energy Loss: 1.008e-06, Colloc Loss: 0.000e+00, Original Total Loss: 2.439e-02, 
+
+
