@@ -1243,7 +1243,7 @@ class VAE_convLSTM(nn.Module):
             loss_E_phi = mae_loss(f_E_phi, torch.zeros_like(f_E_phi))
 
         # Data loss (if ground truth is available)
-        data_loss = mse_loss(phi2D_ann, Grund_truth[-1].unsqueeze(0)) if len(Phi) >= 0 else torch.zeros_like(grid_motion_loss)
+        data_loss = mse_loss(phi2D_ann, Grund_truth[-1].unsqueeze(0)) if len(Phi) == 2 else torch.zeros_like(grid_motion_loss)  # adjust how much you feed model with data (semi-unsupervised learning)
 
         # Total loss calculation #grid_motion_loss
         total_loss = self.ic * loss_IC_ann + self.motion * (grid_motion_loss) + self.data * data_loss + self.energ * loss_E_phi
