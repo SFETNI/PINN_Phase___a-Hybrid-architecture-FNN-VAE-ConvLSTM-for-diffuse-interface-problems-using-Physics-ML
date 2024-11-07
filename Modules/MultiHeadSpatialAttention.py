@@ -93,7 +93,7 @@ class MultiHeadSpatialAttention(nn.Module):
         combined = weighted_values.transpose(1, 2).contiguous().view(batch_size, ch, xL, yL)
         output = x * combined  # Assuming a simple element-wise multiplication
 
-        return output
+        return output, attention_weights
 
 
 """
