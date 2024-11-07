@@ -1,14 +1,14 @@
 #!/bin/bash
 
-#SBATCH --time=2-0:00:00
-#SBATCH --partition=hpc-1024G
-#SBATCH --ntasks=16 --mem=64000
-#SBATCH --job-name=V94S
+#SBATCH --time=1-0:00:00
+#SBATCH --partition=
+#SBATCH --ntasks=16 --mem=32000
+#SBATCH --job-name=  name
 
 ### Mail to user when job starts, terminates, or aborts
 ### BEGIN|END|FAIL|REQUEUE|ALL
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=seifallah.elfetni@bam.de
+#SBATCH --mail-user= user_email
 
 ### Output files
 #SBATCH --error=/home/%u/tmp/job.%J.err
