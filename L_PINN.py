@@ -318,7 +318,7 @@ class VAE_convLSTM(nn.Module):
             return global_loss #+ interfacial_loss
     ######################################################
     #"""
-    def forward(self, initial_state, x, batch_idx=0, N_current=1, t_current=0, VAE=False):
+    def forward(self, initial_state, x, batch_idx=0, N_current=1, t_current=0, VAE=False, attention=False):
         internal_state = []
         outputs = []
         convLSTM_previous = []
@@ -351,6 +351,12 @@ class VAE_convLSTM(nn.Module):
             if time_step == N_current - 2:
                 outputs_ann.append(x_ann)
 
+            # if you find the model capts well the interfaces (rapid convergence)
+            # then it is recommnded to skip attention computing to accelerate training
+            if attention:  
+                interface_map = self.compute_gradient_interface_map(x)
+                x,attention_weights=self.MHSA(x,interface_map)
+            
             xt = x
 
             # Step 2: Memory after encoding
