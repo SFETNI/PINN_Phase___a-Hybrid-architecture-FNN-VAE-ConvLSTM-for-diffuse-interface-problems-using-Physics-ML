@@ -17,6 +17,9 @@ This repository accompanies the research article titled **"[PINN-Phase: A Physic
 - **`VAE_ConvLSTM.ipynb`**: Jupyter notebook implementing VAE with ConvLSTM for further analysis and experimentation.
 - **`figures/` and `VAE_figs/`**: These folders contain visualizations generated during experiments, including sample predictions and loss curves (real time processing)
 
+![PINN Phase Framework](https://github.com/SFETNI/PINN_Phase/blob/main/PINN_Phase.jpg)
+
+
 
 ## Getting Started
 
