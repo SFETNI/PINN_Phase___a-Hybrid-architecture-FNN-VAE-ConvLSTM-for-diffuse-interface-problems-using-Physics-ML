@@ -5,8 +5,25 @@
 ## Abstract
 **PINN_Phase** is a repository dedicated to the study and simulation of phase field modeling using Physics-Informed Neural Networks (PINNs). This approach leverages neural networks to solve partial differential equations related to phase transitions, making it a useful tool for applications in material science, such as grain growth simulation and solidification processes. The repository implements various machine learning models and architectures, including variational autoencoders (VAE) and convolutional LSTMs, for accurate phase field predictions. This work contributes to ongoing research in PINNs and neural approximations of complex physical processes.
 
-## Associated Article
-This repository accompanies the research article titled **"[PINN-Phase: A Physics-Informed Neural Network Transfer Learning based for solving Multi-Phase-Field  equations for studying grain boundary dynamics]"** by **[Seifallah Elfetni and Reza Darvishi Kamachali]**. Please refer to the article for a detailed theoretical background, methodology, and results. The code here supports the experiments and results discussed in the paper. Access the full article [here](Link to article; will be available).
+## Associated Article (preprint)
+This repository accompanies the research article titled **"[Pinn-Phase: A Physics-Informed Neural Network Hybrid Framework for Energy-Based Transfer Learning in Diffuse Interface Problems]"** by **[Seifallah Elfetni and Reza Darvishi Kamachali]**. Please refer to the article for a detailed theoretical background, methodology, and results. The code here supports the experiments and results discussed in the paper. 
+
+# link to the article
+[Link](https://ssrn.com/abstract=5207041)  
+or  
+[DOI Link](http://dx.doi.org/10.2139/ssrn.5207041)
+
+## Citation (if you find this study helpful):  
+```bibtex
+@article{ELFETNI2025PinnPhase,  
+  title = {Pinn-Phase: A Physics-Informed Neural Network Hybrid Framework for Energy-Based Transfer Learning in Diffuse Interface Problems},  
+  author = {Seifallah Elfetni and Reza Darvishi Kamachali},  
+  journal = {SSRN},  
+  year = {2025},  
+  url = {https://ssrn.com/abstract=5207041},  
+  doi = {http://dx.doi.org/10.2139/ssrn.5207041},  
+}
+
 
 ## Repository Structure
 
