@@ -24,26 +24,28 @@ or
   doi = {http://dx.doi.org/10.2139/ssrn.5207041},  
 }
 
-
-
 ## Repository Structure
 
 - **`main.py`**: This is the primary script for training and testing the models on the phase field simulation tasks. Detailed usage is provided below.
- While L_PINN.py contain the model initialization, the main forward function and the main training loop
-- **Modules Folder** (`Modules`): Contains individual Python scripts that serve as helper modules for the main program. These modules handle tasks like data preprocessing, network architecture definition, and utility functions.
-- **Models Folder** (`models`): Houses pre-trained models and ground truth solutions required for benchmarking. Download any additional necessary files as outlined in the `Getting Started` section.
-- **`VAE_ConvLSTM.ipynb`**: Jupyter notebook implementing VAE with ConvLSTM for further analysis and experimentation.
-- **`figures/` and `VAE_figs/`**: These folders contain visualizations generated during experiments, including sample predictions and loss curves (real time processing)
+  
+- **`L_PINN.py`**: Contains the model initialization, the main forward function, and the main training loop.
 
-## PINN Phase architecture
+- **Modules Folder** (`Modules`): Contains individual Python scripts that serve as helper modules for the main program. These modules handle tasks like data preprocessing, network architecture definition, and utility functions.
+
+- **Models Folder** (`models`): Houses pre-trained models and ground truth solutions required for benchmarking. Download any additional necessary files as outlined in the `Getting Started` section.
+
+- **`VAE_ConvLSTM.ipynb`**: Jupyter notebook implementing VAE with ConvLSTM for further analysis and experimentation.
+
+- **`figures/` and `VAE_figs/`**: These folders contain visualizations generated during experiments, including sample predictions and loss curves (real-time processing).
+
+## PINN Phase Architecture
 
 ![PINN Phase Framework](https://github.com/SFETNI/PINN_Phase/blob/main/PINN_Phase.jpg)
-
-
 
 ## Getting Started
 
 ### Prerequisites
 Ensure that you have Python 3.8+ and the necessary packages installed. Use the provided `requirements.txt` (if available) or manually install required packages.
+
 
 
