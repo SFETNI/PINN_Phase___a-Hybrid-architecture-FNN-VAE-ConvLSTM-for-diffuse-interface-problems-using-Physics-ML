@@ -14,7 +14,6 @@ or
 [DOI Link](http://dx.doi.org/10.2139/ssrn.5207041)
 
 ## Citation (if you find this study helpful):
-```bibtex
 @article{ELFETNI2025PinnPhase,  
   title = {Pinn-Phase: A Physics-Informed Neural Network Hybrid Framework for Energy-Based Transfer Learning in Diffuse Interface Problems},  
   author = {Seifallah Elfetni and Reza Darvishi Kamachali},  
