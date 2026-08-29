@@ -28,38 +28,6 @@ foundations and the explicit MPF operator through training, symmetry,
 long-horizon topology, and replay. [`docs/README.md`](docs/README.md) maps the
 rest of the scientific and reproducibility documentation.
 
-## Rollout, temporal extrapolation, and generalisation
-
-PINN-Phase is evaluated along two independent axes: **time** and **initial
-condition**.
-
-```text
-Development initial condition phi_0(dev)
-        |
-        | physics-residual training on the model's own rollout
-        | represented rollout horizon H
-        v
-  frozen checkpoint
-        |
-        +-- development IC: autonomous rollout  0 -------- H -------- T
-        |                                      represented   extrapolation
-        |
-        +-- unseen IC phi_0(k), k = 1,...,m
-              same frozen weights, no retraining or adaptation
-              direct autonomous rollout, evaluated within or beyond H
-```
-
-- **Autonomous rollout** repeatedly feeds each predicted state into the next
-  model step.
-- **Temporal extrapolation** continues that rollout beyond the represented
-  training horizon `H`.
-- **Initial-condition generalisation** applies the same frozen model directly
-  to an unseen initial condition.
-
-An unseen-case evaluation may stay within `H`, or it may test generalisation
-and temporal extrapolation together.
-
----
 
 ## How PINN-Phase advances a phase field
 
@@ -101,7 +69,38 @@ carries 9,605 parameters. Full method:
 
 ---
 
+## Rollout, temporal extrapolation, and generalisation
 
+PINN-Phase is evaluated along two independent axes: **time** and **initial
+condition**.
+
+```text
+Development initial condition phi_0(dev)
+        |
+        | physics-residual training on the model's own rollout
+        | represented rollout horizon H
+        v
+  frozen checkpoint
+        |
+        +-- development IC: autonomous rollout  0 -------- H -------- T
+        |                                      represented   extrapolation
+        |
+        +-- unseen IC phi_0(k), k = 1,...,m
+              same frozen weights, no retraining or adaptation
+              direct autonomous rollout, evaluated within or beyond H
+```
+
+- **Autonomous rollout** repeatedly feeds each predicted state into the next
+  model step.
+- **Temporal extrapolation** continues that rollout beyond the represented
+  training horizon `H`.
+- **Initial-condition generalisation** applies the same frozen model directly
+  to an unseen initial condition.
+
+An unseen-case evaluation may stay within `H`, or it may test generalisation
+and temporal extrapolation together.
+
+---
 
 ## Scalar interface motion and topology change
 
