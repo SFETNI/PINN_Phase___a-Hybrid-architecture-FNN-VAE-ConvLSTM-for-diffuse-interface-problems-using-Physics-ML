@@ -1,0 +1,226 @@
+{
+  "alt_text": "One unseen 96-cubed microstructure, Unseen microstructure 3, shown as paired reference and PINN-Phase rows over saved steps 0 to 3200. Each row pairs an exterior view of the intact cube with an interior view in which only the three disappearing grains are rendered inside a wireframe outline. The three grains shrink and vanish inside the volume, and at its last saved appearance each grain has no voxels on any rendered face of the cube. Step 1600 is the terminal evaluation and later frames are monitored continuation.",
+  "camera": {
+    "exterior_view": "intact cube, no cutaway",
+    "image_u": "x - y + (n - 1)",
+    "image_v": "integer rasterization of (x + y - z) / 2 + floor(n / 2)",
+    "interior_view": "three disappearing grains as solid voxel bodies inside the full-cube wireframe; all other grains suppressed; no cutaway",
+    "projection": "custom affine parallel voxel mapping",
+    "raster_overwrite_order": "ascending x + y + z before raster overwrite"
+  },
+  "case_score_sha256": "dcdc25d9aa6b1da4c571f4451ec02a3fa46e0bb5ca0d02676a4975a76086d699",
+  "checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+  "claims_source": {
+    "displayed_as": "95.83%",
+    "source": "benchmarks/n16_96_transfer/expected_score.json",
+    "source_sha256": "9f12027fa05063df7e9dd0f6abcb5135a302fd07fe66b304905cf25fa30aaaed",
+    "terminal_agreement_percent": 95.831412
+  },
+  "cohort_manifest_sha256": "973357384e676123b16c2cc17dcb5b7f2486dc898116ac062dfffd75af7d5340",
+  "cohort_score_sha256": "5f6f8643ef77c81c81a5dc5b37109d1be7d2e3212dd2d0f63e6a89ec205a4dd1",
+  "dying_grains": {
+    "Grain 1": {
+      "channel": 8,
+      "model_first_absent_step": 1000,
+      "reference_first_absent_step": 1000
+    },
+    "Grain 2": {
+      "channel": 9,
+      "model_first_absent_step": 1200,
+      "reference_first_absent_step": 1400
+    },
+    "Grain 3": {
+      "channel": 15,
+      "model_first_absent_step": 1400,
+      "reference_first_absent_step": 1400
+    },
+    "reference_tie_note": "Grain 2 and Grain 3 are first absent at the same saved step (1400); numbering within the tie follows ascending channel index"
+  },
+  "environment_lock_sha256": "7fc4bc5dd9b9045dbe15a8f2f1f5bb9c44e0f88500d9f9b3617d876927e49ef0",
+  "inputs": [
+    {
+      "case": "C3",
+      "role": "reference",
+      "sha256": "9c535954543965601b0f1f2cddc80d8ba9ab6a19e24a61c92dbc4a3244d687e1"
+    },
+    {
+      "case": "C3",
+      "role": "model",
+      "sha256": "0f8a798c219374530b03eee0dc7f82ee403ff37385d0e0d3b9ee7e2dd30a7d50"
+    }
+  ],
+  "interior_visibility": {
+    "note": "channels 8 and 15 are visible on the rendered faces at early saved steps; each disappearing grain has zero rendered-face voxels at its last saved appearance",
+    "outer_face_voxels_per_saved_step": {
+      "model": {
+        "15": [
+          717,
+          621,
+          496,
+          322,
+          146,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "8": [
+          14,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "9": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "reference": {
+        "15": [
+          717,
+          609,
+          463,
+          289,
+          94,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "8": [
+          14,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "9": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "zero_at_last_present": true
+  },
+  "no_interpolation": true,
+  "outputs": {
+    "n16_96_unseen_microstructure_3_interior_reference_vs_pinn_phase.gif": {
+      "bytes": 464436,
+      "sha256": "626551c4b12a5f91172a0a8721a2b06551d2fb2425cb15b52d13fb7be40e3613"
+    },
+    "n16_96_unseen_microstructure_3_interior_reference_vs_pinn_phase_poster.png": {
+      "bytes": 41107,
+      "sha256": "f05d3a41a003a44c1e30b640e11ca1c9a58b2f010a1f876cbac67c0217a739d3"
+    }
+  },
+  "renderer_environment": {
+    "font_file": "DejaVuSans.ttf",
+    "font_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+    "freetype": "2.14.3",
+    "imageio": "2.37.3",
+    "matplotlib": "3.10.7",
+    "numpy": "2.2.6",
+    "pillow": "12.2.0",
+    "python": "3.11.15",
+    "scipy": "1.16.2"
+  },
+  "renderer_sha256": "19182ffe4d2323a6653477fc37493dcac06520e5502e39a529b373985c668851",
+  "schema": "pinn-phase-n16-96-interior-media-v1",
+  "selection": {
+    "public_name": "Unseen microstructure 3",
+    "rule": "maximise the number of disappearing grains with zero outer-face voxels at their last-present saved step; tie-break by largest pooled median distance of dying-grain voxels from the nearest rendered face",
+    "runner_up_note": "C3 is the only case with 3 of 3; every other case has 2 of 3",
+    "selected_case": "C3",
+    "zero_outer_face_grains": "3 of 3"
+  },
+  "steps": [
+    0,
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200,
+    1400,
+    1600,
+    1800,
+    2000,
+    2200,
+    2400,
+    2600,
+    2800,
+    3000,
+    3200
+  ]
+}

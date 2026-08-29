@@ -1,0 +1,276 @@
+{
+  "schema": "pinn-phase-claim-to-artifact-map-v1",
+  "purpose": "Every quantitative claim the front page makes, bound to the artifact that supports it and to the reproduction level at which this archive supports it. tests/test_claim_to_artifact_map.py checks that each referenced path exists in the archive, that each named digest matches distributed bytes where the artifact is distributed, and that no claim is bound to a reproduction level the archive does not actually provide. Digest keys distinguish the accepted parent checkpoint, which is an identity of record and is not distributed, from the derived public replay weights, which are distributed; the two are never interchangeable.",
+  "claims": [
+    {
+      "id": "scalar_2d_slope_error",
+      "source": "README.md",
+      "claim": "The reproduction recovers the pre-extinction radius-squared slope to 0.997% relative error, with monotone sampled energy.",
+      "benchmark": "scalar_shrinkage_2d",
+      "level": "FULL_RECOMPUTATION",
+      "supporting_paths": [
+        "benchmarks/scalar_shrinkage_2d/expected_metrics.json",
+        "configs/benchmarks/scalar_shrinkage_2d.yaml"
+      ],
+      "digests": {}
+    },
+    {
+      "id": "n25_cascade_training_case",
+      "source": "README.md",
+      "claim": "1.46% differing pixels at step 12,000 against a 44.37% persistence floor; exact 16-grain terminal survivor set; 0.81% against 26.59% at step 4,000.",
+      "benchmark": "n25_cascade_development",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "supporting_paths": [
+        "checkpoints/n25_cascade_primary_permequiv.weights.npz",
+        "configs/models/n25_cascade_primary_permequiv.yaml",
+        "docs/COMPLETED_EVIDENCE_LEDGER.md"
+      ],
+      "digests": {
+        "accepted_parent_checkpoint": "6673d46000b00867e3b74d332342bea51050398ac873376b5fc1ba65a99556f3",
+        "public_weights": "e160ddbaa9e7837cb5e7b4be134c2614c14fae8376257a2331cac8cb4b8d499e",
+        "model_rollout": "02f11f936fac16f206897a4023bc613ccf098834e8cfed39fb0ab18007208b4d",
+        "reference_fields": "351a55961ee187e327ba1a23c0f566350959eed2ebe8d9473945cc47158fd511"
+      },
+      "not_supported_here": "The model can be replayed from the distributed public replay weights and initial field, but the accepted reference trajectory is not distributed, so this number cannot be recomputed from the archive. Replay capability is not metric recomputation."
+    },
+    {
+      "id": "n25_cascade_second_development_case",
+      "source": "README.md",
+      "claim": "0.95% at step 4,000 against 28.97%, 1.13% at step 12,000 against 51.25%, exact 12-grain terminal set, all 13 reference extinctions reproduced.",
+      "benchmark": "n25_cascade_development",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "supporting_paths": [
+        "checkpoints/n25_cascade_primary_permequiv.weights.npz",
+        "docs/COMPLETED_EVIDENCE_LEDGER.md"
+      ],
+      "digests": {
+        "model_rollout": "0b652628814b1adc707ab94d112f3be74b7c64fd981b7ead53bf171dc1d3709f",
+        "reference_fields": "ef2f13dbd615b21fe515e24d2e31d4f52cd24089d229ef4027348dc5c4b65490"
+      },
+      "not_supported_here": "The model can be replayed from the distributed public replay weights and initial field, but the accepted reference trajectory is not distributed, so this number cannot be recomputed from the archive. Replay capability is not metric recomputation."
+    },
+    {
+      "id": "n25_cascade_timing_anchor_failure",
+      "source": "README.md",
+      "claim": "The pre-registered timing anchor does not pass; extinction events are systematically premature, median residuals -53 and -85 steps.",
+      "benchmark": "n25_cascade_development",
+      "level": "PROVENANCE_ONLY",
+      "supporting_paths": [
+        "docs/COMPLETED_EVIDENCE_LEDGER.md"
+      ],
+      "digests": {
+        "source_record": "669896603f10d9505ce3cc285340b1f4848035bf8ea9e8eb1732efa6a89a5215"
+      },
+      "not_supported_here": "The public replay weights are distributed and load, but no initial field is distributed, so this number cannot be recomputed from the archive. What is verifiable here is the identity of the weights that produced it, not the value itself."
+    },
+    {
+      "id": "n64_registered_primary",
+      "source": "README.md",
+      "claim": "1.35%, 3.50% and 6.09% differing pixels at steps 4,000, 8,000 and 12,000; persistence floor 69.89%; terminal survivor F1 0.9767; no false deaths and no reappearances.",
+      "benchmark": "n64_dense_primary",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "supporting_paths": [
+        "checkpoints/n64_dense_primary_permequiv_ep0099.weights.npz",
+        "configs/models/n64_dense_primary_permequiv_ep0099.yaml",
+        "docs/COMPLETED_EVIDENCE_LEDGER.md"
+      ],
+      "digests": {
+        "accepted_parent_checkpoint": "301d2431fec9fd75171888ce9635f5dcef1c200f9a7121f3cff3a29976785813",
+        "public_weights": "44703ecfe7edc65316835976e218857d800d229199465b4f122e276fb30c262f",
+        "training_config": "ccb87eb42322849174e8c9bed1d69d252369ce2a0ead4a5f33ebfaf19a1a7749",
+        "score_record": "e55a902eb3b18b12698321f39e301aa2a155d21e9c9bd51aa4d388ddbc116d43"
+      },
+      "status": "registered primary, scored once against criteria fixed beforehand",
+      "not_supported_here": "The model can be replayed from the distributed public replay weights and initial field, but the accepted reference trajectory is not distributed, so this number cannot be recomputed from the archive. Replay capability is not metric recomputation."
+    },
+    {
+      "id": "n64_sensitivity_run",
+      "source": "README.md",
+      "claim": "0.85%, 2.07% and 3.97% at the same three milestones; exact 21-grain terminal survivor set; 43 of 43 reference extinctions matched by identity.",
+      "benchmark": "n64_dense_sensitivity",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "supporting_paths": [
+        "checkpoints/n64_dense_sensitivity_h8192_ep0124.weights.npz",
+        "configs/models/n64_dense_sensitivity_h8192_ep0124.yaml"
+      ],
+      "digests": {
+        "accepted_parent_checkpoint": "d1fbef94e363b8fff49416f996854849c8d443c4f94a0fee4c34634752e597dd",
+        "public_weights": "9b199b1d53eea17084c179ec6af989b5be2949432791f8bd8abf20340401a468",
+        "training_config": "44d8fb5f74318686dd60fe90c6a77aac31c48597136adffc971afa8a135ad942",
+        "score_record": "1e13d88cb9d615923c32ec47721c2f28b7db5653d22aa8ddf63fddd2c4c95e9c"
+      },
+      "status": "post-evaluation sensitivity study of one design choice; not independent confirmation; horizon and additional training effort co-vary",
+      "not_supported_here": "The model can be replayed from the distributed public replay weights and initial field, but the accepted reference trajectory is not distributed, so this number cannot be recomputed from the archive. Replay capability is not metric recomputation."
+    },
+    {
+      "id": "n64_extrapolation_boundary",
+      "source": "README.md",
+      "claim": "The final 3,808 steps of the sensitivity rollout lie beyond the 8,192-step represented training horizon.",
+      "benchmark": "n64_dense_sensitivity",
+      "level": "PROVENANCE_ONLY",
+      "supporting_paths": [
+        "media/current_results/asset_manifest.json"
+      ],
+      "digests": {},
+      "arithmetic_check": "12000 - 8192 = 3808",
+      "not_supported_here": "The public replay weights are distributed and load, but no initial field is distributed, so this number cannot be recomputed from the archive. What is verifiable here is the identity of the weights that produced it, not the value itself."
+    },
+    {
+      "id": "n25_transfer_score",
+      "source": "README.md",
+      "claim": "The primary model passes every criterion on 7 of the 8 unseen cases and both stress cases; the secondary model reaches the same counts and can neither rescue nor veto it.",
+      "benchmark": "n25_unseen_ic_transfer",
+      "level": "SCORE_RECOMPUTATION",
+      "supporting_paths": [
+        "benchmarks/n25_transfer/expected_score.json",
+        "benchmarks/n25_transfer/manifest.json",
+        "scripts/reproduce_n25_transfer.py",
+        "checkpoints/n25_cascade_primary_permequiv.weights.npz",
+        "checkpoints/n25_cascade_secondary_six_ic_permequiv.weights.npz"
+      ],
+      "digests": {
+        "accepted_parent_checkpoint_primary": "6673d46000b00867e3b74d332342bea51050398ac873376b5fc1ba65a99556f3",
+        "public_weights_primary": "e160ddbaa9e7837cb5e7b4be134c2614c14fae8376257a2331cac8cb4b8d499e",
+        "primary_training_config": "324d4b50678c93a2999fef500e71ba02e7d4d39480c0519e26983b20d91a487a",
+        "accepted_parent_checkpoint_secondary": "85e920603e69a9c035a585703ca6f12d27fc9050b8332939e38f11e2e6899c7b",
+        "public_weights_secondary": "8fd13deb8d72a36d78796d8d26d3164dcdbe9e8ae116de5960e80efdbfbc7e1e",
+        "secondary_training_config": "03c5cfb54707ceefc1ee5d1da155ab2d3719757d230549423346ca18743438d0",
+        "frozen_score": "26fbfdefed5278106a16cedf4be2a1db1ed010760cabf54336f6ee6a378e7202"
+      },
+      "not_supported_here": "Model inference is not rerun. The shipped arrays are the frozen rollouts; the score is recomputed from them."
+    },
+    {
+      "id": "n25_transfer_case_07_false_death",
+      "source": "README.md",
+      "claim": "Case 7 is the single strict failure: a false death before step 12,000. Terminal agreement 96.3%, survivor F1 0.9677. The descriptive tail at step 12,933 does not rescue it and the score stays 7 of 8.",
+      "benchmark": "n25_unseen_ic_transfer",
+      "level": "SCORE_RECOMPUTATION",
+      "supporting_paths": [
+        "benchmarks/n25_transfer/data/id_07/primary.npz",
+        "benchmarks/n25_transfer/data/id_07/reference.npz",
+        "benchmarks/n25_transfer/data/id_07/reference_tail.npz"
+      ],
+      "digests": {}
+    },
+    {
+      "id": "n8_cube_agreement",
+      "source": "README.md",
+      "claim": "99.533% label agreement at step 2,000 against a 94.01% persistence baseline; exact seven-grain survivor set; extinction one saved frame after the reference event.",
+      "benchmark": "n8_64_cube",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "supporting_paths": [
+        "checkpoints/n8_64_cube_hybrid.weights.npz",
+        "configs/models/n8_64_cube_hybrid.yaml",
+        "configs/experiments/explicit_mpf/voronoi_3d_cube_64x64x64_n8_h256_tbptt16_c2_launch.yaml"
+      ],
+      "digests": {
+        "accepted_parent_checkpoint": "2482f3bf315f61be82492aa972bacb2e8895942509c993f6c017d72fc46e5441",
+        "public_weights": "327e420f4b25b9c9dae10514e4f672e1057d9d1728ed839e5f5b535b4898ef60",
+        "config": "681ac195f53743c5a0d506ac40316544b62182834fa58eacbb15eadf4b87fd30",
+        "initial_condition": "ae0e698a23c4ee1017b328d31333fdbd39452677548f0fa70a8afabe870a186d",
+        "reference": "d273d467915f2a892302e042da76b1bf102a2cc46f5375f42bfe5685135e0a83"
+      },
+      "not_supported_here": "The model can be replayed from the distributed public replay weights and initial field, but the accepted reference trajectory is not distributed, so this number cannot be recomputed from the archive. Replay capability is not metric recomputation."
+    },
+    {
+      "id": "n16_cube_agreement",
+      "source": "README.md",
+      "claim": "99.668% terminal agreement at step 1,600; exact thirteen-grain survivor set; three extinctions matched at 200-step saved-frame resolution.",
+      "benchmark": "n16_96_cube",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "supporting_paths": [
+        "checkpoints/n16_96_cube_hybrid.weights.npz",
+        "configs/models/n16_96_cube_hybrid.yaml"
+      ],
+      "digests": {
+        "accepted_parent_checkpoint": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+        "public_weights": "690fd690e8af107870743dcd2f43b95e0c05c46ca4dd4b9d11f64e7994fb93c9",
+        "initial_condition": "d6a5e7f28b85d14c1610eecabb017107f3caa48e73fe78c3c3270b75be389e3e",
+        "reference": "4fe2fbfffe1f54e4b2a36b5ff6464176fb0cc3d311f569b3ddd3b7f839eb763f"
+      },
+      "not_supported_here": "The model can be replayed from the distributed public replay weights and initial field, but the accepted reference trajectory is not distributed, so this number cannot be recomputed from the archive. Replay capability is not metric recomputation."
+    },
+    {
+      "id": "four_phase_junction",
+      "source": "README.md",
+      "claim": "3.27% terminal disagreement against a 6.54% persistence baseline; junction angles 127.8, 115.9 and 116.4 degrees, RMS deviation 5.5 degrees from 120.",
+      "benchmark": "four_phase_junction",
+      "level": "PROVENANCE_ONLY",
+      "supporting_paths": [
+        "docs/COMPLETED_EVIDENCE_LEDGER.md"
+      ],
+      "digests": {
+        "retained_public_record": "dfe8a4ab5ef18c84107a407681aee2649046878302397563244d1c12322f6c35"
+      },
+      "not_supported_here": "No model weights for this run are distributed or identified. The values are retained earlier-public records."
+    },
+    {
+      "id": "scalar_3d_slope_ratio",
+      "source": "README.md",
+      "claim": "The equivalent-radius slope is 0.991 times the reference slope, fit R-squared 0.9999, under explicit bound enforcement.",
+      "benchmark": "scalar_3d_spherical",
+      "level": "PROVENANCE_ONLY",
+      "supporting_paths": [
+        "docs/COMPLETED_EVIDENCE_LEDGER.md"
+      ],
+      "digests": {
+        "retained_public_record": "c9b8d0d4c7c53bc7cd4f96100b35c70ca265b5e0a0f6b271053743ebd56c7c09"
+      },
+      "not_supported_here": "The model behind this number is deliberately not distributed; see the exclusion_reason for scalar_3d_spherical in REPRODUCTION_LEVELS.json."
+    },
+    {
+      "id": "parameter_count",
+      "source": "README.md",
+      "claim": "The permutation-equivariant model carries 9,605 parameters.",
+      "benchmark": "n25_cascade_development",
+      "level": "FULL_RECOMPUTATION",
+      "supporting_paths": [
+        "checkpoints/n25_cascade_primary_permequiv.weights.npz",
+        "scripts/verify_checkpoint_identities.py"
+      ],
+      "digests": {},
+      "note": "Recounted from the constructed model by scripts/verify_checkpoint_identities.py; not transcribed."
+    },
+    {
+      "id": "reference_isolation",
+      "source": "README.md",
+      "claim": "On the training path that produced every model distributed here -- pinn_phase.training.explicit_mpf_trainer -- training uses only the initial condition; reference frames after t0 are used solely for offline audit, never for training, early stopping, or checkpoint selection.",
+      "benchmark": "code_property",
+      "level": "FULL_RECOMPUTATION",
+      "supporting_paths": [
+        "docs/TRAINING_PATH_DISCLOSURE.json",
+        "tests/test_no_reference_leakage.py",
+        "tests/test_training_path_disclosure.py",
+        "src/pinn_phase/training/explicit_mpf_trainer.py",
+        "src/pinn_phase/training/baseline.py",
+        "src/pinn_phase/training/modes.py"
+      ],
+      "digests": {},
+      "scope": "Verified for the explicit-MPF training path, which produced every model whose weights are distributed here. It is a claim about THAT path, not about every module in the shipped source. It does NOT hold for the historical scalar 64^3 spherical rung, whose warm-start lineage was selected with a score containing post-t0 reference terms; that rung is retained on the page, disclosed in README 'Scope and limitations' and beside the result itself, classified PROVENANCE_ONLY, and no weights for it are distributed.",
+      "benchmark_note": "Not a benchmark. This is a property of the shipped training source, verified by the test suite, not a result derived from any benchmark's fields.",
+      "verification_coverage": "tests/test_training_path_disclosure.py replays the disclosed policy of the four runs that carry one through the shipped guard and mutates each. The two 3D cube runs take their policy from benchmark adapter configurations that are identified by digest and not distributed, so their policies are recorded but not replayed. What the guard establishes, and what it does not, is stated in docs/TRAINING_PATH_DISCLOSURE.json 'guard_scope'; the data-flow property itself is established by reading explicit_mpf_trainer.py, not by the guard.",
+      "other_training_modules_present": "The shipped source also contains generic supervised training utilities that DO compare a prediction against a post-t0 reference frame in a differentiable loss: pinn_phase.training.baseline.train_autoregressive_surrogate and the SUPERVISED / WEAKLY_SUPERVISED modes in pinn_phase.training.modes. They are reviewed generic code, they are exported from the package, and they will run if a caller supplies reference frames. No model distributed here was trained with them, no benchmark in this archive invokes them, and they are outside the scope of the claim above -- which is why the claim names its path explicitly rather than speaking of 'the shipped code'. See docs/TRAINING_PATH_DISCLOSURE.json 'supervised_modules_present'."
+    },
+    {
+      "id": "multigrain_n44_component_count",
+      "source": "README.md",
+      "claim": "Given only the initial field, the model reproduces the whole 44-grain coarsening cascade down to one domain, matching the reference's thresholded component count at every saved frame.",
+      "benchmark": "multigrain_n44_scalar_cascade",
+      "level": "PROVENANCE_ONLY",
+      "supporting_paths": [
+        "media/multigrain_denser_n44_reference_vs_pinn_phase.gif",
+        "media/legacy_asset_manifest.json"
+      ],
+      "digests": {},
+      "not_supported_here": "No checkpoint, configuration or field for this run is distributed or identified in the evidence ledger. The animation is a retained earlier-public asset; component counts describe the topology of a thresholded field and are not persistent grain labels."
+    }
+  ],
+  "n16_96_prospective_transfer": {
+    "level": "PROVENANCE_ONLY",
+    "checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+    "no_new_training": true,
+    "public_records": "benchmarks/n16_96_transfer/expected_score.json",
+    "external_assets": "benchmarks/n16_96_transfer/manifest.json",
+    "renderer": "scripts/render_n16_96_transfer.py"
+  }
+}

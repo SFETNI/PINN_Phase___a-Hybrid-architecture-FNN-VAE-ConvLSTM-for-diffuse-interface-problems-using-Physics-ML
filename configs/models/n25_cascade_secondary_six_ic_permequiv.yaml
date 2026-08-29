@@ -1,0 +1,56 @@
+# Public model-reconstruction configuration.
+#
+# This file carries only the fields needed to rebuild the model class before a
+# strict load of the paired derived public replay weights. It is NOT the training
+# configuration of the run that produced the accepted parent checkpoint. That
+# training configuration is identified by SHA-256 in
+# docs/ARTIFACT_IDENTITY_LEDGER.json and is not distributed in this archive; the
+# two files have different digests and must not be conflated. What the training
+# path did with reference data is recorded separately in
+# docs/TRAINING_PATH_DISCLOSURE.json.
+#
+# Two distinct objects are named below and must not be conflated either:
+#
+#   accepted parent checkpoint  the scientific training payload. Identified here
+#                               by digest only; it is NOT distributed.
+#   public replay weights       a derived artifact carrying model-state tensors
+#                               and nothing else. Distributed, and the only thing
+#                               the public replay path loads. Its digest and every
+#                               tensor identity live in the adjacent lineage
+#                               record, not in this file, so that the derivation
+#                               stays checkable from one place.
+#
+# Verify construction and loading with:
+#   python scripts/verify_checkpoint_identities.py
+
+public_weights: checkpoints/n25_cascade_secondary_six_ic_permequiv.weights.npz
+weight_lineage: checkpoints/n25_cascade_secondary_six_ic_permequiv.lineage.json
+parent_checkpoint_sha256: 85e920603e69a9c035a585703ca6f12d27fc9050b8332939e38f11e2e6899c7b
+parent_checkpoint_distributed: false
+architecture_family: n3_permutation_equivariant_mpf
+class_name: PermEquivariantMPFRollout
+
+model:
+  architecture: explicit_mpf_ann_convlstm_hybrid
+  arch_variant: perm_equivariant_v1
+  hidden_channels: 10
+  encoder_channels: 4
+  kernel_size: 3
+  conv_padding_mode: circular
+  ann_hidden_features: [32, 32]
+  learnable_blend: true
+  blend_gamma: 0.5
+  projection_mode: soft_threshold_eps1e3
+  delta_scale: 0.0667
+  zero_initialize_heads: true
+  num_phases: 25
+
+physics:
+  eta_px: 3.0
+  sigma: 1.0
+  mu: 1.5e-05
+  dt_mu_sigma: 0.05
+  model_dt: 3333.3333333333335
+  boundary_condition: periodic
+
+grid: [128, 128]

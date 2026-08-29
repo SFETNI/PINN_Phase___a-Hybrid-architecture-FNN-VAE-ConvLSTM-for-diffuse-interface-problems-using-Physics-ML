@@ -1,0 +1,251 @@
+{
+  "assets": {
+    "n25_cascade_reference_vs_pinn_phase.gif": {
+      "sha256": "4e867ceefb0eeb148c5abf59c6961e205dd979bcddf2089b28be46f7456d73e7"
+    },
+    "n25_cascade_reference_vs_pinn_phase_poster.png": {
+      "sha256": "65a5bb8960a6be0548343be66f8808e8605a6b09a6b932a4de5cbc6a979c315d"
+    },
+    "n64_dense_reference_vs_pinn_phase.gif": {
+      "sha256": "15ca8df139a91bd210cc36de2b71f0613fd36cc433e7656211e6e67601d2d525"
+    },
+    "n64_dense_reference_vs_pinn_phase_poster.png": {
+      "sha256": "813bb7aac3875791260de1e6ebfccfa986226dc83c7fa2424f173a5ba3b317ef"
+    }
+  },
+  "license": "CC-BY-4.0",
+  "measurements": {
+    "n25_cascade_reference_vs_pinn_phase": {
+      "frames": 13,
+      "horizon_annotation": {
+        "beyond_status": "beyond represented horizon \u00b7 autonomous extrapolation",
+        "boundary_label": "H = 4,096",
+        "extrapolation_steps": 7904,
+        "final_step": 12000,
+        "first_frame_beyond_horizon": 6000,
+        "horizon_step": 4096,
+        "last_frame_within_horizon": 4000,
+        "model_series": "PINN-Phase autonomous rollout",
+        "no_restart_at_boundary": true,
+        "progressive_reveal": "every series is drawn only as far as the current step; no reference-derived value is shown ahead of the marker",
+        "reference_series": "PF reference (evaluation only)",
+        "region_labels": {
+          "beyond": "Autonomous extrapolation",
+          "within": "Within represented training horizon"
+        },
+        "within_status": "within represented training horizon \u00b7 autonomous rollout"
+      },
+      "loop_seconds": 18.6,
+      "recomputed": {
+        "differing_pixels_pct": [
+          0.0,
+          0.4272,
+          0.6592,
+          0.6958,
+          0.7996,
+          0.8057,
+          1.1047,
+          0.9644,
+          0.9705,
+          1.0193,
+          1.178,
+          1.416,
+          1.4648
+        ],
+        "model_active_grains": [
+          25,
+          25,
+          25,
+          25,
+          23,
+          18,
+          18,
+          17,
+          17,
+          17,
+          17,
+          16,
+          16
+        ],
+        "reference_active_grains": [
+          25,
+          25,
+          25,
+          25,
+          23,
+          18,
+          18,
+          17,
+          17,
+          17,
+          17,
+          17,
+          16
+        ],
+        "steps": [
+          0,
+          250,
+          500,
+          1000,
+          2000,
+          4000,
+          6000,
+          7000,
+          8000,
+          9000,
+          10000,
+          11000,
+          12000
+        ]
+      },
+      "size": [
+        1364,
+        946
+      ]
+    },
+    "n64_dense_reference_vs_pinn_phase": {
+      "frames": 25,
+      "horizon_annotation": {
+        "beyond_status": "beyond represented horizon \u00b7 autonomous extrapolation",
+        "boundary_label": "H = 8,192",
+        "extrapolation_steps": 3808,
+        "final_step": 12000,
+        "first_frame_beyond_horizon": 8500,
+        "horizon_step": 8192,
+        "last_frame_within_horizon": 8000,
+        "model_series": "PINN-Phase autonomous rollout",
+        "no_restart_at_boundary": true,
+        "progressive_reveal": "every series is drawn only as far as the current step; no reference-derived value is shown ahead of the marker",
+        "reference_series": "PF reference (evaluation only)",
+        "region_labels": {
+          "beyond": "Autonomous extrapolation",
+          "within": "Within represented training horizon"
+        },
+        "within_status": "within represented training horizon \u00b7 autonomous rollout"
+      },
+      "loop_seconds": 33.0,
+      "recomputed": {
+        "differing_pixels_pct": [
+          0.0,
+          0.1709,
+          0.2625,
+          0.2563,
+          0.3784,
+          0.5798,
+          0.5981,
+          0.7385,
+          0.8545,
+          0.7935,
+          1.3428,
+          1.6724,
+          1.5259,
+          1.8433,
+          2.0691,
+          2.2644,
+          2.0691,
+          2.3743,
+          2.4231,
+          2.7771,
+          3.0884,
+          3.4729,
+          3.5034,
+          3.9062,
+          3.9673
+        ],
+        "model_active_grains": [
+          64,
+          64,
+          64,
+          64,
+          63,
+          61,
+          56,
+          53,
+          49,
+          45,
+          45,
+          40,
+          34,
+          32,
+          30,
+          29,
+          25,
+          24,
+          24,
+          24,
+          24,
+          24,
+          22,
+          21,
+          21
+        ],
+        "reference_active_grains": [
+          64,
+          64,
+          64,
+          64,
+          63,
+          61,
+          56,
+          53,
+          49,
+          45,
+          45,
+          40,
+          35,
+          32,
+          30,
+          28,
+          25,
+          24,
+          24,
+          24,
+          24,
+          23,
+          22,
+          22,
+          21
+        ],
+        "steps": [
+          0,
+          500,
+          1000,
+          1500,
+          2000,
+          2500,
+          3000,
+          3500,
+          4000,
+          4500,
+          5000,
+          5500,
+          6000,
+          6500,
+          7000,
+          7500,
+          8000,
+          8500,
+          9000,
+          9500,
+          10000,
+          10500,
+          11000,
+          11500,
+          12000
+        ]
+      },
+      "size": [
+        1364,
+        946
+      ]
+    }
+  },
+  "renderer_sha256": "8f84b690155c3a584041c005cb9b733b6126a1c0207848febb97f495419f47d3",
+  "schema": "pinn-phase-media-manifest-v1",
+  "source_artifacts_sha256": {
+    "n25_model": "02f11f936fac16f206897a4023bc613ccf098834e8cfed39fb0ab18007208b4d",
+    "n25_reference": "351a55961ee187e327ba1a23c0f566350959eed2ebe8d9473945cc47158fd511",
+    "n64_model": "ea45d058f68b20daf479cec0c9da14927d6033fbcd16bbbaf4c2a591b6d72d35",
+    "n64_reference": "96d4a5422344a5a458f12e4dae154e9843f1407436b2dc461f7379e25891ffbe"
+  }
+}

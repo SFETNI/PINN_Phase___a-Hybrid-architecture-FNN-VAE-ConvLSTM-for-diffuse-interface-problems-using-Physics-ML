@@ -1,0 +1,290 @@
+{
+  "schema": "pinn-phase-artifact-identity-ledger-v2",
+  "description": "Byte identities of every model artifact this archive distributes, of the accepted parent checkpoint each one derives from, and of the training configuration that produced that parent. Two objects are named for each entry and must not be conflated: the ACCEPTED PARENT CHECKPOINT, a scientific training payload identified here by digest and NOT distributed; and the DERIVED PUBLIC REPLAY WEIGHTS, an artifact carrying model-state tensors only, which is distributed and is what every public command loads. The derivation is a packaging transformation: tensor names, dtypes, shapes and raw values are preserved exactly, and no model parameter changes. A digest recorded here is verified against the staged bytes by scripts/verify_checkpoint_identities.py and by tests/test_artifact_identity_ledger.py; a value that agrees only with the surrounding prose is rejected. Where training_config_distributed is false the digest is an identity, not a distributed file, and the configuration is classified PROVENANCE_ONLY.",
+  "artifacts": [
+    {
+      "name": "n25_cascade_primary_permequiv",
+      "benchmark": "n25_cascade_development",
+      "role": "primary",
+      "architecture_family": "n3_permutation_equivariant_mpf",
+      "class_name": "PermEquivariantMPFRollout",
+      "accepted_parent_checkpoint": {
+        "sha256": "6673d46000b00867e3b74d332342bea51050398ac873376b5fc1ba65a99556f3",
+        "distributed": false,
+        "carries_optimizer_state": false,
+        "read_by_public_code": false,
+        "note": "The accepted parent checkpoint carries model state and a small block of scalar training metadata, and no optimizer state. That parent is not distributed; the derived public replay weights carry model-state tensors only."
+      },
+      "parent_checkpoint_sha256": "6673d46000b00867e3b74d332342bea51050398ac873376b5fc1ba65a99556f3",
+      "parent_checkpoint_distributed": false,
+      "public_weights_path": "checkpoints/n25_cascade_primary_permequiv.weights.npz",
+      "public_weights_sha256": "e160ddbaa9e7837cb5e7b4be134c2614c14fae8376257a2331cac8cb4b8d499e",
+      "public_weights_bytes": 44300,
+      "public_weights_distributed": true,
+      "weight_lineage_path": "checkpoints/n25_cascade_primary_permequiv.lineage.json",
+      "weight_lineage_sha256": "7154667a9fdbaeb851fd559ea1356258ec4d4c77d22b4a93b18659937d50033f",
+      "model_state_fingerprint_sha256": "6a2bb03f1e8a12ff563ff9e96b42509ca7563adb354a4d17e7538d94f300d87e",
+      "tensor_count": 23,
+      "parameter_count": 9605,
+      "derivation": {
+        "transformation": "packaging only",
+        "script": "scripts/derive_public_weights.py",
+        "script_sha256": "345baa60a8a372d66eab984e17fae293ffa44441b87523cc0cb4afd7faba8fba",
+        "statement": "The derived artifact is not the accepted scientific checkpoint. Its digest is a packaging digest and must never be quoted as the identity of the accepted parent."
+      },
+      "model_reconstruction_config": "configs/models/n25_cascade_primary_permequiv.yaml",
+      "training_config_sha256": "324d4b50678c93a2999fef500e71ba02e7d4d39480c0519e26983b20d91a487a",
+      "training_config_bytes": 8552,
+      "training_config_distributed": false,
+      "initial_field": {
+        "path": "benchmarks/initial_conditions/n25_cascade_development_case_a.npz",
+        "derived_sha256": "027c30cef13f09bd06deff48be1ad9774196cb216758a1d8c09b9c5c88501dbf",
+        "parent_sha256": "351a55961ee187e327ba1a23c0f566350959eed2ebe8d9473945cc47158fd511",
+        "value_sha256": "bb2b62e44cf3f8d4df176c89439c323a5641e8632e02a245c92ad6222700e6db",
+        "dtype": "float32",
+        "shape": [
+          25,
+          128,
+          128
+        ]
+      }
+    },
+    {
+      "name": "n25_cascade_secondary_six_ic_permequiv",
+      "benchmark": "n25_unseen_ic_transfer",
+      "role": "secondary_non_rescuing",
+      "architecture_family": "n3_permutation_equivariant_mpf",
+      "class_name": "PermEquivariantMPFRollout",
+      "accepted_parent_checkpoint": {
+        "sha256": "85e920603e69a9c035a585703ca6f12d27fc9050b8332939e38f11e2e6899c7b",
+        "distributed": false,
+        "carries_optimizer_state": false,
+        "read_by_public_code": false,
+        "note": "The accepted parent checkpoint carries model state and a small block of scalar training metadata, and no optimizer state. That parent is not distributed; the derived public replay weights carry model-state tensors only."
+      },
+      "parent_checkpoint_sha256": "85e920603e69a9c035a585703ca6f12d27fc9050b8332939e38f11e2e6899c7b",
+      "parent_checkpoint_distributed": false,
+      "public_weights_path": "checkpoints/n25_cascade_secondary_six_ic_permequiv.weights.npz",
+      "public_weights_sha256": "8fd13deb8d72a36d78796d8d26d3164dcdbe9e8ae116de5960e80efdbfbc7e1e",
+      "public_weights_bytes": 44300,
+      "public_weights_distributed": true,
+      "weight_lineage_path": "checkpoints/n25_cascade_secondary_six_ic_permequiv.lineage.json",
+      "weight_lineage_sha256": "7ba02143b50ca75b3cd2c250e603220f05728ed2e7ac5603392f9d1a584c6993",
+      "model_state_fingerprint_sha256": "837994040943cd9e621a1f792290e1e7a0b610cd125f9d445b7bcc08a23c563e",
+      "tensor_count": 23,
+      "parameter_count": 9605,
+      "derivation": {
+        "transformation": "packaging only",
+        "script": "scripts/derive_public_weights.py",
+        "script_sha256": "345baa60a8a372d66eab984e17fae293ffa44441b87523cc0cb4afd7faba8fba",
+        "statement": "The derived artifact is not the accepted scientific checkpoint. Its digest is a packaging digest and must never be quoted as the identity of the accepted parent."
+      },
+      "model_reconstruction_config": "configs/models/n25_cascade_secondary_six_ic_permequiv.yaml",
+      "training_config_sha256": "03c5cfb54707ceefc1ee5d1da155ab2d3719757d230549423346ca18743438d0",
+      "training_config_bytes": 9431,
+      "training_config_distributed": false,
+      "initial_field": {
+        "note": "The secondary arm replays the prospective cohort initial fields under benchmarks/initial_conditions/n25_cohort_*.npz; it has no single bound initial field of its own."
+      }
+    },
+    {
+      "name": "n64_dense_primary_permequiv_ep0099",
+      "benchmark": "n64_dense",
+      "role": "registered_primary",
+      "architecture_family": "n3_permutation_equivariant_mpf",
+      "class_name": "PermEquivariantMPFRollout",
+      "accepted_parent_checkpoint": {
+        "sha256": "301d2431fec9fd75171888ce9635f5dcef1c200f9a7121f3cff3a29976785813",
+        "distributed": false,
+        "carries_optimizer_state": true,
+        "read_by_public_code": false,
+        "note": "The accepted parent checkpoint was written by the per-review save path and also contains optimizer state. That parent is not distributed. The derived public replay weights carry model-state tensors only: the optimizer state was never read during derivation and does not exist in the distributed artifact. The epoch and final-deployment role of each parent is established by the accepted completion and freeze record, NOT by the shape of its payload."
+      },
+      "parent_checkpoint_sha256": "301d2431fec9fd75171888ce9635f5dcef1c200f9a7121f3cff3a29976785813",
+      "parent_checkpoint_distributed": false,
+      "public_weights_path": "checkpoints/n64_dense_primary_permequiv_ep0099.weights.npz",
+      "public_weights_sha256": "44703ecfe7edc65316835976e218857d800d229199465b4f122e276fb30c262f",
+      "public_weights_bytes": 44300,
+      "public_weights_distributed": true,
+      "weight_lineage_path": "checkpoints/n64_dense_primary_permequiv_ep0099.lineage.json",
+      "weight_lineage_sha256": "71693a219600b7ddebea299a1529e55224b9c7774042cb893b955a6b7361fde5",
+      "model_state_fingerprint_sha256": "f8da4e0d07928199e7ee1f35e78383bad70c40000a5d2ce86e9a1d344b5186b5",
+      "tensor_count": 23,
+      "parameter_count": 9605,
+      "derivation": {
+        "transformation": "packaging only",
+        "script": "scripts/derive_public_weights.py",
+        "script_sha256": "345baa60a8a372d66eab984e17fae293ffa44441b87523cc0cb4afd7faba8fba",
+        "statement": "The derived artifact is not the accepted scientific checkpoint. Its digest is a packaging digest and must never be quoted as the identity of the accepted parent."
+      },
+      "model_reconstruction_config": "configs/models/n64_dense_primary_permequiv_ep0099.yaml",
+      "training_config_sha256": "ccb87eb42322849174e8c9bed1d69d252369ce2a0ead4a5f33ebfaf19a1a7749",
+      "training_config_bytes": 17111,
+      "training_config_distributed": false,
+      "initial_field": {
+        "path": "benchmarks/initial_conditions/n64_dense.npz",
+        "derived_sha256": "eadf30ba8814d8ad752c14cdd970cd35b38f4965551c5d6f7bf16c6b6ac3c7d3",
+        "parent_sha256": "96d4a5422344a5a458f12e4dae154e9843f1407436b2dc461f7379e25891ffbe",
+        "value_sha256": "d2f03fcb2a280dd85b14da15edbe7760ecb358740fe4578b8a34dd2e8c367054",
+        "dtype": "float32",
+        "shape": [
+          64,
+          128,
+          128
+        ]
+      }
+    },
+    {
+      "name": "n64_dense_sensitivity_h8192_ep0124",
+      "benchmark": "n64_dense",
+      "role": "post_evaluation_sensitivity",
+      "architecture_family": "n3_permutation_equivariant_mpf",
+      "class_name": "PermEquivariantMPFRollout",
+      "accepted_parent_checkpoint": {
+        "sha256": "d1fbef94e363b8fff49416f996854849c8d443c4f94a0fee4c34634752e597dd",
+        "distributed": false,
+        "carries_optimizer_state": true,
+        "read_by_public_code": false,
+        "note": "The accepted parent checkpoint was written by the per-review save path and also contains optimizer state. That parent is not distributed. The derived public replay weights carry model-state tensors only: the optimizer state was never read during derivation and does not exist in the distributed artifact. The epoch and final-deployment role of each parent is established by the accepted completion and freeze record, NOT by the shape of its payload."
+      },
+      "parent_checkpoint_sha256": "d1fbef94e363b8fff49416f996854849c8d443c4f94a0fee4c34634752e597dd",
+      "parent_checkpoint_distributed": false,
+      "public_weights_path": "checkpoints/n64_dense_sensitivity_h8192_ep0124.weights.npz",
+      "public_weights_sha256": "9b199b1d53eea17084c179ec6af989b5be2949432791f8bd8abf20340401a468",
+      "public_weights_bytes": 44300,
+      "public_weights_distributed": true,
+      "weight_lineage_path": "checkpoints/n64_dense_sensitivity_h8192_ep0124.lineage.json",
+      "weight_lineage_sha256": "e4f670c4934fbdbb1a042632e4bfb959c8acc15fb8277323f442c40d7ea5b70f",
+      "model_state_fingerprint_sha256": "ce7eb8c9ec0c1dc9c6cad2836385acb4b7f056c9083861c6da039fe1e851ae44",
+      "tensor_count": 23,
+      "parameter_count": 9605,
+      "derivation": {
+        "transformation": "packaging only",
+        "script": "scripts/derive_public_weights.py",
+        "script_sha256": "345baa60a8a372d66eab984e17fae293ffa44441b87523cc0cb4afd7faba8fba",
+        "statement": "The derived artifact is not the accepted scientific checkpoint. Its digest is a packaging digest and must never be quoted as the identity of the accepted parent."
+      },
+      "model_reconstruction_config": "configs/models/n64_dense_sensitivity_h8192_ep0124.yaml",
+      "training_config_sha256": "44d8fb5f74318686dd60fe90c6a77aac31c48597136adffc971afa8a135ad942",
+      "training_config_bytes": 18715,
+      "training_config_distributed": false,
+      "initial_field": {
+        "path": "benchmarks/initial_conditions/n64_dense.npz",
+        "derived_sha256": "eadf30ba8814d8ad752c14cdd970cd35b38f4965551c5d6f7bf16c6b6ac3c7d3",
+        "parent_sha256": "96d4a5422344a5a458f12e4dae154e9843f1407436b2dc461f7379e25891ffbe",
+        "value_sha256": "d2f03fcb2a280dd85b14da15edbe7760ecb358740fe4578b8a34dd2e8c367054",
+        "dtype": "float32",
+        "shape": [
+          64,
+          128,
+          128
+        ]
+      }
+    },
+    {
+      "name": "n8_64_cube_hybrid",
+      "benchmark": "n8_64_cube",
+      "role": "single_designed_case",
+      "architecture_family": "legacy_pa_hybrid_mpf",
+      "class_name": "ExplicitMPFHybridRollout",
+      "accepted_parent_checkpoint": {
+        "sha256": "2482f3bf315f61be82492aa972bacb2e8895942509c993f6c017d72fc46e5441",
+        "distributed": false,
+        "carries_optimizer_state": false,
+        "read_by_public_code": false,
+        "note": "The accepted parent checkpoint carries model state and a small block of scalar training metadata, and no optimizer state. That parent is not distributed; the derived public replay weights carry model-state tensors only."
+      },
+      "parent_checkpoint_sha256": "2482f3bf315f61be82492aa972bacb2e8895942509c993f6c017d72fc46e5441",
+      "parent_checkpoint_distributed": false,
+      "public_weights_path": "checkpoints/n8_64_cube_hybrid.weights.npz",
+      "public_weights_sha256": "327e420f4b25b9c9dae10514e4f672e1057d9d1728ed839e5f5b535b4898ef60",
+      "public_weights_bytes": 29446192,
+      "public_weights_distributed": true,
+      "weight_lineage_path": "checkpoints/n8_64_cube_hybrid.lineage.json",
+      "weight_lineage_sha256": "0b70d1bb082ccbbc0c0bb649663c4cf3e184551acf6cded81376b61f6179e1fc",
+      "model_state_fingerprint_sha256": "1cea31116566b3d54f65130a5a1592dcc6540839cb99e90c515096e4f183d5aa",
+      "tensor_count": 21,
+      "parameter_count": 7360202,
+      "derivation": {
+        "transformation": "packaging only",
+        "script": "scripts/derive_public_weights.py",
+        "script_sha256": "345baa60a8a372d66eab984e17fae293ffa44441b87523cc0cb4afd7faba8fba",
+        "statement": "The derived artifact is not the accepted scientific checkpoint. Its digest is a packaging digest and must never be quoted as the identity of the accepted parent."
+      },
+      "model_reconstruction_config": "configs/models/n8_64_cube_hybrid.yaml",
+      "training_config_sha256": "681ac195f53743c5a0d506ac40316544b62182834fa58eacbb15eadf4b87fd30",
+      "training_config_bytes": 1896,
+      "training_config_distributed": true,
+      "initial_field": {
+        "path": "benchmarks/initial_conditions/n8_64_cube.npz",
+        "derived_sha256": "819b9196b3901827b69fc08e4f872bd3e72aa055719cd700f374ac1dae7cb6cb",
+        "parent_sha256": "ae0e698a23c4ee1017b328d31333fdbd39452677548f0fa70a8afabe870a186d",
+        "value_sha256": "deaedaeef36549effc4b8ee6c9a875fb9ab812b7d3417533636431f922d97101",
+        "dtype": "float32",
+        "shape": [
+          8,
+          64,
+          64,
+          64
+        ]
+      }
+    },
+    {
+      "name": "n16_96_cube_hybrid",
+      "benchmark": "n16_96_cube",
+      "role": "single_designed_case",
+      "architecture_family": "legacy_pa_hybrid_mpf",
+      "class_name": "ExplicitMPFHybridRollout",
+      "accepted_parent_checkpoint": {
+        "sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+        "distributed": false,
+        "carries_optimizer_state": false,
+        "read_by_public_code": false,
+        "note": "The accepted parent checkpoint carries model state and a small block of scalar training metadata, and no optimizer state. That parent is not distributed; the derived public replay weights carry model-state tensors only."
+      },
+      "parent_checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+      "parent_checkpoint_distributed": false,
+      "public_weights_path": "checkpoints/n16_96_cube_hybrid.weights.npz",
+      "public_weights_sha256": "690fd690e8af107870743dcd2f43b95e0c05c46ca4dd4b9d11f64e7994fb93c9",
+      "public_weights_bytes": 8210512,
+      "public_weights_distributed": true,
+      "weight_lineage_path": "checkpoints/n16_96_cube_hybrid.lineage.json",
+      "weight_lineage_sha256": "b6bf4ccaad85d89efe7d484b6e8fb8328f5a93fb75f8fb9f0609358c066ab538",
+      "model_state_fingerprint_sha256": "c96b0d10fa20b1d823b5d74d055af5a49e76993bd40d5fa4ef8b6ce097e1a56a",
+      "tensor_count": 21,
+      "parameter_count": 2051282,
+      "derivation": {
+        "transformation": "packaging only",
+        "script": "scripts/derive_public_weights.py",
+        "script_sha256": "345baa60a8a372d66eab984e17fae293ffa44441b87523cc0cb4afd7faba8fba",
+        "statement": "The derived artifact is not the accepted scientific checkpoint. Its digest is a packaging digest and must never be quoted as the identity of the accepted parent."
+      },
+      "model_reconstruction_config": "configs/models/n16_96_cube_hybrid.yaml",
+      "training_config_sha256": null,
+      "training_config_distributed": false,
+      "training_config_note": "No accepted configuration digest exists for this run in the evidence ledger.",
+      "initial_field": {
+        "path": "benchmarks/initial_conditions/n16_96_cube.npz",
+        "derived_sha256": "81eef72fd4d8ee2e9686b34d38fa6f9d02aa1fee99f0da900ea4bea9368229b5",
+        "parent_sha256": "d6a5e7f28b85d14c1610eecabb017107f3caa48e73fe78c3c3270b75be389e3e",
+        "value_sha256": "caba3a1c375714d7bbf371e7268d6680b8bf0d810fac839ad2f9d29058095c1e",
+        "dtype": "float32",
+        "shape": [
+          16,
+          96,
+          96,
+          96
+        ]
+      }
+    }
+  ],
+  "payload_disclosure": "Where a checkpoint carries more than model weights, the extra content is named here and its treatment during replay is stated. No checkpoint's bytes were altered to tidy this up: altering them would change the identity that makes them evidence.",
+  "n16_96_prospective_transfer": {
+    "level": "PROVENANCE_ONLY",
+    "checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+    "no_new_training": true,
+    "public_records": "benchmarks/n16_96_transfer/expected_score.json",
+    "external_assets": "benchmarks/n16_96_transfer/manifest.json",
+    "renderer": "scripts/render_n16_96_transfer.py"
+  }
+}

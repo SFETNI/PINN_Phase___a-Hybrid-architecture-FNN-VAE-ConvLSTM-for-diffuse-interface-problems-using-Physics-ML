@@ -1,0 +1,16 @@
+name: pinn-phase-cpu
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=2.2
+  - scipy=1.16
+  - pyyaml=6.0
+  - psutil=7
+  - pillow=12.2.0
+  - pytorch>=2.6,<3
+  - pip
+  - pip:
+      - pytest>=8.4,<9
+      - -e .

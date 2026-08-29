@@ -1,0 +1,286 @@
+{
+  "schema": "pinn-phase-training-path-disclosure-v1",
+  "purpose": "What the training path behind each distributed model was permitted to read. Every policy block below is reproduced from the training configuration whose digest is given beside it. tests/test_training_path_disclosure.py replays each block through the shipped fail-closed guard pinn_phase.training.assert_no_reference_leakage, and additionally asserts that a mutated copy of each block is rejected, so a policy that merely looks compliant cannot pass. No accepted parent checkpoint and no training entry point is distributed, so what is established here is a property of the shipped code and of these recorded policies, not the result of running training.",
+  "verified_properties": {
+    "training_loads_t0_only": {
+      "holds": true,
+      "evidence": "physics/explicit_mpf.py load_explicit_mpf_initial_reference returns ExplicitMPFReference, whose dataclass fields contain phi0 and no trajectory-like field; the loader rejects any archive whose key set differs from the reviewed t0-only schema before reading any member.",
+      "test": "tests/test_no_reference_leakage.py"
+    },
+    "no_post_t0_reference_in_the_loss": {
+      "holds": true,
+      "evidence": "The residual target is explicit_mpf_rhs evaluated on the model's own field; no post-t0 reference tensor is constructed anywhere in training/explicit_mpf_trainer.py."
+    },
+    "no_reference_trajectory_in_model_input": {
+      "holds": true,
+      "evidence": "reference_usage_policy.graph_features_from is pinned to model_phi_only and the guard raises ReferenceLeakageError for any other value."
+    },
+    "no_reference_metric_selects_a_checkpoint": {
+      "holds": true,
+      "scope": "Verified for every selection mechanism PRESENT in this archive. Two of the six accepted parent checkpoints were written by the per-review save path and are named for mid-run epochs; which of those was deployed is established by the accepted completion and freeze record, and the selector that made that choice is not part of this archive. Those parents are not distributed here in any case: what ships is the derived public replay weights, which carry model state only. This property is therefore verified for the shipped code, and attested rather than proven for the historical run.",
+      "evidence": "The string best_physical does not occur anywhere in src/pinn_phase/training/. Early stopping reads only model-internal review-row fields (active_phase_count, projection_correction_l1, cap saturation). The one reference-comparing branch of evaluate_early_stop_gates is guarded by zero_rate_baseline, which the sole call site (explicit_mpf_trainer.py:1928) does not pass, and its input field learned_vs_zero_rate_disagree has no producer in the shipped source.",
+      "test": "tests/test_training_path_disclosure.py"
+    },
+    "no_hidden_label_cache_bundled": {
+      "holds": true,
+      "evidence": "The only reference arrays in this archive are the evaluation-only fixtures under benchmarks/n25_transfer/data/, bound by benchmarks/n25_transfer/manifest.json. No module under src/pinn_phase/training/ resolves that directory."
+    },
+    "reference_and_evaluation_are_mechanically_separate": {
+      "holds": true,
+      "evidence": "Reference arrays are reachable only through pinn_phase.evaluation.n25_transfer and the reproduction script; the training package does not import either."
+    }
+  },
+  "runs": [
+    {
+      "name": "n25_cascade_primary_permequiv",
+      "training_config_sha256": "324d4b50678c93a2999fef500e71ba02e7d4d39480c0519e26983b20d91a487a",
+      "reference_usage_policy": {
+        "training_initial_condition": "Phi_ref_t0_only",
+        "training_uses_reference_frames_after_t0": false,
+        "reference_after_t0_use": "audit_only",
+        "audit_uses_reference_frames_after_t0": true,
+        "graph_features_from": "model_phi_only",
+        "latent_targets_from_reference_after_t0": false,
+        "sampler_targets_from_reference_after_t0": false
+      },
+      "training_policy": {
+        "supervision": "initial_condition_only",
+        "no_training_labels_after_t0": true,
+        "no_reference_graph_after_t0": true,
+        "no_reference_latent_targets_after_t0": true
+      },
+      "early_stop_config_keys": [
+        "enabled",
+        "grace_epochs",
+        "max_cap_saturation_after_grace",
+        "max_projection_l1",
+        "min_active_phases"
+      ]
+    },
+    {
+      "name": "n25_cascade_secondary_six_ic_permequiv",
+      "training_config_sha256": "03c5cfb54707ceefc1ee5d1da155ab2d3719757d230549423346ca18743438d0",
+      "reference_usage_policy": {
+        "training_initial_condition": "six_frozen_foundry_t0_fields_only",
+        "training_uses_reference_frames_after_t0": false,
+        "reference_after_t0_use": "none_reference_trajectories_did_not_exist_when_this_model_was_trained",
+        "audit_uses_reference_frames_after_t0": false,
+        "graph_features_from": "model_phi_only",
+        "latent_targets_from_reference_after_t0": false,
+        "sampler_targets_from_reference_after_t0": false
+      },
+      "training_policy": {
+        "supervision": "initial_condition_only",
+        "no_training_labels_after_t0": true,
+        "no_reference_graph_after_t0": true,
+        "no_reference_latent_targets_after_t0": true
+      },
+      "training_initial_condition_digests": [
+        {
+          "admitted_ordinal": 1,
+          "t0_sha256": "28ac70b1f7e1cb30957340dbf8dbf95b6a7df52ff3ed858e30460424da756a6f"
+        },
+        {
+          "admitted_ordinal": 2,
+          "t0_sha256": "a096685d129d4da3c2d67cd27a94dceb0b64aa437a430c399d17c617b62bc572"
+        },
+        {
+          "admitted_ordinal": 3,
+          "t0_sha256": "722fca7821651d34bf6b5764989910021eb80f0c710df3d1870b52729c8408d8"
+        },
+        {
+          "admitted_ordinal": 4,
+          "t0_sha256": "96082c91f7e036f64fea2a6670a68ae9d47f104450dc44c79d1bb09688aaed75"
+        },
+        {
+          "admitted_ordinal": 5,
+          "t0_sha256": "ec52d97b72ac9eabf9073690e44f62a738b6d6bc41134202eb68f525f10c9f64"
+        },
+        {
+          "admitted_ordinal": 6,
+          "t0_sha256": "acda9573c3341cafcc7ff3d96eab6384adb5c7e708d83c37e11f807d0256d108"
+        }
+      ],
+      "early_stop_config_keys": [
+        "enabled",
+        "grace_epochs",
+        "max_cap_saturation_after_grace",
+        "max_projection_l1",
+        "min_active_phases"
+      ]
+    },
+    {
+      "name": "n64_dense_primary_permequiv_ep0099",
+      "training_config_sha256": "ccb87eb42322849174e8c9bed1d69d252369ce2a0ead4a5f33ebfaf19a1a7749",
+      "reference_usage_policy": {
+        "training_initial_condition": "Phi_ref_t0_only",
+        "training_uses_reference_frames_after_t0": false,
+        "reference_after_t0_use": "audit_only",
+        "audit_uses_reference_frames_after_t0": true,
+        "graph_features_from": "model_phi_only",
+        "latent_targets_from_reference_after_t0": false,
+        "sampler_targets_from_reference_after_t0": false
+      },
+      "training_policy": {
+        "supervision": "initial_condition_only",
+        "no_training_labels_after_t0": true,
+        "no_reference_graph_after_t0": true,
+        "no_reference_latent_targets_after_t0": true,
+        "single_attempt": true
+      },
+      "early_stop_config_keys": [
+        "enabled",
+        "grace_epochs",
+        "max_cap_saturation_after_grace",
+        "max_projection_l1",
+        "min_active_phases"
+      ],
+      "training_policy_derived": {
+        "checkpoint_search_prohibited": true,
+        "hyperparameter_tuning_prohibited": true,
+        "retry_prohibited": true,
+        "post_t0_informed_amendment_prohibited": true,
+        "basis": "The data-access and evaluation conditions this run was carried out under, stated as booleans. The run was executed once under conditions fixed in advance: no checkpoint was selected by comparing candidates against a reference, no hyperparameter was tuned against one, the run was not retried, and the configuration was not amended after any post-t0 reference was examined."
+      }
+    },
+    {
+      "name": "n64_dense_sensitivity_h8192_ep0124",
+      "training_config_sha256": "44d8fb5f74318686dd60fe90c6a77aac31c48597136adffc971afa8a135ad942",
+      "reference_usage_policy": {
+        "training_initial_condition": "Phi_ref_t0_only",
+        "training_uses_reference_frames_after_t0": false,
+        "reference_after_t0_use": "audit_only",
+        "audit_uses_reference_frames_after_t0": true,
+        "graph_features_from": "model_phi_only",
+        "latent_targets_from_reference_after_t0": false,
+        "sampler_targets_from_reference_after_t0": false
+      },
+      "training_policy": {
+        "supervision": "initial_condition_only",
+        "no_training_labels_after_t0": true,
+        "no_reference_graph_after_t0": true,
+        "no_reference_latent_targets_after_t0": true,
+        "single_attempt": true
+      },
+      "early_stop_config_keys": [
+        "enabled",
+        "grace_epochs",
+        "max_cap_saturation_after_grace",
+        "max_projection_l1",
+        "min_active_phases"
+      ],
+      "training_policy_derived": {
+        "checkpoint_search_prohibited": true,
+        "hyperparameter_tuning_prohibited": true,
+        "retry_prohibited": true,
+        "post_t0_informed_amendment_prohibited": true,
+        "basis": "The data-access and evaluation conditions this run was carried out under, stated as booleans. The run was executed once under conditions fixed in advance: no checkpoint was selected by comparing candidates against a reference, no hyperparameter was tuned against one, the run was not retried, and the configuration was not amended after any post-t0 reference was examined."
+      }
+    },
+    {
+      "name": "n8_64_cube_hybrid",
+      "training_config_sha256": "681ac195f53743c5a0d506ac40316544b62182834fa58eacbb15eadf4b87fd30",
+      "reference_usage_policy": {},
+      "training_policy": {},
+      "reference_usage_policy_note": "This experiment configuration carries only a model block; its reference-usage policy is the benchmark adapter policy recorded under benchmark_adapter_policies."
+    }
+  ],
+  "benchmark_adapter_policies": {
+    "note": "The two 3D cube runs take their reference-usage policy from the benchmark adapter configuration rather than from the experiment configuration. Those adapters are identified by digest and are not distributed: they name reference arrays that this archive does not carry.",
+    "adapters": [
+      {
+        "name": "n8_64_cube_hybrid",
+        "adapter_config_sha256": "9b1c1c62f19930050f94e272a70c94543307d9dc0804009db10eb44e73387926",
+        "adapter_config_distributed": false,
+        "validation_policy": {
+          "training_allowed": false,
+          "reference_use": "audit_only",
+          "training_uses_reference_frames_after_t0": false,
+          "reference_after_t0_use": "audit_only",
+          "pf_reference_decision": "accepted",
+          "reference_status": "ACCEPTED_FROZEN_T0ONLY_SMOKE_ADAPTER"
+        }
+      },
+      {
+        "name": "n16_96_cube_hybrid",
+        "adapter_config_sha256": "96b77ec2dc8db48d0a8b1a82cdfe6ed72add08d50d542aee3aa2d856323c1c3a",
+        "adapter_config_distributed": false,
+        "validation_policy": {
+          "training_allowed": false,
+          "reference_use": "audit_only",
+          "training_uses_reference_frames_after_t0": false,
+          "reference_after_t0_use": "audit_only",
+          "pf_reference_decision": "accepted",
+          "reference_status": "ACCEPTED_FROZEN_T0ONLY_SMOKE_ADAPTER"
+        }
+      }
+    ]
+  },
+  "disclosure_policy": {
+    "reproduced_keys": [
+      "supervision",
+      "no_training_labels_after_t0",
+      "no_reference_graph_after_t0",
+      "no_reference_latent_targets_after_t0",
+      "single_attempt"
+    ],
+    "note": "Only the keys above are reproduced from each training configuration. Keys that govern when a run was allowed to start carry no information about what the training path could read, and are omitted. The omission is deliberate and is enforced by tests/test_public_artifacts.py, which fails on any internal identifier anywhere in the tree."
+  },
+  "verification_coverage": "Four of the six distributed models carry a reference-usage policy in their training configuration, and each of those four is replayed through the shipped fail-closed guard and then mutated to confirm the guard refuses. The two 3D cube runs take their policy from benchmark adapter configurations, recorded here by digest and not distributed; their policies are disclosed but not replayed through the guard.",
+  "no_training_entry_point": {
+    "what_is_absent": "No command-line or console entry point for training ships. pyproject.toml declares no [project.scripts]; no module under src/ has a __main__ guard; and no script in scripts/ invokes a trainer. Nothing here starts a training run for you.",
+    "what_is_present": "The training functions themselves are shipped and exported, so a caller who imports the package can invoke train_explicit_mpf directly and it will run, take optimizer steps and write a checkpoint. That is a property of shipping the source for audit. It is stated here rather than left to be discovered, because 'training cannot be executed' would be false.",
+    "what_cannot_be_reproduced": "The training runs behind the distributed models. Their training configurations are identified by digest and not distributed (one exception, recorded in docs/ARTIFACT_IDENTITY_LEDGER.json), their initial-condition archives are not distributed, and the accepted parent checkpoints are not distributed. So the archive supports inference replay and code audit, not training reproduction.",
+    "consequence_for_the_claims_here": "Every training-path property recorded in this file is established by reading the shipped source and by replaying the recorded policies through the shipped guard. None of it is established by re-running the training that produced a distributed model, and this archive does not claim otherwise."
+  },
+  "multi_initial_condition_loader": "The historical six-initial-condition training loader, training/multi_ic_t0_batch.py, admits an archive only if its member set equals exactly {fields, labels, seeds, targets, weights, phase_permutation, provenance_json}. Those members are t0-time quantities and only 'fields' is read into the model; the rest are loaded and discarded. That schema is deliberately NOT the schema of the public replay path, which accepts exactly {phi0} and refuses every one of those member names. The two loaders serve different paths and the difference is intentional: the historical loader was left unchanged rather than retrofitted. Those six training archives are identified by digest and are not distributed, so the contents of their label-shaped members cannot be inspected here.",
+  "supervised_modules_present": {
+    "statement": "The shipped source contains generic supervised training utilities that compare a prediction against a post-t0 reference frame inside a differentiable loss. They are disclosed here because a reader who greps the source will find them, and because the reference-usage claims in this archive would read as contradicted if they were left unmentioned.",
+    "modules": [
+      {
+        "path": "src/pinn_phase/training/baseline.py",
+        "function": "train_autoregressive_surrogate",
+        "behaviour": "Takes a reference trajectory, uses frame index+1 as a target, and adds a mean-squared supervised term to the loss."
+      },
+      {
+        "path": "src/pinn_phase/training/modes.py",
+        "function": "compute_mode_losses",
+        "behaviour": "In SUPERVISED and WEAKLY_SUPERVISED modes, loads ground truth through a caller-supplied loader and adds a mean-squared supervision term."
+      }
+    ],
+    "relation_to_the_distributed_models": "No model whose weights are distributed here was trained with either module. All six were produced by pinn_phase.training.explicit_mpf_trainer, whose data flow is the subject of the reference-isolation claim. Neither module is invoked by any script, benchmark or test in this archive, and neither is called by the explicit-MPF trainer.",
+    "why_they_ship": "They are part of the reviewed generic source released for inspection. Removing them would make the released source differ from the accepted source, which is the thing the source-lineage map exists to rule out."
+  },
+  "guard_scope": {
+    "what_the_guard_is": "pinn_phase.training.assert_no_reference_leakage validates the reference-usage declaration in a training configuration. It runs at entry to explicit-MPF training, before any data, model, checkpoint or output is touched.",
+    "contract": "Fail closed. It requires the complete reviewed policy key set with exact value types; the three post-t0 reference flags must be the literal False; graph features must come from the model's own field; the initial-condition mode must be one of the two reviewed values and the multi-initial-condition contract must hold in both directions; and training_policy must declare initial-condition-only supervision with its three no-reference flags literally True. A missing block, an empty block, a missing key, an unreviewed extra key, a string or numeric stand-in for a boolean, a misspelled key, or a non-mapping argument is refused with ReferenceLeakageError.",
+    "what_it_proves": "That a run's declared policy matches the reviewed contract exactly, and that a run declaring anything else does not start.",
+    "what_it_does_not_establish": "What the training loop actually did. This is configuration validation: it reads a mapping. It does not read a tensor, open a data file, or watch the loop execute. The evidence that no post-t0 reference reaches model input, the loss, checkpoint selection or early stopping is the data-flow audit of src/pinn_phase/training/explicit_mpf_trainer.py, which can be read here in full.",
+    "required_policy_keys": [
+      "audit_uses_reference_frames_after_t0",
+      "graph_features_from",
+      "latent_targets_from_reference_after_t0",
+      "reference_after_t0_use",
+      "sampler_targets_from_reference_after_t0",
+      "training_initial_condition",
+      "training_uses_reference_frames_after_t0"
+    ],
+    "required_training_policy_keys": [
+      "no_reference_graph_after_t0",
+      "no_reference_latent_targets_after_t0",
+      "no_training_labels_after_t0",
+      "supervision"
+    ],
+    "training_policy_is_mandatory": "Yes. All four accepted explicit-MPF training configurations carry it in full. The only disclosure record here without one is a retained experiment configuration whose policy lives in a benchmark adapter and which is not a training configuration. Treating the block as optional would let a run omit its supervision declaration entirely and still pass.",
+    "call_sites": "One: the explicit-MPF training entry point. The other training functions in the package do not call it, and the reference-isolation claim is scoped to the explicit-MPF path accordingly.",
+    "verification": "tests/test_reference_policy_guard.py runs an adversarial mutation matrix over every policy key and both initial-condition modes, and requires each of the four accepted policies recorded below to pass unmodified."
+  },
+  "n16_96_prospective_transfer": {
+    "level": "PROVENANCE_ONLY",
+    "checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+    "no_new_training": true,
+    "public_records": "benchmarks/n16_96_transfer/expected_score.json",
+    "external_assets": "benchmarks/n16_96_transfer/manifest.json",
+    "renderer": "scripts/render_n16_96_transfer.py"
+  }
+}

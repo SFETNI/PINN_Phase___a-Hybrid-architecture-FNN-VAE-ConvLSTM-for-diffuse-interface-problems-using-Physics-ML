@@ -1,0 +1,301 @@
+{
+  "cases": [
+    {
+      "complete_predefined_qualification": true,
+      "event_offsets": [
+        {
+          "offset_steps": -200,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 200,
+          "within_plus_minus_200": true
+        }
+      ],
+      "extinction_identities_equal": true,
+      "finite_values": true,
+      "inf_count": 0,
+      "maximum_phase_sum_error": 4.76837158203125e-07,
+      "minimum_persistence_gain_percentage_points": 0.007234,
+      "minimum_persistence_gain_step": 3200,
+      "model_terminal_active_count": 13,
+      "monitoring_horizon_exact": true,
+      "monitoring_horizon_step": 3200,
+      "nan_count": 0,
+      "persistence_all_post_initial_strictly_above_static_t0": true,
+      "persistence_frames_compared": 16,
+      "persistence_frames_strictly_greater": 16,
+      "public_name": "Unseen microstructure 1",
+      "reference_terminal_active_count": 13,
+      "saved_cadence_exact": true,
+      "static_t0_agreement_percent": 93.354515,
+      "tail_active_set_equal": true,
+      "terminal_active_set_equal": true,
+      "terminal_agreement_percent": 95.062595,
+      "terminal_disagreement_percent": 4.937405,
+      "terminal_gain_percentage_points": 1.70808,
+      "terminal_step": 1600,
+      "unmet_criteria": [],
+      "wave_order_preserved": true
+    },
+    {
+      "complete_predefined_qualification": true,
+      "event_offsets": [
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        }
+      ],
+      "extinction_identities_equal": true,
+      "finite_values": true,
+      "inf_count": 0,
+      "maximum_phase_sum_error": 4.76837158203125e-07,
+      "minimum_persistence_gain_percentage_points": 0.494159,
+      "minimum_persistence_gain_step": 200,
+      "model_terminal_active_count": 13,
+      "monitoring_horizon_exact": true,
+      "monitoring_horizon_step": 3200,
+      "nan_count": 0,
+      "persistence_all_post_initial_strictly_above_static_t0": true,
+      "persistence_frames_compared": 16,
+      "persistence_frames_strictly_greater": 16,
+      "public_name": "Unseen microstructure 2",
+      "reference_terminal_active_count": 13,
+      "saved_cadence_exact": true,
+      "static_t0_agreement_percent": 93.66116,
+      "tail_active_set_equal": true,
+      "terminal_active_set_equal": true,
+      "terminal_agreement_percent": 95.616206,
+      "terminal_disagreement_percent": 4.383794,
+      "terminal_gain_percentage_points": 1.955046,
+      "terminal_step": 1600,
+      "unmet_criteria": [],
+      "wave_order_preserved": true
+    },
+    {
+      "complete_predefined_qualification": true,
+      "event_offsets": [
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": -200,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        }
+      ],
+      "extinction_identities_equal": true,
+      "finite_values": true,
+      "inf_count": 0,
+      "maximum_phase_sum_error": 4.76837158203125e-07,
+      "minimum_persistence_gain_percentage_points": 0.454373,
+      "minimum_persistence_gain_step": 200,
+      "model_terminal_active_count": 13,
+      "monitoring_horizon_exact": true,
+      "monitoring_horizon_step": 3200,
+      "nan_count": 0,
+      "persistence_all_post_initial_strictly_above_static_t0": true,
+      "persistence_frames_compared": 16,
+      "persistence_frames_strictly_greater": 16,
+      "public_name": "Unseen microstructure 3",
+      "reference_terminal_active_count": 13,
+      "saved_cadence_exact": true,
+      "static_t0_agreement_percent": 93.777014,
+      "tail_active_set_equal": true,
+      "terminal_active_set_equal": true,
+      "terminal_agreement_percent": 95.831412,
+      "terminal_disagreement_percent": 4.168588,
+      "terminal_gain_percentage_points": 2.054398,
+      "terminal_step": 1600,
+      "unmet_criteria": [],
+      "wave_order_preserved": true
+    },
+    {
+      "complete_predefined_qualification": true,
+      "event_offsets": [
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 200,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 200,
+          "within_plus_minus_200": true
+        }
+      ],
+      "extinction_identities_equal": true,
+      "finite_values": true,
+      "inf_count": 0,
+      "maximum_phase_sum_error": 4.76837158203125e-07,
+      "minimum_persistence_gain_percentage_points": 0.684724,
+      "minimum_persistence_gain_step": 200,
+      "model_terminal_active_count": 13,
+      "monitoring_horizon_exact": true,
+      "monitoring_horizon_step": 3200,
+      "nan_count": 0,
+      "persistence_all_post_initial_strictly_above_static_t0": true,
+      "persistence_frames_compared": 16,
+      "persistence_frames_strictly_greater": 16,
+      "public_name": "Unseen microstructure 4",
+      "reference_terminal_active_count": 13,
+      "saved_cadence_exact": true,
+      "static_t0_agreement_percent": 93.228941,
+      "tail_active_set_equal": true,
+      "terminal_active_set_equal": true,
+      "terminal_agreement_percent": 95.59654,
+      "terminal_disagreement_percent": 4.40346,
+      "terminal_gain_percentage_points": 2.367599,
+      "terminal_step": 1600,
+      "unmet_criteria": [],
+      "wave_order_preserved": true
+    },
+    {
+      "complete_predefined_qualification": false,
+      "event_offsets": [
+        {
+          "offset_steps": 200,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        }
+      ],
+      "extinction_identities_equal": true,
+      "finite_values": true,
+      "inf_count": 0,
+      "maximum_phase_sum_error": 4.76837158203125e-07,
+      "minimum_persistence_gain_percentage_points": -0.080589,
+      "minimum_persistence_gain_step": 3200,
+      "model_terminal_active_count": 13,
+      "monitoring_horizon_exact": true,
+      "monitoring_horizon_step": 3200,
+      "nan_count": 0,
+      "persistence_all_post_initial_strictly_above_static_t0": false,
+      "persistence_frames_compared": 16,
+      "persistence_frames_strictly_greater": 15,
+      "public_name": "Unseen microstructure 5",
+      "reference_terminal_active_count": 13,
+      "saved_cadence_exact": true,
+      "static_t0_agreement_percent": 93.429,
+      "tail_active_set_equal": true,
+      "terminal_active_set_equal": true,
+      "terminal_agreement_percent": 95.454802,
+      "terminal_disagreement_percent": 4.545198,
+      "terminal_gain_percentage_points": 2.025802,
+      "terminal_step": 1600,
+      "unmet_criteria": [
+        "strict persistence versus static-t0 at every saved post-initial state",
+        "strict reference extinction-wave order"
+      ],
+      "wave_order_preserved": false
+    },
+    {
+      "complete_predefined_qualification": true,
+      "event_offsets": [
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 200,
+          "within_plus_minus_200": true
+        },
+        {
+          "offset_steps": 0,
+          "within_plus_minus_200": true
+        }
+      ],
+      "extinction_identities_equal": true,
+      "finite_values": true,
+      "inf_count": 0,
+      "maximum_phase_sum_error": 4.76837158203125e-07,
+      "minimum_persistence_gain_percentage_points": 0.672856,
+      "minimum_persistence_gain_step": 200,
+      "model_terminal_active_count": 13,
+      "monitoring_horizon_exact": true,
+      "monitoring_horizon_step": 3200,
+      "nan_count": 0,
+      "persistence_all_post_initial_strictly_above_static_t0": true,
+      "persistence_frames_compared": 16,
+      "persistence_frames_strictly_greater": 16,
+      "public_name": "Unseen microstructure 6",
+      "reference_terminal_active_count": 13,
+      "saved_cadence_exact": true,
+      "static_t0_agreement_percent": 93.077709,
+      "tail_active_set_equal": true,
+      "terminal_active_set_equal": true,
+      "terminal_agreement_percent": 95.543529,
+      "terminal_disagreement_percent": 4.456471,
+      "terminal_gain_percentage_points": 2.46582,
+      "terminal_step": 1600,
+      "unmet_criteria": [],
+      "wave_order_preserved": true
+    }
+  ],
+  "checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+  "headline": {
+    "complete_predefined_qualification": "5/6",
+    "event_offsets": {
+      "early_by_200": 2,
+      "exact": 11,
+      "late_by_200": 5,
+      "total": 18
+    },
+    "static_t0_agreement_percent_range": [
+      93.077709,
+      93.777014
+    ],
+    "terminal_agreement_percent_range": [
+      95.062595,
+      95.831412
+    ],
+    "terminal_gain_percentage_points_range": [
+      1.70808,
+      2.46582
+    ],
+    "terminal_topology_and_extinction_identities": "6/6"
+  },
+  "monitored_saved_horizon_step": 3200,
+  "public_case_names_only": true,
+  "qualification_contract": {
+    "events": "same extinct labels/count, each within +/-200 inclusive, strict reference wave order, no reappearance",
+    "numerical_integrity": "finite, exact cadence/horizon, max phase-sum error < 1e-3 (strict)",
+    "persistence": "strictly greater than static-t0 at every saved step 200..3200",
+    "tail": "exact active-label identity at each saved step 1800..3200, no reappearance",
+    "terminal_fidelity": "agreement >= max(94.3%, static-t0 + 1.0 percentage point)",
+    "terminal_topology": "exact active-label identity at 1600"
+  },
+  "reproduction_level": "PROVENANCE_ONLY",
+  "same_checkpoint_as_development_n16_cube": true,
+  "saved_cadence_steps": 200,
+  "schema": "pinn-phase-n16-96-transfer-v1",
+  "sealed_sources": {
+    "cohort_manifest_sha256": "973357384e676123b16c2cc17dcb5b7f2486dc898116ac062dfffd75af7d5340",
+    "cohort_score_sha256": "5f6f8643ef77c81c81a5dc5b37109d1be7d2e3212dd2d0f63e6a89ec205a4dd1"
+  },
+  "terminal_scored_step": 1600
+}

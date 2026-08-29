@@ -1,0 +1,238 @@
+{
+  "assets": {
+    "framework_hybrid_rollout.png": {
+      "bytes": 110055,
+      "dimensions": [
+        1820,
+        858
+      ],
+      "frame_count": 1,
+      "role": "legacy_hybrid_architecture_schematic",
+      "sha256": "f3f32926ef371bf6da5768dbef790d3cb901277e62e3eede4a7c33369efbfb66",
+      "status": "retained_context"
+    },
+    "method_loop_hybrid_rollout.gif": {
+      "bytes": 1009095,
+      "dimensions": [
+        1440,
+        810
+      ],
+      "frame_count": 24,
+      "role": "legacy_hybrid_method_schematic",
+      "sha256": "2943afe0e48c9728cedbd9434d8f3ec193c89b62b0c67cf5ceec080d5b4af1bd",
+      "status": "current_method_overview"
+    },
+    "method_loop_hybrid_rollout_poster.png": {
+      "bytes": 80694,
+      "dimensions": [
+        1440,
+        810
+      ],
+      "frame_count": 1,
+      "role": "legacy_hybrid_method_schematic_poster",
+      "sha256": "8cfd37e707184fe7d5a893d213a6054ccb9d9c3485c08f2b90bc616fb074ea74",
+      "status": "current_method_overview"
+    },
+    "multigrain_denser_n44_reference_vs_pinn_phase.gif": {
+      "bytes": 2155574,
+      "dimensions": [
+        1155,
+        440
+      ],
+      "frame_count": 41,
+      "role": "scalar_many_domain_demonstration",
+      "sha256": "3af762d0d17507a62f58276824771fa2e5e4cee8c8b05fcbe04bbc99ae067221",
+      "status": "historical_demonstration"
+    },
+    "multigrain_denser_n44_reference_vs_pinn_phase_poster.png": {
+      "bytes": 101352,
+      "dimensions": [
+        1155,
+        440
+      ],
+      "frame_count": 1,
+      "role": "scalar_many_domain_poster",
+      "sha256": "1a5b37fa550f1d07f86b78ca5cd9f456313fc1dbb85f20d41193e4ec54b5d944",
+      "status": "historical_demonstration"
+    },
+    "n16_96_reference_vs_pinn_phase.gif": {
+      "bytes": 941490,
+      "dimensions": [
+        960,
+        540
+      ],
+      "frame_count": 14,
+      "role": "n16_96cubed_three_extinction",
+      "sha256": "564b8de7a00be02cc6a9240fc7fa45eafb9d63e8eb219763b646cb211f749fd8",
+      "status": "current_single_case_evidence"
+    },
+    "n16_96_reference_vs_pinn_phase_poster.png": {
+      "bytes": 145814,
+      "dimensions": [
+        960,
+        540
+      ],
+      "frame_count": 1,
+      "role": "n16_96cubed_three_extinction_poster",
+      "sha256": "8e829d7a119512f573fc23538449c9d18556f69b797e37c9f1a0b3fa54418192",
+      "status": "current_single_case_evidence"
+    },
+    "n25_v2_reference_vs_pinn_phase.gif": {
+      "bytes": 218885,
+      "dimensions": [
+        1100,
+        440
+      ],
+      "frame_count": 8,
+      "role": "legacy_n25_compact",
+      "sha256": "1546c5ddd60bb5b3ab81b2f926e82cb656fe8931bcdf779ab3bfa1556ddfd2bf",
+      "status": "historical_not_prospective"
+    },
+    "n25_v2_reference_vs_pinn_phase_poster.png": {
+      "bytes": 32244,
+      "dimensions": [
+        1100,
+        440
+      ],
+      "frame_count": 1,
+      "role": "legacy_n25_compact_poster",
+      "sha256": "4cdb1413e69f1c759af2c6048a733070938a9464cfbfd0094212b38c566319de",
+      "status": "historical_not_prospective"
+    },
+    "n25_v3_long_reference_vs_pinn_phase.gif": {
+      "bytes": 597006,
+      "dimensions": [
+        1280,
+        600
+      ],
+      "frame_count": 13,
+      "role": "legacy_n25_long_horizon",
+      "sha256": "17d9fd0c070010f9eece21cbd0a3bc30ecc810e65fbc299a69337e2f5e1b0db9",
+      "status": "historical_not_prospective"
+    },
+    "n25_v3_long_reference_vs_pinn_phase_poster.png": {
+      "bytes": 71532,
+      "dimensions": [
+        1280,
+        600
+      ],
+      "frame_count": 1,
+      "role": "legacy_n25_long_horizon_poster",
+      "sha256": "4e3048aafee4a0feef7505c7d5fc6e53d10e9c314b960613a1b513e11f46affa",
+      "status": "historical_not_prospective"
+    },
+    "n64_dense_no_graph_reference_vs_pinn_phase.gif": {
+      "bytes": 298028,
+      "dimensions": [
+        1155,
+        440
+      ],
+      "frame_count": 9,
+      "role": "legacy_n64_dense",
+      "sha256": "9fb7677bcf0cff0638a4684ff6107b0b3fd9cd8f144993e810a200339a9273e0",
+      "status": "historical_not_current_n3"
+    },
+    "n64_dense_no_graph_reference_vs_pinn_phase_poster.png": {
+      "bytes": 30110,
+      "dimensions": [
+        1155,
+        440
+      ],
+      "frame_count": 1,
+      "role": "legacy_n64_dense_poster",
+      "sha256": "b174f4c84d98447bc419086b0d1bc19b49634fbe20ea3506a169ba1046232d48",
+      "status": "historical_not_current_n3"
+    },
+    "n8_64_reference_vs_pinn_phase.gif": {
+      "bytes": 126020,
+      "dimensions": [
+        960,
+        540
+      ],
+      "frame_count": 6,
+      "role": "n8_64cubed_single_extinction",
+      "sha256": "d5812fc5d0c4cedb227db312340c9386e19cf21656264b0ab582b04c8f990e27",
+      "status": "current_single_case_evidence"
+    },
+    "n8_64_reference_vs_pinn_phase_poster.png": {
+      "bytes": 27732,
+      "dimensions": [
+        960,
+        540
+      ],
+      "frame_count": 1,
+      "role": "n8_64cubed_single_extinction_poster",
+      "sha256": "a910a5f39f49b6db84e4beb0a1fe3df31e347e483f72fbc733792ab061b49114",
+      "status": "current_single_case_evidence"
+    },
+    "scalar_3d_spherical_reference_vs_pinn_phase.gif": {
+      "bytes": 2700360,
+      "dimensions": [
+        1485,
+        505
+      ],
+      "frame_count": 57,
+      "role": "scalar_3d_spherical_demonstration",
+      "sha256": "2b13e99751dc3fabef7e92a4d5b85671f82fcf48e060cf043f55b75add98bb91",
+      "status": "retained_completed_demonstration"
+    },
+    "scalar_3d_spherical_reference_vs_pinn_phase_poster.png": {
+      "bytes": 144790,
+      "dimensions": [
+        2970,
+        1011
+      ],
+      "frame_count": 1,
+      "role": "scalar_3d_spherical_poster",
+      "sha256": "9151e3fab8e61538bbcd9e856a028cd4d602fbb44dfcbd904d24fc74824ea903",
+      "status": "retained_completed_demonstration"
+    },
+    "scalar_shrinkage_reference.gif": {
+      "bytes": 838378,
+      "dimensions": [
+        940,
+        450
+      ],
+      "frame_count": 24,
+      "role": "scalar_reference_evolution",
+      "sha256": "3bef8d486893b3116b8ef8b7e053828cecc5bd343251389c0103b847907bb576",
+      "status": "reference_only_visual"
+    },
+    "scalar_shrinkage_reference_poster.png": {
+      "bytes": 76773,
+      "dimensions": [
+        940,
+        450
+      ],
+      "frame_count": 1,
+      "role": "scalar_reference_evolution_poster",
+      "sha256": "b50c64134d00cbfd6330ec066e3c56c434c4f7de7669af537d6fc7b06ed2bffc",
+      "status": "reference_only_visual"
+    },
+    "triple_junction_h1024_reference_vs_pinn_phase.gif": {
+      "bytes": 168483,
+      "dimensions": [
+        1155,
+        440
+      ],
+      "frame_count": 9,
+      "role": "four_phase_junction_demonstration",
+      "sha256": "d8f62ec1a170faf19c9d00cab748c39ca8d805f6dde1422cbe5f267326a28ef9",
+      "status": "retained_completed_demonstration"
+    },
+    "triple_junction_h1024_reference_vs_pinn_phase_poster.png": {
+      "bytes": 20965,
+      "dimensions": [
+        1155,
+        440
+      ],
+      "frame_count": 1,
+      "role": "four_phase_junction_poster",
+      "sha256": "6aed285e8641e5b768026757c77e0d5669e636368652e33bf491435ed7c7e545",
+      "status": "retained_completed_demonstration"
+    }
+  },
+  "license": "CC-BY-4.0",
+  "schema": "pinn-phase-retained-media-v1",
+  "source": "earlier_public_candidate"
+}

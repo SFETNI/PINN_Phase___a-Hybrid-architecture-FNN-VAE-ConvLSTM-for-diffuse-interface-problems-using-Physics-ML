@@ -1,0 +1,24 @@
+benchmark:
+  id: scalar-shrinkage-2d
+  description: Periodic curvature-driven shrinkage of one diffuse circular grain.
+
+grid:
+  shape: [128, 128]
+  domain_lengths: [1.0078740157480315, 1.0078740157480315]
+
+physics:
+  sigma: 1.0
+  mu: 1.5e-5
+  eta: 0.07874015748031496
+  delta_g: 0.0
+
+time:
+  dt: 0.5
+  steps: 12000
+  sample_every: 100
+  clip: true
+
+initial_condition:
+  type: circular_grain
+  center: [0.5039370078740157, 0.5039370078740157]
+  radius: 0.3937007874015748

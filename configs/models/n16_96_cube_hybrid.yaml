@@ -1,0 +1,64 @@
+# Public model-reconstruction configuration.
+#
+# This file carries only the fields needed to rebuild the model class before a
+# strict load of the paired derived public replay weights. It is NOT the training
+# configuration of the run that produced the accepted parent checkpoint. That
+# training configuration is identified by SHA-256 in
+# docs/ARTIFACT_IDENTITY_LEDGER.json and is not distributed in this archive; the
+# two files have different digests and must not be conflated. What the training
+# path did with reference data is recorded separately in
+# docs/TRAINING_PATH_DISCLOSURE.json.
+#
+# Two distinct objects are named below and must not be conflated either:
+#
+#   accepted parent checkpoint  the scientific training payload. Identified here
+#                               by digest only; it is NOT distributed.
+#   public replay weights       a derived artifact carrying model-state tensors
+#                               and nothing else. Distributed, and the only thing
+#                               the public replay path loads. Its digest and every
+#                               tensor identity live in the adjacent lineage
+#                               record, not in this file, so that the derivation
+#                               stays checkable from one place.
+#
+# Verify construction and loading with:
+#   python scripts/verify_checkpoint_identities.py
+
+public_weights: checkpoints/n16_96_cube_hybrid.weights.npz
+weight_lineage: checkpoints/n16_96_cube_hybrid.lineage.json
+parent_checkpoint_sha256: 9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd
+parent_checkpoint_distributed: false
+architecture_family: legacy_pa_hybrid_mpf
+class_name: ExplicitMPFHybridRollout
+
+model:
+  architecture: explicit_mpf_ann_convlstm_hybrid
+  spatial_dims: 3
+  recurrent_cell: convlstm
+  kernel_size: 3
+  conv_padding_mode: circular
+  ann_hidden_features: [64, 64]
+  learnable_blend: true
+  blend_gamma: 0.5
+  per_phase_gamma: false
+  coordinate_encoding: periodic_3d
+  phase_id_encoding: normalized
+  rate_parameterization: scaled_bounded
+  delta_scale: 0.0667
+  rate_head_bounded: false
+  max_delta_phi_per_step: 0.05
+  graph_mode: disabled
+  centering_mode: phase_mean
+  zero_initialize_heads: true
+  num_phases: 16
+  hidden_channels: 128
+  projection_mode: simplex_clip_normalize
+
+physics:
+  eta_px: 3.0
+  sigma: 1.0
+  mu: 1.5e-05
+  dt_mu_sigma: 0.04
+  model_dt: 2666.6666666666665
+  boundary_condition: periodic
+
+grid: [96, 96, 96]

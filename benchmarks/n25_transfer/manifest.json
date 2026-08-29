@@ -1,0 +1,1909 @@
+{
+  "cases": {
+    "id_01": {
+      "ordinal": 1,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "9573b78bad42ce64ffa49bc5e926cf99c371aeb18d88d21eeefe5815cb797fa7",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "a43e04961ddbcf61f24e89783603e59f8be3a37832dd252371cacb8fafbd94ff",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "c2e97033bd83f02d93891bff9fb3236bdce42afe350196cedd6abff44b6c8271",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "c97e00e196eb6bf364de9f04f89e08a14ca4c7bce90cb17db2dda669c0be5fdf",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "a4d8ff7c08599c82324a04210c4580110c5d7cbe78fdb0a077b54115b6bc981c",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "d9ebd525999bed080a6aacb4b7f28270955b96900d970d2b2dcf1186bad871b5",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_01/primary.npz",
+        "sha256": "c11944bb0f5c5153d50f4b3465740f4a3450949e467a4403ae1bd170d30ae8fb",
+        "source_frozen_sha256": "d7cbf27dafe7c38ddf3f2a4098224ad8a032c9062080f8f4e945424626122362"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "7aedcfd72af60643fb60468d183c535d550e55e64a43f6f6a4a81f5d412a5367",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "b573b205aac90e4a5de28771f1dc13463ba206591ec714fdd017b0fb1fb270df",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_01/reference.npz",
+        "sha256": "7a1dcd22684a2facda719249bcf7d373c38ec2d03bc28feb445a13705a68f930",
+        "source_frozen_sha256": "247f536e4c8bafc5742ab023bb9ab9ed3a8a8d2aae0c0876b38b299e0dfe1213"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "c93d4deaeecd85b59510c8b9ec6404d00fe4ead86a2194ebb273e1e8a080b018",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "a373b65bfd7c23d1f34909a84fa0686b80ba32122eb22beccccb0bf4133cdd70",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "3cf262b085cf18b49982a8179accc2cc6e0b32b6b69ca2a51a89f6782844f04c",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "5f576de5e6874571b1d9a415631aa5b7244787ff59ad5c395529d27dc57976e9",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "96adff8b19ba1ed4389d8d61658ae96241052e63166771515e25dbc6b007640a",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "eaf0646667f31789cae25bad9e0df0abc36453f091233acef910f90dd443ffc6",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_01/secondary.npz",
+        "sha256": "c88bd2c16a778facb18c3f0d45ce273bd7583ab3e4a26f9274f6ecece8b03c8b",
+        "source_frozen_sha256": "c755a5be5eec036049ab50ee8c189ede747d444bb387c34b17e2958e38ab900d"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "1167d06507036cbe572144c07841d52e9fde50f30d0b06dadf88a511a00db274",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "a94795b618ca103fa479f82922b118cd39e1438b09194177972ba6f8098d5120",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "673eae8ba84864ca369fe52033f76a051f93afc3418c1625e677cb06707335da",
+            "shape": [
+              15
+            ]
+          }
+        },
+        "path": "data/id_01/reference_tail.npz",
+        "sha256": "a57df3d70306e50a95629d607d1ef652ef57339f2f89ffa6781c091d829a3ca1",
+        "source_frozen_sha256": "0d040b80ea5179006d318983039e168141a32b6e08890d615d0ed0433e65e836"
+      }
+    },
+    "id_02": {
+      "ordinal": 2,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "4b82ce490faeb88626bdb92e1967d3f9602d14dcd0ad1e97428c6cc771efd4b2",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "13250a708fd234a2b941296b260b6d80cfedd3f285823c33cc9e119bfb684de0",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "634aed1f8d399e7b6c5de0d0ae7e8bc21a17defb4c756bcb30e7bf9bcd0fb922",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "9d7022be71010b14d9d146fe112c77441d30b39ed949feb4589ddd1c17432745",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "b126e5f0f96f2d46b7897c331a40de83bc9948081a0de1cd53b1711e58486a18",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "b185cb6ce24c964a37be2ca8d4619b98620fc3d247ab0bc6750baba2cd067048",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_02/primary.npz",
+        "sha256": "fd99c9b09f2befec91b4b23369d0bf84b6ed40a77f38854f82f9fa5933125d20",
+        "source_frozen_sha256": "18f7dcd25ba0c1397e4a4bf29ab74545e5be406d1f1323b69b0fe694787565f2"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "11af2edbdd4da26b0bb10d2a2911b97f85a89ea306e5e6a70de5c4519f4b3c9c",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "735ec465e8f2136ca7a4acc0d156c668d0be58140e40e4a7dcd00943ae80f597",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_02/reference.npz",
+        "sha256": "dd07ca80ceb3768cd2eb46388bbe2332966917d7cd340edb847b6daf1045f3e4",
+        "source_frozen_sha256": "0fff5e723f276da0d30f4f1f47528be5cd2093321842ac0348ce43cc0132f266"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "3bb0401ca4d90a985c65ad9984f82214607817c66123babc58ff4a956108b480",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "945611f69a4e2ee6a0598c638caf1186073d727084eb2df710e9dbd4530f334b",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "b138efaaa205ead5fcf797e465e371e08f6e20cb7eb266ff175be00f0368c912",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "7447161d57f47c3c38e68cc60d23647144e8d5f29251b7b07627b7fdcbf2a376",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "9449701ec9e5395026d5b8ad4392d25c0e6d80930180cc99167092c64d574dfa",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "58f4d153a8b5568d1854835ababf38b9679bd3c4f17142239b6d94131b8d5c25",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_02/secondary.npz",
+        "sha256": "8dc94fd1559b3e7f3586493dff6fb496f1a9d03c1e58c0a5904313992e168b2a",
+        "source_frozen_sha256": "8e789fc9d3605fd48b4ab484f1993c37394cee3ccdcbb89344ef0c1cb972abfb"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "01af829c00c8afe2ca7656e874bdc251a7396fa7cd36fcc800e25f5d5b444db5",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "5a91c400fad419fb84359e75089184d40fff27219ea95d90beda8cbe8aa3ba39",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "7fb3ba1683679dd68295f2b32aed76ab8c2ab991f3decd35d4ac1aac9edcd165",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_02/reference_tail.npz",
+        "sha256": "32462376f93d38b3e3b1f39702ab9e8914fcc228a0d0513ca6f29dcbbfd97529",
+        "source_frozen_sha256": "e35469b88ac6ddcff4de01a1f9d7263fdd441710859619e587139ee2e3d2176b"
+      }
+    },
+    "id_03": {
+      "ordinal": 3,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "8e7142f3195268cc0c103383618cf2672af2f98e0f3bfa132c73c057f7649cce",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "425cc223426d876ce5b972f68a807e29f3da41ede25247b325fe2ba1df51f24c",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "feb6701ce879ddc49ce03b2f77db25ff10ebf421ec85319f2b17d5f8c992e0c0",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "8b52b846fc70810f6f206a37de885faf25f2263ca7b0d81c3d8d42a80097fd15",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "8510d089b00f53e877ff6e8751758120be5bd6f2a115df9a9d1982dc321b109e",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "ad3551f86f640d0ab6afe51621eca6bc4aac67c26fe6c64a5d721f6391634682",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_03/primary.npz",
+        "sha256": "86a8d68160685bd90ea3668ae1b0e5f80869fe6bf776a7a0686740c93796e3ab",
+        "source_frozen_sha256": "6344a1cf68648adec362f45ffe463da0c369c9354e0d3e7d4ad3169b285bc590"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "75582e29e22048aacaed883da8f35c58077ffe6a4b75d50b07bd9c1e097d8201",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "bedd91aacad51cac5a48d149f586e2f8e50b5da421b6f55d2b88c24f23ae3fdc",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_03/reference.npz",
+        "sha256": "c7a77608657c9c51128fa18a03d96b041bc7c295a472d6b142c29c4c441685f2",
+        "source_frozen_sha256": "e3e99dd4660cb2c5a949497664a2f5eb55115b55026cf67ca3123bb72f48a201"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "8ba4957332113921e70a006e833fd6c0d15ec90e1f602b0ae7ff56b6fcf645ba",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "bee5ccf2d38d47a5fab07e4d1153de6ff47d604aaf0a02422993f954bb730f68",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "365cff10d7973b1ca5c259c1c613844686f58d1d01b5045875a4a0c8aa6a4300",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "ff6f039bdc4d1317ca7dd44dadbdf08fb994e54df2129186c36ddebe8ca729d1",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "11b18e745b160ef134e375e213185f13cdee1f59effa6f44feefa54b67b9a9de",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "f51fe42ca26333fe4077c0c42369163eea7fd38444cd46c59cd16b62d9ac307b",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_03/secondary.npz",
+        "sha256": "6d7b8af9901c7d5eb133ef09c78c4e729e6b824bd3a3ef0c9e46b6e2ea72ac0b",
+        "source_frozen_sha256": "45f7ca808cf05d2794fa45bb5fc976fc11173f284a3bf5ff31f0bdf937ebb6b3"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "c8be03341590aedb788b365c07e88e0aec99b1c28e34a7dcc313a061f8fac893",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "3bfe80ca354064e75277b5b909ab2298fc7399efef08ba64f529991ff1a65f9b",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "000f9ac36aca0a2f11bb3229a130bcad3a029645a5e29adb215cdc6411089927",
+            "shape": [
+              12
+            ]
+          }
+        },
+        "path": "data/id_03/reference_tail.npz",
+        "sha256": "7f921f45684626b1cea7f68742aa3f26dad1b3973d9e5d7e0985b4d6c1785b77",
+        "source_frozen_sha256": "c181b21290c432dab5a50c2ab431d7326bdcb7f7582de6fcbb8bedfdadd4c96d"
+      }
+    },
+    "id_04": {
+      "ordinal": 4,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "5e5f416ee8a3a3d0eea2bf95056499986ff4abac430fd67e9ea8a4f48d7096be",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "2bb27b012b4bab839a69f4f10444317fbe2b8e343d66e399c4d9e49ddee3f5cd",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "44954426a2933c2be13ba89c43423436488028920cf11978134d217b43c966b4",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "0677a2b3ea2f759a7352848265a43743f36483577fa905c8cc1e07b6ed5dfa3b",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "70648f1a26309fc36e1005c7731359e10b76a7d964191f0378c203d103834397",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "0493dab8fb94bbe3da730432a458fe45f583cca3674ea93da4710e8777be6af8",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_04/primary.npz",
+        "sha256": "dbf1bfa0b0bb0e6eac883a5341597db19a9aae7c57957b3d2339676b58370fa1",
+        "source_frozen_sha256": "a604fe346023ed324b63b0d54edc6f029113cef86d8fe95787760572d71694ac"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "3e0a2f6d56479dfd6c5d854e18128c9246983a1a21c6f84b705fb8f96382d97f",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "ed5286808b91a39a3f643e3a7a88efb4f5f5f06c33b5af0ebc2f98281e113071",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_04/reference.npz",
+        "sha256": "77c863594b80fdee8bd9c205c03dac66314237026e898b530d00ad66c3d624a1",
+        "source_frozen_sha256": "26695e1eb46361e1ed832f467e41d65a2aa7e773ec55a04cae9b041a979b2dc3"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "a945600cc6c45e77574a80281ad71cc2b88cd96e76c39bf90193f0c179f30fa0",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "72080b3a4259df458962a64672250d2c8933b6c7bc88129cd9c1f595642d4274",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "1df95dade59e8e93d6b835b6efd3e348a18455db8090f430db8b275adf372121",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "630ba79275a0c25faa70dcc188e1146c8fb5f7960a4cdde810fb2d2f742a30f2",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "ddeceb35fece6761d4e464281e7c6b639b1f928af8b84d36e681a358484b3586",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "cb3f55335dfd09aef9a58aabdb3301fae72edb5c322a1b0cf57359257d73cdd2",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_04/secondary.npz",
+        "sha256": "0d7e1045710bb0f5455174eece9b679b3fcd36b062ee6c6b9a723b4f18a8e1a7",
+        "source_frozen_sha256": "5f37e11a77d197222185826539eead3171fe91cbd30afa773ecda2ebf251bb0b"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "021e4f941d6b21cef01c381ab085297b9758463397b28e16c32ba068b72f721e",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "ac69a203e5367b17685cf459e0abc6f4e674b7b4e2b0b7e4eb0a6b885e5cc1ba",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "5ce82669ce38ad41e433ac3cd76e635f3d5350e13e2b4d2991a76aa310ee0e7d",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_04/reference_tail.npz",
+        "sha256": "0204bfb55b3ac64c0a9bbe832c28bb5f78f874d254c52c9d85e5592cefbfa67d",
+        "source_frozen_sha256": "f3c02cdb2f7e72123da5027ac231cb9ec28edb176c23774a4e18fa5582ccc4cc"
+      }
+    },
+    "id_05": {
+      "ordinal": 5,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "5ac75739e8dc87b9c4b1a733439db780228cca75066f8a795f62b9b769dfb513",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "f07f83dc4565f66eb95c76c80213423beed4f62eb05232962c477a1933666b72",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "4d75141afab26d97927f8a9edfa9802bdef250505b6c9e7f2ff6384878f72820",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "d6326b5b9525ff995ae74578e6a6a8a0d15a7f06e738669829c9294937a0890a",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "9d314deff1720bca764a2e98b4e7f0bf1567ce462c826d35eedec9fd3689476b",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "6e9ec983b95ed22b9000391cbe07062c00854d5761bf87cd4ec1041f7c2a16c7",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_05/primary.npz",
+        "sha256": "9227718a316590b99e71f4c19d75d4a65f5c2d06a44471f409871d1d556729f9",
+        "source_frozen_sha256": "32d52087a72ee1a6b15f016bf627dffdc03dc44680ff5ca1650840cb29163f53"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "a3153d4a3b8ee2138e6d5a914682c09149bb92d55a33753235a2a1df0a899b0e",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "4065b6e870a31e99348932217adfd4bfe19e46c697f0511442e5a3d93f847fff",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_05/reference.npz",
+        "sha256": "ee15acaafa6b34c4d7851c1e947e89b591b4616ba498e1af53ac3183144251fd",
+        "source_frozen_sha256": "500c5acaa4bb279a21a142dc8e5b2bcfec919c89cf89cb676c2f1cd9e45b67b3"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "7b43230e9c73939c73f66874de29935ee4eb6fbf7589880ceee0bab4ba729fea",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "bb22aa95fb0e2293403e73da71a283ddba72c0210672bd43f33dc2337f05dc63",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "2a40ee7dec3ffb5beca4dff0f401fefdc0df5045fb97b52778bdcd29c25a3b99",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "18d0649dd28e10eca6c825751a2034f66c4ce9783adf52fc13c567e3b23371cf",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "e888dad7de349ca7b812b7777edc64afab3cdf6134af5cecb741d9dc63fcd465",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "02182dd914dc33c43d9c488be2506e93f7a942bd1740b210ad0accefcb43ae29",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_05/secondary.npz",
+        "sha256": "f4b7e5dcc066e24c5c6f8cd140202beb9206f9231c602ed11ceb2cd1b5802750",
+        "source_frozen_sha256": "a7b3002d2b5c9e7a892f5445e2c35ada4363c1c2192b9a924b542775e22eb9af"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "c57ee87568bf1d4e672a56428964d0caa4a133335a61d3fda8aae6b459bf5059",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "a13f88f3278873936ca69c2cd700448a0760cb36836dc98c7c686ca67aaa3071",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "ce3bc896dd9c3a666d0e3a81f8063ede756ecf00b2026e2798cee357f5dbd2ee",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_05/reference_tail.npz",
+        "sha256": "bef9b1f9715f3b0afc3cf6befbf348e0af84c7dab2b22ce676956ec2a31f62de",
+        "source_frozen_sha256": "39142fc262aef8ba6e3af36810243e957bb410ae7eb3bc727d81904070cef5ef"
+      }
+    },
+    "id_06": {
+      "ordinal": 6,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "1d14bce825e4cc57c999704e039c3efca3bf34dae56044b76bd35b59a3a6e6a7",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "53dcbca7d97c89f1e41e1fc0ed426ba0c39e4eb10d0a98c5d4a6bedf21bd6a7e",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "6c1942f92d10609b8555710f565b6b2f8c5044fe77fb11c21461054bdc9e2809",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "24a7389bcd2a7f85fd209603c739ac44090a02febe25631fc9b69e782909ded0",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "42d14109cbf7cbc8651000f8249b6ffaeeb3ff3d3bce69ee2dbf9155566efe86",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "0b38bd48e38f523ede39189957b6134a835d37f33f9a260a5260bd6461f903b5",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_06/primary.npz",
+        "sha256": "ca2ada6ff9f242b35c3f6e7ec0e79363820e8b06d799c900c3b5a37b7953acbf",
+        "source_frozen_sha256": "5f456ccbec6393722608317dcb9836a9d973d27a8412a39e5a5616f76d564943"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "6e49d4d1a91fc3d3977f38caebc5503ba67fbdb8d9c87884e718a28e107b529d",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "40e0c737912300490b302f9f37ef0cd190acc9331258802545e2a58368ac028e",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_06/reference.npz",
+        "sha256": "4df1b40d715a65461e89e79b72f218677a8c5cb25f3b0156f9d8d59e7ced8724",
+        "source_frozen_sha256": "dd5809f97866b414226e7f53ac1e317e6f96c6eea1146e771ba859026d276d6e"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "42d6fe0d50d3294988893a39c994044a8f119030ac526a9eccedac036e28bea2",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "01bca41cd5b1abb39b45b83ad77903c388e2ee5c9e04c83ad8fa1aecfc3ade86",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "b435a3f8c12ad27841607ef7a2d703f98ef1e02e878ce0595b415cfb49e42f8f",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "f4e03dcf4a76da9b637911c90cbc2b6edb55e504877bd9cfccda8430c26986e6",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "c7cdaa4dad136718bb52c9aba0c4bb737526c5c77e3ac9462e5ae2ed3b0c6262",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "4b2ad0761bced9ff70b8b26fabf06536b33082fcf354017075258feec0ce02ed",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_06/secondary.npz",
+        "sha256": "706102728b32c1dc81b80d8a6782ce1e84ce59af039842b4d31516582ab74a70",
+        "source_frozen_sha256": "29f81266cc3e536e872ec9c35a6e1bd24f34b452aa378e3d2d876ab8c89e0da8"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "ff5ae57d733407fbaca9d8fc356bb43dc60619700894e09aea124cd80010f315",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "99949dcaed2abfdbc639a5f63da6ed95815b3ffa79a20bfd4f7c82720c4682d9",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "c5e8fcbc045b1b94f01bdb494390fd20b4d4921c0f340d199d660be47f2b9a78",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_06/reference_tail.npz",
+        "sha256": "70fe8e2da02773f5f048979bdc0ce1eebbc180562ba8a270236158b150a47290",
+        "source_frozen_sha256": "d84bf7a710c010f51c8590c1f8a3400bd6196affc7cbb616cac058239fcf8afe"
+      }
+    },
+    "id_07": {
+      "ordinal": 7,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "4b7e959027a2fce47228fe3c8ecb81d033c38b79b3a311fad278a6d3a29c98a6",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "72703ca93c9b98c391274b1c31eefea6b3324e3cd4c018f70a82c31aa8a4b86e",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "9626d382305e9fd2656699f2432923f79017296abf0f57b7c76a75448f73e51d",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "7c9bebc837b7bc6121ef9a7229bead774b3fdbb2a836fdd6e33d62776127c681",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "27a04919ecc988b6f2ec0ff59262f4659dc3da6a83def771fea7bbbaa2f050ab",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "ec0c6a7a557fac4570f5d20ce85613d6be684f9f0b71155fb9a78752b5238909",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_07/primary.npz",
+        "sha256": "d802fc882c7446a72e1484eb0af3efd251ab4d19d9d091a279bdef27adc3657d",
+        "source_frozen_sha256": "ba66573bc72f7f763d153ee7ab630fce9ebfe628fec29a0c88715d01e2c06b64"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "0d60d00426b8fa204da4ed4be4161f49cd9f4b30e05b211ee1a9a39172450ee4",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "11a5c364fe3aba398ab76d756e2e7d1761b866fcc4dfc5235f5a0b952f10ddec",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_07/reference.npz",
+        "sha256": "b6559116d6735e9cd99849fbc86c59fc9fe0053a2637dd9d0d02c48229eca4f2",
+        "source_frozen_sha256": "fda6b5c5fbcf019f0ae791f82cd42e1b9dc5ec35dae1e2b93f1cc50090dbcaa7"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "2bb999b704e5b958cb586eb3c0017252a73860c6875af08a12d9995bbd568b19",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "e8dc318f3e319de33e41d3dbd9335a9f4ca1ac109848162800c004859e8699e2",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "62cfd33c60c767a2a8322551643cb6eb25578f8db3c9e60a6c6818b1b29421e4",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "f63f9a8591d902346f656b6b517c469edb9a83719076531b786e5b42581c9b9c",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "eac0f4bf6a9e5d9217170c8f6bb9461c7f1a781bca18ced6ffe695aa6b8f456c",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "f8e235582dd83d7b83f4fc4463213e4ea55115358a2b9c799293cd399d39d012",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_07/secondary.npz",
+        "sha256": "de5be10b1dcb1fe26724e35c418eb60edc13b8ba8f76a7627c34e83dec54dcfa",
+        "source_frozen_sha256": "cb799c340eb2281d497a29553c60fcb50e973c6999725482c078d3ceb9d23e3f"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "bb3cbd3acc894a58e75ca94be20930b97d2f9c4573ec2931d8cadf422013dabe",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "66e4f813b04d62aa487931f26b166144ff5dc39f2beb172f33ee728a84fa86d3",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "a599ce969e8503c445b488ef86d71722faabedb0d592d0f7639d8a928718fd40",
+            "shape": [
+              15
+            ]
+          }
+        },
+        "path": "data/id_07/reference_tail.npz",
+        "sha256": "dba40cf74ad3211d674cef8c8719c53f4c9ffb334ac1e256715fa7146458f616",
+        "source_frozen_sha256": "31774bbcb771a05e60af587955557241ffa9751884f1eafc06ea3172d121f0dc"
+      }
+    },
+    "id_08": {
+      "ordinal": 8,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "dd82c7895d2e8d24c933368a452de69fddcb7f2fad4389c775fa6623e09ca284",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "d018ca048f614bdf33744df5b895dcc897716178568ba0e4a9fa7f6342281089",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "cf82430a11ce7d21adfcdd2dff75dbc6ff1b219a5c023881bc722110379a9c22",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "e39b54cf04007a3179243412d63c9bcf834fe2ff88fa0cacb29564f62bb23508",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "36a56a3ba281f3c0769e94f713ece0efdfea92d80f4e74f871a1d4acba868c2f",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "688483e04a9c20b5059ef877b99e984452e7ac0c3cdec84578f49edd85620d23",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_08/primary.npz",
+        "sha256": "b51b1288db1bd8a6d40857e94fd7efd4436a3cbcf9b3630543852edcdab5a5c1",
+        "source_frozen_sha256": "d94d991e089d28448c965780de783d87db2b06a8ccf8de3dc6a4e58febb384b5"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "ee0853b67e183a3ad123bdd7a7c7d8c745f55a9eb5fa65f2148154fa2d163a5b",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "3f2ab9afbfaf61de3c874e75006625aad749a9b4474490a3c258d3759e6fab07",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/id_08/reference.npz",
+        "sha256": "bd0d769c9bbd315d3a8e3787e3d9ef083d10e59fe81e033265a02da733bb1c1a",
+        "source_frozen_sha256": "5c104296e77931ec149472c54e7fa7bc0099eaf8c2b8a3cdea4419529801ddf9"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "fe7bd4f1cd75817186e57bbf32149ac1a73daa2b0e550eb38996b7721459b909",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "38a880e44403bf1e09885a5def0b4b1610e61e41480c2c2732799873d109e125",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "67953b25eb34e644a2c97bbfc96339a2f0e0a9d65cb776b542d817c468500405",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "38981c224ee48591852a6aa790b947eed7e11e476b6c1dc7741d7bf29ca972a4",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "6e8ac75adc2f393d51cd66dd927d57a3917a2eacd9188fd2dad1bbdbdbf54fc6",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "d4d20907e3718911dcfe53abe0aa116d0a0764327eeee0add22887c509044de9",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/id_08/secondary.npz",
+        "sha256": "6445b76993fe624a22d3e202bc8ee22a6dac1599d4b2beb89e31ec8959a0823e",
+        "source_frozen_sha256": "a17327f92b849692da7000bc0a09994f6d753af529f8065a8bee3a277edf0d63"
+      },
+      "stratum": "id",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "1ad5c4b91662a9f642dfaadcb712d122fc94a411e14772bad29190a52798cb6c",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "19a54eb4f0f7e8237babc9a6a57b553ddbbfcb21bf07fd4aedb2a0915e800f58",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "ef10360f348612dfc310bf1ce03506a5c7512a5b393b2092167a8914eeec7017",
+            "shape": [
+              15
+            ]
+          }
+        },
+        "path": "data/id_08/reference_tail.npz",
+        "sha256": "7940db606b650b2c8ec55dc84acaa024a5607746f7534f82e04556392ac1df16",
+        "source_frozen_sha256": "238bb37dd42b4cb60125823766c11b499e2b368bafb4a8288f7b45663a900401"
+      }
+    },
+    "stress_dense": {
+      "ordinal": 9,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "23b07d5d3d5df36d8b4582644c73b882e26ad422034c88991d5595d3da64fc8d",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "90f4ba0ee38e02b94a711e12a0d1d8831d8e687441745ffde529448562095566",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "69daf93aba8323e1d0e6401dae1948c67f2021e2daae616673405421fa91399a",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "04ff27970a99431cc655743f5bfd7aad3bb04cf5e742ffcbdea251d27ba20eb2",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "edb671a1ee2d8797a5a787033ee8a4263c1ce8546efdaf0846b5fa54c459251c",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "b1cb8ff616cb60287e5a6ae25f6c3681d2cc2256ae81c3de32a1bd559da2e4a6",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/stress_dense/primary.npz",
+        "sha256": "e81aa94e009e005202be6c60b7eb66022807119f9198955e64c1c3550925f93e",
+        "source_frozen_sha256": "cfc633d8960d50a97e8d8369ebd4ace1f2f5a2a197a746c5b745c05ee37d970c"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "b8770d5086e663a5547c1f366ce839346978db4e9fca883ce1cd7fec3e4f4ab1",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "a0cabaccff96c803e87d10b5bd9c10b01842b620fe68439cb30bf28dba0eede9",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/stress_dense/reference.npz",
+        "sha256": "8e8a8f5df5f493238216407c6c5725116bc8c225fab1c9613ca9da1ede5d95ae",
+        "source_frozen_sha256": "29dc961ac5a824c2a9f53895ab8c4c3605fec80f8bedba22950c9e00b101dbcc"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "b778ed8e7ce37e0087a7b3532999d8fc58a2daf436f492cf5d3455c724949034",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "a0e22d4b121a75bede3773790f532bbca38ea7ebe01c95794536f0cfa913fa66",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "2241cc03203fd83cb24943a636131a520acc3074a4836593c33def873c39129a",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "550aba155e5c9f49e6f3f051dd5304c9c718875b55bf9220748fbbb22b498c40",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "597e9aafba86ecf140ca44aad20649ca5d69c05236e77d8254e0eb6fb27ca451",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "2330d3d9f24ba020d9801a97fada80a9d6589ab88f6d6d35e6a726ccd23d0691",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/stress_dense/secondary.npz",
+        "sha256": "aa015b282ac145b3669f859a3f6e8f8de02d3f6b0aa562f73ce03233e5002078",
+        "source_frozen_sha256": "a899eaebb3bbee52dd90c9b8ef2299f95b47c5215f0aa6d81abd83fb3ebf55a0"
+      },
+      "stratum": "stress",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "ee85959053a8fb816fb0b7de443c8e0f04073f7ea24529585b6f8d75ce41c463",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "5d01596317a80427d1250ae3933ee27ae7e88578067830ed3812e7b44b6da989",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "60402a6e7266610ccd774b73cfeb91a6e584e81daa78b0f91f53a5b6aafca513",
+            "shape": [
+              12
+            ]
+          }
+        },
+        "path": "data/stress_dense/reference_tail.npz",
+        "sha256": "702a39f76634ef169451e702224a67ee883bfe44b158a81f4958c6a2fa6a4287",
+        "source_frozen_sha256": "dcd613c496808a1f164fa60b9b154be28bcc6846a19ec76541016d27216ff63f"
+      }
+    },
+    "stress_sparse": {
+      "ordinal": 10,
+      "primary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "0ff688190f1a593bd6874c1b4685e14bc54eba135ff2fefdc816a210e04e2579",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "ac5dfeee6aa08e61ad3e81ab68d4c422480017243c4435ad677426c6690e1615",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "37f20ef709a2c417b9b79ec431cbaeaa316201e28873d23448ee7dacf1c9bc3f",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "61ceed12894620f2beaf589fd3a913c511ad6711300d549abe0538b5e0bb6bba",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "554c65a24871f950a8f368e3c1457e9a8594bb827052073da45c31f12ff60814",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "f233102daf559a7a7bd012da64d114231883bd636525da66e5920ec4828ce487",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/stress_sparse/primary.npz",
+        "sha256": "52f14df67a86e696ed30ec3f78aade69ffb3d04867f08094b68459e347b4973d",
+        "source_frozen_sha256": "33f1818b6e670bcc119c61ed1c2087aa72c2b013ad2e038e43f80ec3a4daef6a"
+      },
+      "reference": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "b872b15ae8d914a4fbdde5d487af214cd82a7568459a5f6736a7a6ef12e30f17",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "ab08f779bd7033854137395a856c2c8cc29b572cf48def6ecf843a8c00fdcc16",
+            "shape": [
+              13,
+              128,
+              128
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "d2b68ea548576f02ef6ab976a640ffa594bd449b30ebc38a990447d5b8bdf7da",
+            "shape": [
+              13
+            ]
+          }
+        },
+        "path": "data/stress_sparse/reference.npz",
+        "sha256": "0986a72ea24036c92e9a2668a221c90e2ffa4bf5450bb1019efbde4b00bc0a75",
+        "source_frozen_sha256": "a817eebf0b88716b33d8ae08153bfd82b2f3b8ea7a76e284a99b3d46f16cffbd"
+      },
+      "secondary": {
+        "arrays": {
+          "areas": {
+            "dtype": "<i8",
+            "sha256": "9421d4d5cdb77eff732a3fa8b2655b22ece43c79a0a4e81d8a35daf0b71c35d4",
+            "shape": [
+              12001,
+              25
+            ]
+          },
+          "cadence_labels": {
+            "dtype": "<i2",
+            "sha256": "f9a3f2f015c7a076474f6fbad8df4e1c3d96297fd6a007560d007bfff1eb9937",
+            "shape": [
+              12,
+              128,
+              128
+            ]
+          },
+          "cadence_margin_mean": {
+            "dtype": "<f8",
+            "sha256": "e74ebe7cfe4b803d0f6ab0fca0816ca08871d6cca536942176455d557ac80270",
+            "shape": [
+              12
+            ]
+          },
+          "cadence_steps": {
+            "dtype": "<i8",
+            "sha256": "782a2d4c4ed88064e13b74a3e6c8fe53550e6fa0eb9742f2f98e6dd3b7ab6c2a",
+            "shape": [
+              12
+            ]
+          },
+          "phi_max_per_step": {
+            "dtype": "<f8",
+            "sha256": "83747bbd93bc69fa356be7e3a632e2bcedd8130e3330a64f1a7f8a44d91d7cc4",
+            "shape": [
+              12001
+            ]
+          },
+          "phi_min_per_step": {
+            "dtype": "<f8",
+            "sha256": "7ad33a1ed7da8dbe4a0d45235391573e7179ea0505ed5c9d89cb98a83a07f4df",
+            "shape": [
+              12001
+            ]
+          },
+          "sumerr_per_step": {
+            "dtype": "<f8",
+            "sha256": "c48d19b722e1fee7a1a85bb5b085e5b62979ae4f3ddaed6a7154949e56a44c16",
+            "shape": [
+              12001
+            ]
+          }
+        },
+        "path": "data/stress_sparse/secondary.npz",
+        "sha256": "1d160b2602fde98342a10b26adc1151824c7e187d3766b734fb7003b034a9e02",
+        "source_frozen_sha256": "c2966496453879ae9464bbc26fe447ef7e5fd3d21f5522915ff2b284a9235773"
+      },
+      "stratum": "stress",
+      "tail": {
+        "arrays": {
+          "tail_active_mask": {
+            "dtype": "|b1",
+            "sha256": "9838d0ecf71e3e3b05fb0bc05f5b1252f799395f82e00e0ba4a6ed59f455a7c9",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_areas": {
+            "dtype": "<i8",
+            "sha256": "86c007ab86d0010dfbf2088af85366e3f3afa85b7e83d260388bd0124677ea5e",
+            "shape": [
+              1000,
+              25
+            ]
+          },
+          "tail_steps": {
+            "dtype": "<i8",
+            "sha256": "db5cf1a32ce6a13c9b1e5120141683054687c13e564abd6f496ee1c49276a7d3",
+            "shape": [
+              1000
+            ]
+          },
+          "tail_terminal_active_ids": {
+            "dtype": "<i8",
+            "sha256": "e6536f2cc8be21ad3388431fb705816befcf400674c8fd57ef8832a1145138e2",
+            "shape": [
+              16
+            ]
+          }
+        },
+        "path": "data/stress_sparse/reference_tail.npz",
+        "sha256": "27cb05130b4aec1bad8bb9676edda14d74620a0c15ea7d5bb36fa3ffc42da40a",
+        "source_frozen_sha256": "83bb2035a1b143231b2abbcfa9d4fea4e1c64b4b92c639bf4f11a3d7ad7c4eae"
+      }
+    }
+  },
+  "description": "Compact score-complete arrays copied without numerical transformation from the frozen prospective confirmation artifacts.",
+  "frozen_score_sha256": "26fbfdefed5278106a16cedf4be2a1db1ed010760cabf54336f6ee6a378e7202",
+  "frozen_scorer_sha256": "3a278860a5c35b5e7acf16db9aa146b44f71d1aba2fb4170ecbaab1e8f8f8a96",
+  "schema": "pinn-phase-n25-transfer-public-fixture-v1",
+  "strict_horizon": 12000
+}

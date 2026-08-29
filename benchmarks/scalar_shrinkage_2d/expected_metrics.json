@@ -1,0 +1,19 @@
+{
+  "benchmark_id": "scalar-shrinkage-2d",
+  "energy_nonincrease_fraction": 1.0,
+  "final_radius": 0.0,
+  "finite": true,
+  "first_near_extinction_time": 5250.0,
+  "initial_radius": 0.3940740459433713,
+  "phi_max": 1.0,
+  "phi_min": 0.0,
+  "radius_squared_pre_extinction_linear_fit": {
+    "intercept": 0.15538312554421738,
+    "r_squared": 0.9999963584232657,
+    "slope": -2.9701024055908984e-05
+  },
+  "relative_slope_error": 0.009965864803033903,
+  "samples": 121,
+  "schema": "pinn-phase-scalar-reference-score-v1",
+  "theoretical_radius_squared_slope": -3e-05
+}

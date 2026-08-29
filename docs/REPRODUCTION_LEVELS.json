@@ -1,0 +1,361 @@
+{
+  "schema": "pinn-phase-reproduction-levels-v1",
+  "levels": {
+    "FULL_RECOMPUTATION": "The archive contains everything needed to regenerate the reported metric.",
+    "SCORE_RECOMPUTATION": "The archive contains frozen arrays and recomputes the published score, but does not rerun model inference.",
+    "CHECKPOINT_AND_CODE_REPLAY": "The derived public replay weights, their lineage record, the model configuration, the registered initial field and executable rollout code are all present, together with an evaluation that runs locally on what the replay produces. The model can therefore be rerun and its output examined here. A large accepted reference trajectory may remain external, and where it does the published number cannot be regenerated from this archive.",
+    "PROVENANCE_ONLY": "Only immutable identities and records are present. The archive does not imply that the result is independently recomputable."
+  },
+  "rule": "A digest-only result is never described as reproducible. Where a benchmark is CHECKPOINT_AND_CODE_REPLAY or PROVENANCE_ONLY, the missing artifact is named with its digest, its byte size where known, and what would be required to obtain or regenerate it.",
+  "benchmarks": [
+    {
+      "id": "scalar_shrinkage_2d",
+      "title": "Scalar 128^2 curvature-driven shrinkage",
+      "level": "FULL_RECOMPUTATION",
+      "reported": "0.997% relative error in the pre-extinction radius-squared slope, with monotone sampled energy.",
+      "command": "python scripts/reproduce_scalar_reference.py",
+      "artifacts_present": [
+        "configs/benchmarks/scalar_shrinkage_2d.yaml",
+        "benchmarks/scalar_shrinkage_2d/expected_metrics.json",
+        "src/pinn_phase/physics/reference_solver.py"
+      ],
+      "artifacts_absent": [],
+      "note": "This rung is the reference solver itself. No trained model is involved, so the field is regenerated from the configuration rather than replayed."
+    },
+    {
+      "id": "n25_unseen_ic_transfer",
+      "title": "Prospective 25-grain transfer to unseen initial conditions",
+      "level": "SCORE_RECOMPUTATION",
+      "reported": "Primary and secondary models each pass 7 of 8 unseen cases and 2 of 2 stress cases.",
+      "command": "python scripts/reproduce_n25_transfer.py",
+      "artifacts_present": [
+        "benchmarks/n25_transfer/data/ (40 compact archives)",
+        "benchmarks/n25_transfer/manifest.json",
+        "benchmarks/n25_transfer/expected_score.json",
+        "checkpoints/n25_cascade_primary_permequiv.weights.npz",
+        "checkpoints/n25_cascade_secondary_six_ic_permequiv.weights.npz"
+      ],
+      "artifacts_absent": [
+        "the full 12,000-step rollout and reference fields for each of the ten cases"
+      ],
+      "note": "The published score is recomputed from frozen per-case arrays; model inference is not rerun by that command, which is why this benchmark is SCORE_RECOMPUTATION rather than something stronger. The ten cohort initial fields ARE distributed, so the inference itself can be replayed separately under both arms via scripts/replay_rollout.py; what remains external is the reference each rollout would be scored against."
+    },
+    {
+      "id": "n25_cascade_development",
+      "title": "25-grain cascade, development evidence",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "reported": "1.46% differing pixels at step 12,000 against a 44.37% persistence floor; exact 16-grain terminal survivor set; pre-registered timing anchor not met.",
+      "artifacts_present": [
+        "benchmarks/initial_conditions/n25_cascade_development_case_a.npz",
+        "benchmarks/initial_conditions/n25_cascade_development_case_b.npz",
+        "checkpoints/n25_cascade_primary_permequiv.weights.npz",
+        "checkpoints/n25_cascade_primary_permequiv.lineage.json",
+        "configs/models/n25_cascade_primary_permequiv.yaml",
+        "src/pinn_phase/models/perm_equivariant_mpf.py"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "12,000-step reference fields",
+          "sha256": "351a55961ee187e327ba1a23c0f566350959eed2ebe8d9473945cc47158fd511",
+          "requirement": "The reference field archive must be obtained from the reproduction archive deposited with the article; it is a large field and is not carried here."
+        },
+        {
+          "what": "second development case reference fields",
+          "sha256": "ef2f13dbd615b21fe515e24d2e31d4f52cd24089d229ef4027348dc5c4b65490",
+          "requirement": "As above."
+        }
+      ],
+      "note": "The checkpoint, the initial fields for both development cases and the rollout code are present, so the model can be rerun. The reference trajectories are not distributed, so the reported percentages cannot be regenerated from this archive alone.",
+      "level_rationale": "The exact checkpoint, its model-reconstruction configuration, the initial field and executable rollout code are all distributed, and the replay is exercised by the test suite. The large reference trajectory is not distributed, so the reported metric cannot be regenerated here: this level means the model can be replayed, NOT that the published number can be recomputed.",
+      "replay_command": "python scripts/replay_rollout.py --benchmark n25_cascade_development --smoke --output-dir outputs/replay",
+      "replay_requirements": {
+        "registered_t0_field": [
+          "benchmarks/initial_conditions/n25_cascade_development_case_a.npz",
+          "benchmarks/initial_conditions/n25_cascade_development_case_b.npz"
+        ],
+        "derived_public_replay_weights": [
+          "checkpoints/n25_cascade_primary_permequiv.weights.npz"
+        ],
+        "weight_lineage_record": [
+          "checkpoints/n25_cascade_primary_permequiv.lineage.json"
+        ],
+        "model_configuration": [
+          "configs/models/n25_cascade_primary_permequiv.yaml"
+        ],
+        "executable_replay_code": [
+          "scripts/replay_rollout.py",
+          "src/pinn_phase/io/public_weights.py"
+        ],
+        "locally_recomputable_evaluation": [
+          "scripts/replay_rollout.py (admissibility invariants of the produced rollout)",
+          "scripts/evaluate_rollout.py (scoring, against a reference you supply)"
+        ]
+      }
+    },
+    {
+      "id": "n64_dense_primary",
+      "title": "Dense 64-grain, registered primary result",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "reported": "1.35%, 3.50% and 6.09% differing pixels at steps 4,000, 8,000 and 12,000; terminal survivor F1 0.9767.",
+      "artifacts_present": [
+        "benchmarks/initial_conditions/n64_dense.npz",
+        "checkpoints/n64_dense_primary_permequiv_ep0099.weights.npz",
+        "checkpoints/n64_dense_primary_permequiv_ep0099.lineage.json",
+        "configs/models/n64_dense_primary_permequiv_ep0099.yaml"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "64-grain reference fields",
+          "sha256": "96d4a5422344a5a458f12e4dae154e9843f1407436b2dc461f7379e25891ffbe",
+          "requirement": "Large field, not carried here; obtain from the deposited reproduction archive."
+        },
+        {
+          "what": "autonomous rollout",
+          "sha256": "ad87347c884501e91755ce92b18bb54c7521e15ac05d23453996058813f1de82",
+          "requirement": "Regenerable from the distributed public replay weights given the initial condition above."
+        }
+      ],
+      "level_rationale": "The exact checkpoint, its model-reconstruction configuration, the initial field and executable rollout code are all distributed, and the replay is exercised by the test suite. The large reference trajectory is not distributed, so the reported metric cannot be regenerated here: this level means the model can be replayed, NOT that the published number can be recomputed.",
+      "replay_command": "python scripts/replay_rollout.py --benchmark n64_dense_primary --smoke --output-dir outputs/replay",
+      "replay_requirements": {
+        "registered_t0_field": [
+          "benchmarks/initial_conditions/n64_dense.npz"
+        ],
+        "derived_public_replay_weights": [
+          "checkpoints/n64_dense_primary_permequiv_ep0099.weights.npz"
+        ],
+        "weight_lineage_record": [
+          "checkpoints/n64_dense_primary_permequiv_ep0099.lineage.json"
+        ],
+        "model_configuration": [
+          "configs/models/n64_dense_primary_permequiv_ep0099.yaml"
+        ],
+        "executable_replay_code": [
+          "scripts/replay_rollout.py",
+          "src/pinn_phase/io/public_weights.py"
+        ],
+        "locally_recomputable_evaluation": [
+          "scripts/replay_rollout.py (admissibility invariants of the produced rollout)",
+          "scripts/evaluate_rollout.py (scoring, against a reference you supply)"
+        ]
+      }
+    },
+    {
+      "id": "n64_dense_sensitivity",
+      "title": "Dense 64-grain, post-evaluation horizon-extension sensitivity run",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "reported": "0.85%, 2.07% and 3.97% at the same three milestones; exact 21-grain terminal survivor set; 43 of 43 extinctions matched.",
+      "artifacts_present": [
+        "benchmarks/initial_conditions/n64_dense.npz",
+        "checkpoints/n64_dense_sensitivity_h8192_ep0124.weights.npz",
+        "checkpoints/n64_dense_sensitivity_h8192_ep0124.lineage.json",
+        "configs/models/n64_dense_sensitivity_h8192_ep0124.yaml"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "continuation rollout",
+          "sha256": "ea45d058f68b20daf479cec0c9da14927d6033fbcd16bbbaf4c2a591b6d72d35",
+          "requirement": "Regenerable from the distributed public replay weights given the 64-grain initial condition."
+        }
+      ],
+      "note": "This is a post-evaluation sensitivity study of one design choice. It does not replace or re-score the registered primary result, and horizon and additional training effort co-vary.",
+      "level_rationale": "The exact checkpoint, its model-reconstruction configuration, the initial field and executable rollout code are all distributed, and the replay is exercised by the test suite. The large reference trajectory is not distributed, so the reported metric cannot be regenerated here: this level means the model can be replayed, NOT that the published number can be recomputed.",
+      "replay_command": "python scripts/replay_rollout.py --benchmark n64_dense_sensitivity --smoke --output-dir outputs/replay",
+      "replay_requirements": {
+        "registered_t0_field": [
+          "benchmarks/initial_conditions/n64_dense.npz"
+        ],
+        "derived_public_replay_weights": [
+          "checkpoints/n64_dense_sensitivity_h8192_ep0124.weights.npz"
+        ],
+        "weight_lineage_record": [
+          "checkpoints/n64_dense_sensitivity_h8192_ep0124.lineage.json"
+        ],
+        "model_configuration": [
+          "configs/models/n64_dense_sensitivity_h8192_ep0124.yaml"
+        ],
+        "executable_replay_code": [
+          "scripts/replay_rollout.py",
+          "src/pinn_phase/io/public_weights.py"
+        ],
+        "locally_recomputable_evaluation": [
+          "scripts/replay_rollout.py (admissibility invariants of the produced rollout)",
+          "scripts/evaluate_rollout.py (scoring, against a reference you supply)"
+        ]
+      }
+    },
+    {
+      "id": "n8_64_cube",
+      "title": "Single-extinction eight-phase 64^3 cube",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "reported": "99.533% label agreement at step 2,000 against a 94.01% persistence baseline; exact seven-grain survivor set.",
+      "artifacts_present": [
+        "benchmarks/initial_conditions/n8_64_cube.npz",
+        "checkpoints/n8_64_cube_hybrid.weights.npz",
+        "checkpoints/n8_64_cube_hybrid.lineage.json",
+        "configs/experiments/explicit_mpf/voronoi_3d_cube_64x64x64_n8_h256_tbptt16_c2_launch.yaml",
+        "configs/models/n8_64_cube_hybrid.yaml"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "reference trajectory",
+          "sha256": "d273d467915f2a892302e042da76b1bf102a2cc46f5375f42bfe5685135e0a83",
+          "requirement": "Large 3D field; omitted to keep the archive within its size cap. Obtain from the deposited reproduction archive."
+        }
+      ],
+      "level_rationale": "The exact checkpoint, its model-reconstruction configuration, the initial field and executable rollout code are all distributed, and the replay is exercised by the test suite. The large reference trajectory is not distributed, so the reported metric cannot be regenerated here: this level means the model can be replayed, NOT that the published number can be recomputed.",
+      "replay_command": "python scripts/replay_rollout.py --benchmark n8_64_cube --smoke --output-dir outputs/replay",
+      "replay_requirements": {
+        "registered_t0_field": [
+          "benchmarks/initial_conditions/n8_64_cube.npz"
+        ],
+        "derived_public_replay_weights": [
+          "checkpoints/n8_64_cube_hybrid.weights.npz"
+        ],
+        "weight_lineage_record": [
+          "checkpoints/n8_64_cube_hybrid.lineage.json"
+        ],
+        "model_configuration": [
+          "configs/models/n8_64_cube_hybrid.yaml"
+        ],
+        "executable_replay_code": [
+          "scripts/replay_rollout.py",
+          "src/pinn_phase/io/public_weights.py"
+        ],
+        "locally_recomputable_evaluation": [
+          "scripts/replay_rollout.py (admissibility invariants of the produced rollout)",
+          "scripts/evaluate_rollout.py (scoring, against a reference you supply)"
+        ]
+      }
+    },
+    {
+      "id": "n16_96_cube",
+      "title": "Three-extinction sixteen-phase 96^3 cube",
+      "level": "CHECKPOINT_AND_CODE_REPLAY",
+      "reported": "99.668% agreement at step 1,600; exact thirteen-grain survivor set; three extinctions matched at 200-step saved-frame resolution.",
+      "artifacts_present": [
+        "benchmarks/initial_conditions/n16_96_cube.npz",
+        "checkpoints/n16_96_cube_hybrid.weights.npz",
+        "checkpoints/n16_96_cube_hybrid.lineage.json",
+        "configs/models/n16_96_cube_hybrid.yaml"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "reference trajectory",
+          "sha256": "4fe2fbfffe1f54e4b2a36b5ff6464176fb0cc3d311f569b3ddd3b7f839eb763f",
+          "requirement": "Large 3D field; omitted to keep the archive within its size cap."
+        }
+      ],
+      "note": "This checkpoint uses the hard clip-and-renormalize admissibility map for both training and inference, unlike the 64^3 cube, which uses the soft threshold. The two must not be conflated.",
+      "level_rationale": "The exact checkpoint, its model-reconstruction configuration, the initial field and executable rollout code are all distributed, and the replay is exercised by the test suite. The large reference trajectory is not distributed, so the reported metric cannot be regenerated here: this level means the model can be replayed, NOT that the published number can be recomputed.",
+      "replay_command": "python scripts/replay_rollout.py --benchmark n16_96_cube --smoke --output-dir outputs/replay",
+      "replay_requirements": {
+        "registered_t0_field": [
+          "benchmarks/initial_conditions/n16_96_cube.npz"
+        ],
+        "derived_public_replay_weights": [
+          "checkpoints/n16_96_cube_hybrid.weights.npz"
+        ],
+        "weight_lineage_record": [
+          "checkpoints/n16_96_cube_hybrid.lineage.json"
+        ],
+        "model_configuration": [
+          "configs/models/n16_96_cube_hybrid.yaml"
+        ],
+        "executable_replay_code": [
+          "scripts/replay_rollout.py",
+          "src/pinn_phase/io/public_weights.py"
+        ],
+        "locally_recomputable_evaluation": [
+          "scripts/replay_rollout.py (admissibility invariants of the produced rollout)",
+          "scripts/evaluate_rollout.py (scoring, against a reference you supply)"
+        ]
+      }
+    },
+    {
+      "id": "four_phase_junction",
+      "title": "Four-phase junction relaxation",
+      "level": "PROVENANCE_ONLY",
+      "reported": "3.27% terminal disagreement against a 6.54% persistence baseline; junction angles 127.8, 115.9 and 116.4 degrees.",
+      "artifacts_present": [
+        "media/triple_junction_h1024_reference_vs_pinn_phase.gif"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "checkpoint, configuration, initial condition and reference fields",
+          "sha256": null,
+          "requirement": "No checkpoint for this run is distributed or identified in the evidence ledger. The reported values are retained earlier-public records, rooted in docs/BENCHMARK_CATALOG.md, digest dfe8a4ab5ef18c84107a407681aee2649046878302397563244d1c12322f6c35."
+        }
+      ],
+      "note": "Values are retained public records, not a result this archive can recompute or replay."
+    },
+    {
+      "id": "scalar_3d_spherical",
+      "title": "Scalar 64^3 spherical-grain shrinkage",
+      "level": "PROVENANCE_ONLY",
+      "reported": "Radius-law slope ratio 0.991 (0.990977), fit R-squared 0.9999 (0.999937), under explicit bound enforcement.",
+      "artifacts_present": [
+        "media/scalar_3d_spherical_reference_vs_pinn_phase.gif"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "checkpoint",
+          "sha256": "450daa88ba06d4a776dc40050a2756ec82af7d85cbac7fdb5a87c6089061b914",
+          "requirement": "Deliberately not distributed. See exclusion_reason."
+        },
+        {
+          "what": "reference trajectory",
+          "sha256": "614430dc1fed90bf84ba135aebfb440ca5f59c0c456ef1ef559f0083b6c0059e",
+          "requirement": "Not carried here."
+        }
+      ],
+      "exclusion_reason": "The checkpoint's own recorded metadata shows that this run selected its deployed weights with a score containing post-t0 reference-derived terms, and warm-started from a checkpoint chosen the same way. That is a different training-path contract from every checkpoint this archive does distribute, and it is not covered by docs/TRAINING_PATH_DISCLOSURE.json. Distributing it would place an artifact in the archive whose contract the archive does not describe.",
+      "note": "Values are retained earlier-public records, rooted in examples/scalar_3d_spherical/EXPECTED_METRICS.yaml, digest c9b8d0d4c7c53bc7cd4f96100b35c70ca265b5e0a0f6b271053743ebd56c7c09."
+    },
+    {
+      "id": "multigrain_n44_scalar_cascade",
+      "title": "44-grain scalar coarsening cascade",
+      "level": "PROVENANCE_ONLY",
+      "reported": "Thresholded component count matched at every saved frame.",
+      "artifacts_present": [
+        "media/multigrain_denser_n44_reference_vs_pinn_phase.gif"
+      ],
+      "artifacts_absent": [
+        {
+          "what": "checkpoint, configuration and fields",
+          "sha256": null,
+          "requirement": "Not identified in the evidence ledger and not distributed."
+        }
+      ],
+      "note": "Qualitative demonstration. Component counts describe the topology of a thresholded field; they are not persistent grain labels."
+    }
+  ],
+  "assignment_rule": "A benchmark carries CHECKPOINT_AND_CODE_REPLAY only when the archive contains and tests five things: a registered t0 initial field; the derived public replay weights with their lineage record; the matching model-reconstruction configuration; executable replay code; and an evaluation that can be recomputed locally on the rollout the replay writes. That level asserts REPLAY CAPABILITY, not metric recomputation: the large reference trajectory may remain external, and where it does the published number cannot be regenerated from this archive. FULL_RECOMPUTATION is used only where the reported metric can be regenerated entirely from archive contents. SCORE_RECOMPUTATION is used where a frozen score recomputes from shipped arrays without rerunning inference. PROVENANCE_ONLY means identities only, and never implies recomputability. No accepted parent checkpoint is distributed, and no level here depends on one being distributed.",
+  "initial_fields": {
+    "distributed": true,
+    "location": "benchmarks/initial_conditions/",
+    "manifest": "benchmarks/initial_conditions/manifest.json",
+    "schema": "Each archive's member set is exactly {phi0}.",
+    "derivation": "Derived from accepted scientific artifacts by extracting only the initial field, with no numerical transformation. A derived file has its OWN digest; the parent digest and a container-independent value digest are both recorded so the derivation is checkable. The derived digest is never quoted as the identity of the original scientific artifact."
+  },
+  "local_evaluation": {
+    "definition": "What 'recomputable locally' means for a replay benchmark, stated so it cannot be read as more than it is.",
+    "without_any_external_file": "scripts/replay_rollout.py recomputes, from the rollout it just produced, the phase-sum residual max|sum_p phi_p - 1|, the field bounds, the finiteness of every value and the terminal active-phase count. These are physical admissibility invariants of the produced trajectory and are checked in tests with the tolerances recorded below.",
+    "tolerances": {
+      "max_abs_phase_sum_error": 0.0001,
+      "phi_min": -1e-06,
+      "phi_max": 1.000001,
+      "all_values_finite": true
+    },
+    "with_a_reference_you_supply": "scripts/evaluate_rollout.py computes differing-pixel percentage, survivor sets, false deaths, extra survivors and terminal survivor F1 against a reference archive the user supplies. It never loads a model, and it runs after the fact on files.",
+    "what_this_is_not": "Neither path regenerates a published percentage without the accepted reference trajectory, which is external. A benchmark that can be rerun and locally checked for admissibility is not thereby reproducible."
+  },
+  "n16_96_prospective_transfer": {
+    "level": "PROVENANCE_ONLY",
+    "checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+    "no_new_training": true,
+    "public_records": "benchmarks/n16_96_transfer/expected_score.json",
+    "external_assets": "benchmarks/n16_96_transfer/manifest.json",
+    "renderer": "scripts/render_n16_96_transfer.py"
+  }
+}

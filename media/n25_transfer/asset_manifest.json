@@ -1,0 +1,20 @@
+{
+  "assets": {
+    "id_02_reference_vs_pinn_phase.gif": {
+      "alt": "Reference, PINN-Phase prediction, and their pixel differences for a held-out 25-grain case across 12,000 steps, with a differing-pixel curve and an active-grain staircase that both arrive at thirteen grains.",
+      "sha256": "a17f39dc473c639932c2f1403aa74753442734647b85fe1c2859e91b56a66bca"
+    },
+    "id_02_reference_vs_pinn_phase_poster.png": {
+      "alt": "Final frame of the Held-out case 2 comparison at step 12,000: reference, PINN-Phase prediction, and differing pixels.",
+      "sha256": "3da24dd91af3bcc0cb133eb912fb658e2d8637d8c81a3eb51fc8a0a114728c6b"
+    },
+    "terminal_atlas.png": {
+      "alt": "Terminal reference and prediction for eight held-out and two stress cases; differing pixels are marked in red.",
+      "sha256": "7b5d04b3ef6d0f981a883f7fc1e9445a9e4d64b3dd2ede57998a52ee64c98125"
+    }
+  },
+  "input_manifest_sha256": "3c101b148f60b345b00d867d89905a2ed2d7982986611e3f154465936ad21d2d",
+  "license": "CC-BY-4.0",
+  "renderer_sha256": "5a657e78a17499871a68b0b45de787e5272ea6b3be4645ffb82c0d38c098d7b2",
+  "schema": "pinn-phase-media-manifest-v1"
+}

@@ -1,0 +1,169 @@
+{
+  "assets": [
+    {
+      "bytes": 54060927,
+      "expected_relative_location": "external/n16_96_transfer/1/t0.npz",
+      "filename": "t0.npz",
+      "public_case": "Unseen microstructure 1",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "initial_t0",
+      "sha256": "02556e651401d9c801f5ed14f5ab784f954146210f0ec8313e0a76addc313d49"
+    },
+    {
+      "bytes": 850420005,
+      "expected_relative_location": "external/n16_96_transfer/1/model_frames.npz",
+      "filename": "model_frames.npz",
+      "public_case": "Unseen microstructure 1",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "model_trajectory",
+      "sha256": "a18beef70811edc857d22b2ba0c59e3b159bdaa73bde3e0936a57f1dcf74c62f"
+    },
+    {
+      "bytes": 885727852,
+      "expected_relative_location": "external/n16_96_transfer/1/ref_frames.npz",
+      "filename": "ref_frames.npz",
+      "public_case": "Unseen microstructure 1",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "reference_trajectory",
+      "sha256": "c1b3fad5e53bfa04e7e0b4370368e798bdd40a9ff9173a4afb1f686fcd3af62a"
+    },
+    {
+      "bytes": 54082517,
+      "expected_relative_location": "external/n16_96_transfer/2/t0.npz",
+      "filename": "t0.npz",
+      "public_case": "Unseen microstructure 2",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "initial_t0",
+      "sha256": "2d76ea4019de9b1d6bf65a11139c8f6398be8074f7dfecea7f48e3805846e7b7"
+    },
+    {
+      "bytes": 848680412,
+      "expected_relative_location": "external/n16_96_transfer/2/model_frames.npz",
+      "filename": "model_frames.npz",
+      "public_case": "Unseen microstructure 2",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "model_trajectory",
+      "sha256": "2bc5b7ebc4e4c45142f6ef56ddc96842fb4c57634a092f3608b6db7f879bddb1"
+    },
+    {
+      "bytes": 886011379,
+      "expected_relative_location": "external/n16_96_transfer/2/ref_frames.npz",
+      "filename": "ref_frames.npz",
+      "public_case": "Unseen microstructure 2",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "reference_trajectory",
+      "sha256": "715d8b678acaf87f0800a5be62f116589ecf5f576a10fcbc848d29516cf13cfc"
+    },
+    {
+      "bytes": 53999111,
+      "expected_relative_location": "external/n16_96_transfer/3/t0.npz",
+      "filename": "t0.npz",
+      "public_case": "Unseen microstructure 3",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "initial_t0",
+      "sha256": "e564b77aecbaf4ce380435159df773807cfcbb358f9c06495ee1326f5d363411"
+    },
+    {
+      "bytes": 851957990,
+      "expected_relative_location": "external/n16_96_transfer/3/model_frames.npz",
+      "filename": "model_frames.npz",
+      "public_case": "Unseen microstructure 3",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "model_trajectory",
+      "sha256": "0f8a798c219374530b03eee0dc7f82ee403ff37385d0e0d3b9ee7e2dd30a7d50"
+    },
+    {
+      "bytes": 885495518,
+      "expected_relative_location": "external/n16_96_transfer/3/ref_frames.npz",
+      "filename": "ref_frames.npz",
+      "public_case": "Unseen microstructure 3",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "reference_trajectory",
+      "sha256": "9c535954543965601b0f1f2cddc80d8ba9ab6a19e24a61c92dbc4a3244d687e1"
+    },
+    {
+      "bytes": 54084434,
+      "expected_relative_location": "external/n16_96_transfer/4/t0.npz",
+      "filename": "t0.npz",
+      "public_case": "Unseen microstructure 4",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "initial_t0",
+      "sha256": "3fa9b333108132248ab7c69882dc3f94603c7f9deba82cb050e9ab2c019b93d1"
+    },
+    {
+      "bytes": 848306883,
+      "expected_relative_location": "external/n16_96_transfer/4/model_frames.npz",
+      "filename": "model_frames.npz",
+      "public_case": "Unseen microstructure 4",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "model_trajectory",
+      "sha256": "eb02520cdec503291ee5bd2a5abf53f2a986a1e22ab3883df63569e928e17cf2"
+    },
+    {
+      "bytes": 885248094,
+      "expected_relative_location": "external/n16_96_transfer/4/ref_frames.npz",
+      "filename": "ref_frames.npz",
+      "public_case": "Unseen microstructure 4",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "reference_trajectory",
+      "sha256": "6163d865ea307a08dbe12388c2803c1d4eaf3b3ecd448f869713d9ffd7328a34"
+    },
+    {
+      "bytes": 54047313,
+      "expected_relative_location": "external/n16_96_transfer/5/t0.npz",
+      "filename": "t0.npz",
+      "public_case": "Unseen microstructure 5",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "initial_t0",
+      "sha256": "53147e95f56ad04ef9db7ce1dae2ac149e11669bb5f15074b88f06e87018ce7f"
+    },
+    {
+      "bytes": 846215606,
+      "expected_relative_location": "external/n16_96_transfer/5/model_frames.npz",
+      "filename": "model_frames.npz",
+      "public_case": "Unseen microstructure 5",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "model_trajectory",
+      "sha256": "1c26448b75c5a3ce2d9c094c951ccdaa6097aac133095e9db43a0fa9ec429308"
+    },
+    {
+      "bytes": 885344541,
+      "expected_relative_location": "external/n16_96_transfer/5/ref_frames.npz",
+      "filename": "ref_frames.npz",
+      "public_case": "Unseen microstructure 5",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "reference_trajectory",
+      "sha256": "2717b6e1a8cfcd19c3a10d071d07f3d3bab9c2dc06eb8714bbf0d93c3c246c2f"
+    },
+    {
+      "bytes": 53999767,
+      "expected_relative_location": "external/n16_96_transfer/6/t0.npz",
+      "filename": "t0.npz",
+      "public_case": "Unseen microstructure 6",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "initial_t0",
+      "sha256": "b32bd9e305715ac84a7d3fe86f3dddb99684c19abb1e1d6f5a2c19901dc9b5da"
+    },
+    {
+      "bytes": 843300500,
+      "expected_relative_location": "external/n16_96_transfer/6/model_frames.npz",
+      "filename": "model_frames.npz",
+      "public_case": "Unseen microstructure 6",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "model_trajectory",
+      "sha256": "dd7b9887183cd4df97cd5daeb884bacef0125535eaf5321e447aa0a5f8d5d618"
+    },
+    {
+      "bytes": 885273283,
+      "expected_relative_location": "external/n16_96_transfer/6/ref_frames.npz",
+      "filename": "ref_frames.npz",
+      "public_case": "Unseen microstructure 6",
+      "release_class": "DOCUMENTED_ONLY",
+      "role": "reference_trajectory",
+      "sha256": "a82dc9e00236eb387b79ff90b6484b8e02e1d0fef3bfea79705efab57b3329c4"
+    }
+  ],
+  "asset_verification_command": "python scripts/verify_n16_96_transfer.py --records benchmarks/n16_96_transfer/expected_score.json --asset-root /path/to/asset-root",
+  "consumer_command": "python scripts/verify_n16_96_transfer.py --records benchmarks/n16_96_transfer/expected_score.json",
+  "schema": "pinn-phase-n16-96-external-assets-v1"
+}

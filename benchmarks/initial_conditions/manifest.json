@@ -1,0 +1,354 @@
+{
+ "schema": "pinn-phase-initial-conditions-v1",
+ "description": "Initial fields for the supported replays. Each was derived from an accepted scientific artifact by extracting only the initial field, with no numerical transformation, and re-serializing it under a schema whose member set is exactly {phi0}. Deriving is a packaging step: it produces a NEW file with a NEW digest. derived_sha256 identifies the file distributed here; parent_sha256 identifies the accepted scientific artifact it came from; value_sha256 identifies the array contents independently of either container, and is what proves the two agree. The derived digest is NOT the digest of the original scientific artifact and must never be quoted as such.",
+ "builder": "The deterministic builder and the parent locations are held in private construction evidence; rebuilding from the same parent reproduces these bytes exactly.",
+ "artifacts": [
+  {
+   "name": "n25_cascade_development_case_a",
+   "derived_path": "benchmarks/initial_conditions/n25_cascade_development_case_a.npz",
+   "derived_sha256": "027c30cef13f09bd06deff48be1ad9774196cb216758a1d8c09b9c5c88501dbf",
+   "derived_bytes": 47594,
+   "parent_sha256": "351a55961ee187e327ba1a23c0f566350959eed2ebe8d9473945cc47158fd511",
+   "dtype": "float32",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "bb2b62e44cf3f8d4df176c89439c323a5641e8632e02a245c92ad6222700e6db",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999998807907104,
+   "phase_sum_max": 1.0000001192092896,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cascade_development_case_b",
+   "derived_path": "benchmarks/initial_conditions/n25_cascade_development_case_b.npz",
+   "derived_sha256": "32338eb319a3de3c866a707bc69a3389c80c36b31abc37791e08b8270ca3f359",
+   "derived_bytes": 47706,
+   "parent_sha256": "ef2f13dbd615b21fe515e24d2e31d4f52cd24089d229ef4027348dc5c4b65490",
+   "dtype": "float32",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "55bc387ff94306ba563cf8f4b31ee9c01b2182507d7002db5c0ded4764bc2f6a",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999403953552,
+   "phase_sum_max": 1.0000001192092896,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n64_dense",
+   "derived_path": "benchmarks/initial_conditions/n64_dense.npz",
+   "derived_sha256": "eadf30ba8814d8ad752c14cdd970cd35b38f4965551c5d6f7bf16c6b6ac3c7d3",
+   "derived_bytes": 102864,
+   "parent_sha256": "96d4a5422344a5a458f12e4dae154e9843f1407436b2dc461f7379e25891ffbe",
+   "dtype": "float32",
+   "shape": [
+    64,
+    128,
+    128
+   ],
+   "value_sha256": "d2f03fcb2a280dd85b14da15edbe7760ecb358740fe4578b8a34dd2e8c367054",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999403953552,
+   "phase_sum_max": 1.0000001192092896,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n8_64_cube",
+   "derived_path": "benchmarks/initial_conditions/n8_64_cube.npz",
+   "derived_sha256": "819b9196b3901827b69fc08e4f872bd3e72aa055719cd700f374ac1dae7cb6cb",
+   "derived_bytes": 7946095,
+   "parent_sha256": "ae0e698a23c4ee1017b328d31333fdbd39452677548f0fa70a8afabe870a186d",
+   "dtype": "float32",
+   "shape": [
+    8,
+    64,
+    64,
+    64
+   ],
+   "value_sha256": "deaedaeef36549effc4b8ee6c9a875fb9ab812b7d3417533636431f922d97101",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999998211860657,
+   "phase_sum_max": 1.000000238418579,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n16_96_cube",
+   "derived_path": "benchmarks/initial_conditions/n16_96_cube.npz",
+   "derived_sha256": "81eef72fd4d8ee2e9686b34d38fa6f9d02aa1fee99f0da900ea4bea9368229b5",
+   "derived_bytes": 54080742,
+   "parent_sha256": "d6a5e7f28b85d14c1610eecabb017107f3caa48e73fe78c3c3270b75be389e3e",
+   "dtype": "float32",
+   "shape": [
+    16,
+    96,
+    96,
+    96
+   ],
+   "value_sha256": "caba3a1c375714d7bbf371e7268d6680b8bf0d810fac839ad2f9d29058095c1e",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999995231628418,
+   "phase_sum_max": 1.0000004768371582,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_01",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_01.npz",
+   "derived_sha256": "e3f3bbe5bc18b918dbc87bfdfb17c5e2741e6ef73d1f342897eafde274f3f325",
+   "derived_bytes": 83649,
+   "parent_sha256": "9bc4500d65430dfcbe915b1cd97cffce7f3cccae13d31999f449fce6b42d3e27",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "fe13b72f6720269d784481eef8bd5e3d03b846cefaeb339723a7d43643e3eee4",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999996,
+   "phase_sum_max": 1.0000000000000004,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_02",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_02.npz",
+   "derived_sha256": "b3c993b9fbf2918d75c60f4c65bf052136c6e6c0b04de7c6b4b2d1b17d766f9e",
+   "derived_bytes": 77249,
+   "parent_sha256": "39e115bac3018bc651156a0b8980bf1c9e768a680a54e0d17fea758c8b20b876",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "41049e65e7945580c6b151aa04fca25a2329cff9a8a9bbf6285a99567a529242",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_03",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_03.npz",
+   "derived_sha256": "e516a01516a5e9d51a5c8e45662b4a167b4cf061d2af1932ad48c307cc680720",
+   "derived_bytes": 82640,
+   "parent_sha256": "c856c08e1851706a4e1787312e51904c3d37027c08230a1b8993941aa1363095",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "784236d4af19e2925fe8eff27b39e41f7dc165927bdec61d161edb18697f43f1",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_04",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_04.npz",
+   "derived_sha256": "d3467a7f1f6d0fa668784955383d48f6fc138c504e112996d45dad9a2b8625ee",
+   "derived_bytes": 82902,
+   "parent_sha256": "87c2f10aa3c4d8ef1146c0c0fc1a3fb78dc9ba0b7f7a508cb7cd1da194455c41",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "882fda8ee40bd25664081a68d2fab5921cae84e3b3dd7c9a0ce3b5e8a27da3ec",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_05",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_05.npz",
+   "derived_sha256": "b6417aabf94069deeba2cc2c6aefcc7a342347286091eeee419821f14387f7a6",
+   "derived_bytes": 83412,
+   "parent_sha256": "ee6ac14c737a1ebb7f4ea7b56bfb2b397bedc52adad949577d859e1602f265f5",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "e9df6ee204268ca1b8e7c622e1427efc8a9a349fb2d37a65e227696eec08e59e",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_06",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_06.npz",
+   "derived_sha256": "8580fe38a4f9ba0e8d4711aad92b1632c88cdaed2e7c1d3bab7bf44830324090",
+   "derived_bytes": 82641,
+   "parent_sha256": "50321ecbfe3cd0b6926e867b8b80e1071e0f2c50d61984faa974788990bd7d1a",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "4967a2f6cf27275a7f38d563ffcbcfa96516b79a833c76cc5e606a0c05c51e58",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_07",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_07.npz",
+   "derived_sha256": "ae99c58cd2edf74232ae245e55d4c64637923292fe66f6f4b40a23cb8577db1e",
+   "derived_bytes": 81073,
+   "parent_sha256": "d40f7ec0843f63cf8b51614c47e4e41481a6a770d7b9eb42eb2da57825f5f581",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "235a4e056f5a2fe7d781555dc53dd5ec5762389db3e187ccc3c15c165efb9c70",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_id_08",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_id_08.npz",
+   "derived_sha256": "dcace1c7d70ff3c694f0bd09e63c940c30aa81e46713667913041be236ed9bcf",
+   "derived_bytes": 82156,
+   "parent_sha256": "52a19b2e35aafb92bc7eb713c8312d2f817f2b0ad6915ab6dcf446da670f4d67",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "0253b774493d5056c7f2339c9003570e72b7df318c8effa790d7f92c158ffc84",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000004,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_stress_dense",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_stress_dense.npz",
+   "derived_sha256": "0a679ee2973de41f448e00890b1ce72bd0a43bab65ca5cc01bda25fada4224c4",
+   "derived_bytes": 80516,
+   "parent_sha256": "2885c69197dceac5798bff0ca445d6d714d1b3a75736b3b83f3e683c58387868",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "f9ac50a6cc03e5814d93fe9ef0b92e05fad69aff20a0c46e695431fd8e11cadf",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  },
+  {
+   "name": "n25_cohort_stress_sparse",
+   "derived_path": "benchmarks/initial_conditions/n25_cohort_stress_sparse.npz",
+   "derived_sha256": "cc97f230a3db302a17611c5c986614ffdf7cff78bd104b806010e94322859f78",
+   "derived_bytes": 81202,
+   "parent_sha256": "9d26960fe7df092e5450ad81b4ad3b44ab610e14ae806916690880bfd0de0d82",
+   "dtype": "float64",
+   "shape": [
+    25,
+    128,
+    128
+   ],
+   "value_sha256": "a007180165f60842688cc75703cbf588ecca101bc2aad322ea527d5e458919f2",
+   "schema": [
+    "phi0"
+   ],
+   "phase_sum_min": 0.9999999999999998,
+   "phase_sum_max": 1.0000000000000002,
+   "phi_min": 0.0,
+   "phi_max": 1.0,
+   "value_exact_against_parent": true,
+   "deterministic_rebuild": true
+  }
+ ]
+}

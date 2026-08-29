@@ -1,0 +1,20 @@
+include ASSET_LICENSE.md
+include CHANGELOG.md
+include CITATION.cff
+include CONTRIBUTING.md
+include LICENSE
+include MANIFEST.sha256
+include README.md
+include SECURITY.md
+include .gitattributes
+include .gitignore
+include environment-cpu.yml
+recursive-include .github *
+recursive-include benchmarks *
+recursive-include configs *
+recursive-include docs *
+recursive-include media *
+recursive-include requirements *
+recursive-include scripts *.py
+recursive-include tests *.py
+global-exclude __pycache__ *.py[cod]

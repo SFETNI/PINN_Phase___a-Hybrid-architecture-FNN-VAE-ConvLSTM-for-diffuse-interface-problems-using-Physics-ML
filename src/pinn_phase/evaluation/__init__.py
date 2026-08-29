@@ -1,0 +1,60 @@
+"""Evaluation and profiling utilities for the clean PINN-Phase framework."""
+
+from .diagnostics_3d import (
+    center_of_mass_3d,
+    com_drift_3d,
+    energy_monotone_3d,
+    equivalent_radius_3d_np,
+    extinction_time_3d,
+    face_shell_error_3d,
+    gate_report_3d,
+    hard_radius_3d_np,
+    inertia_sphericity_3d_np,
+    marching_cubes_radius_3d_np,
+    phi_bounds_ok_3d,
+    r2_slope_3d,
+    radial_profile_radius_3d_np,
+    radius_estimator_series_3d,
+    radius_estimators_3d,
+    residual_components_3d,
+    sphericity_proxy_3d,
+    volume_proxy_3d,
+)
+from .live_review import assess_live_radius
+from .profiling import (
+    RolloutProfile,
+    current_rss_mib,
+    live_tensor_mib,
+    peak_rss_mib,
+    profile_rollout,
+)
+from .n25_transfer import campaign_disposition, extract_case_metrics
+
+__all__ = [
+    "RolloutProfile",
+    "assess_live_radius",
+    "center_of_mass_3d",
+    "com_drift_3d",
+    "current_rss_mib",
+    "energy_monotone_3d",
+    "equivalent_radius_3d_np",
+    "extinction_time_3d",
+    "face_shell_error_3d",
+    "gate_report_3d",
+    "hard_radius_3d_np",
+    "inertia_sphericity_3d_np",
+    "live_tensor_mib",
+    "marching_cubes_radius_3d_np",
+    "peak_rss_mib",
+    "phi_bounds_ok_3d",
+    "profile_rollout",
+    "r2_slope_3d",
+    "radial_profile_radius_3d_np",
+    "radius_estimator_series_3d",
+    "radius_estimators_3d",
+    "residual_components_3d",
+    "sphericity_proxy_3d",
+    "volume_proxy_3d",
+    "campaign_disposition",
+    "extract_case_metrics",
+]

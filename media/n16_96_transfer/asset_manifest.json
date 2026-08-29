@@ -1,0 +1,119 @@
+{
+  "alt_text": "Six unseen 96-cubed microstructures arranged in a three-by-two grid, each comparing the reference simulation with the same frozen PINN-Phase model over saved steps 0 to 3200.",
+  "camera": {
+    "cutaway": "removed octant x,y,z >= 48",
+    "image_u": "x - y + (n - 1)",
+    "image_v": "integer rasterization of (x + y - z) / 2 + floor(n / 2)",
+    "projection": "custom affine parallel voxel mapping",
+    "raster_overwrite_order": "ascending x + y + z before raster overwrite"
+  },
+  "checkpoint_sha256": "9e15e6b74f4f92f37d5709a242e436f721ec5d1306a30e05e5f39794de4459dd",
+  "cohort_manifest_sha256": "973357384e676123b16c2cc17dcb5b7f2486dc898116ac062dfffd75af7d5340",
+  "cohort_score_sha256": "5f6f8643ef77c81c81a5dc5b37109d1be7d2e3212dd2d0f63e6a89ec205a4dd1",
+  "environment_lock_sha256": "7fc4bc5dd9b9045dbe15a8f2f1f5bb9c44e0f88500d9f9b3617d876927e49ef0",
+  "inputs": [
+    {
+      "case": "C1",
+      "role": "reference",
+      "sha256": "c1b3fad5e53bfa04e7e0b4370368e798bdd40a9ff9173a4afb1f686fcd3af62a"
+    },
+    {
+      "case": "C1",
+      "role": "model",
+      "sha256": "a18beef70811edc857d22b2ba0c59e3b159bdaa73bde3e0936a57f1dcf74c62f"
+    },
+    {
+      "case": "C2",
+      "role": "reference",
+      "sha256": "715d8b678acaf87f0800a5be62f116589ecf5f576a10fcbc848d29516cf13cfc"
+    },
+    {
+      "case": "C2",
+      "role": "model",
+      "sha256": "2bc5b7ebc4e4c45142f6ef56ddc96842fb4c57634a092f3608b6db7f879bddb1"
+    },
+    {
+      "case": "C3",
+      "role": "reference",
+      "sha256": "9c535954543965601b0f1f2cddc80d8ba9ab6a19e24a61c92dbc4a3244d687e1"
+    },
+    {
+      "case": "C3",
+      "role": "model",
+      "sha256": "0f8a798c219374530b03eee0dc7f82ee403ff37385d0e0d3b9ee7e2dd30a7d50"
+    },
+    {
+      "case": "C4",
+      "role": "reference",
+      "sha256": "6163d865ea307a08dbe12388c2803c1d4eaf3b3ecd448f869713d9ffd7328a34"
+    },
+    {
+      "case": "C4",
+      "role": "model",
+      "sha256": "eb02520cdec503291ee5bd2a5abf53f2a986a1e22ab3883df63569e928e17cf2"
+    },
+    {
+      "case": "C5",
+      "role": "reference",
+      "sha256": "2717b6e1a8cfcd19c3a10d071d07f3d3bab9c2dc06eb8714bbf0d93c3c246c2f"
+    },
+    {
+      "case": "C5",
+      "role": "model",
+      "sha256": "1c26448b75c5a3ce2d9c094c951ccdaa6097aac133095e9db43a0fa9ec429308"
+    },
+    {
+      "case": "C6",
+      "role": "reference",
+      "sha256": "a82dc9e00236eb387b79ff90b6484b8e02e1d0fef3bfea79705efab57b3329c4"
+    },
+    {
+      "case": "C6",
+      "role": "model",
+      "sha256": "dd7b9887183cd4df97cd5daeb884bacef0125535eaf5321e447aa0a5f8d5d618"
+    }
+  ],
+  "no_interpolation": true,
+  "outputs": {
+    "n16_96_unseen_cohort_reference_vs_pinn_phase.gif": {
+      "bytes": 745191,
+      "sha256": "2334e8f880be27e1f16bef30a793ab3176cee180cd46a3b7d3d3679524cf4feb"
+    },
+    "n16_96_unseen_cohort_reference_vs_pinn_phase_poster.png": {
+      "bytes": 56948,
+      "sha256": "d692ad1d439039293769906f5f8f9d1d3ce1eaedc34731edfe4a4e4aaacf59f4"
+    }
+  },
+  "renderer_environment": {
+    "font_file": "DejaVuSans.ttf",
+    "font_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+    "freetype": "2.14.3",
+    "imageio": "2.37.3",
+    "matplotlib": "3.10.7",
+    "numpy": "2.2.6",
+    "pillow": "12.2.0",
+    "python": "3.11.15",
+    "scipy": "1.16.2"
+  },
+  "renderer_sha256": "7356c0ed1269f96402ed6ee93f6d589aa7c4077b39caf1671d54dcdad7ca149d",
+  "schema": "pinn-phase-n16-96-media-v1",
+  "steps": [
+    0,
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200,
+    1400,
+    1600,
+    1800,
+    2000,
+    2200,
+    2400,
+    2600,
+    2800,
+    3000,
+    3200
+  ]
+}

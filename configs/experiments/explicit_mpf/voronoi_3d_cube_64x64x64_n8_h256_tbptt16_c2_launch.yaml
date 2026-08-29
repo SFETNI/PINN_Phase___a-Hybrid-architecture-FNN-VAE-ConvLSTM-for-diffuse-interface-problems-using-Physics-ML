@@ -1,0 +1,47 @@
+# N8@64^3 architecture-reconstruction config.
+#
+# This file supplies the model:-block that scripts/rollout_n8_64.py needs to
+# rebuild the ExplicitMPF ANN+ConvLSTM hybrid before a strict-load of
+#   checkpoints/n8_64_c2.pt   (SHA-256 2482f3bf315f61be82492aa972bacb2e8895942509c993f6c017d72fc46e5441)
+#
+# Physics (num_phases, model_dt, eta_px, mu, sigma, grid) is taken from the
+# t0-only adapter config passed as --adapter-config, NOT from this file:
+#   configs/benchmarks/pf_mpf_3d_voronoi_cube_64x64x64_n8_t0only.yaml
+#
+# Projection note: this checkpoint uses the SOFT projection
+# (soft_threshold_eps1e3) for both training and inference. That is distinct
+# from the N16 cube, which uses the hard clip-and-renormalize map. Do not
+# conflate the two. The adapter's physics.phase_sum_correction: clip_normalize
+# is the *reference-generator* projection and is unrelated to the model's
+# projection_mode below.
+#
+# Strict-load compatibility is enforced by tests/test_n8_config_strict_load.py.
+
+run_id: PINN-MPF-3D-VORONOI-CUBE-64X64X64-N8-NO-GNN-H256-TBPTT16-C2-HORIZON-CURRICULUM
+checkpoint_sha256: 2482f3bf315f61be82492aa972bacb2e8895942509c993f6c017d72fc46e5441
+
+model:
+  architecture: explicit_mpf_ann_convlstm_hybrid
+  spatial_dims: 3
+  num_phases: 8
+  hidden_channels: 256
+  kernel_size: 3
+  conv_padding_mode: circular
+  ann_hidden_features: [64, 64]
+  learnable_blend: true
+  blend_gamma: 0.5
+  per_phase_gamma: false
+  coordinate_encoding: periodic_3d
+  projection_mode: soft_threshold_eps1e3
+  rate_parameterization: scaled_bounded
+  delta_scale: 0.0667
+  max_delta_phi_per_step: 0.05
+  rate_head_bounded: false
+  graph:
+    enabled: false
+    mode: disabled
+
+# model_dt below is an optional cross-check only; the authoritative value is
+# derived by the reference loader from the adapter config
+# (model_dt = dt_mu_sigma/(mu*sigma) = 0.04/(1.5e-5*1.0) = 2666.6667).
+model_dt: 2666.6667
