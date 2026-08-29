@@ -93,7 +93,8 @@ def _windows_peak_rss_mib() -> float:
 
     import psutil
 
-    return psutil.Process(os.getpid()).memory_info().peak_wset / MIB
+    memory_info = psutil.Process(os.getpid()).memory_info()
+    return float(getattr(memory_info, "peak_wset", memory_info.rss)) / MIB
 
 
 def live_tensor_mib() -> float:
