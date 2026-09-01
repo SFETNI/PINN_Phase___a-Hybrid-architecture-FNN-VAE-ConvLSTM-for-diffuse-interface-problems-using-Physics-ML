@@ -28,6 +28,14 @@ foundations and the explicit MPF operator through training, symmetry,
 long-horizon topology, and replay. [`docs/README.md`](docs/README.md) maps the
 rest of the scientific and reproducibility documentation.
 
+## Paper
+
+**PINN-Phase: A physics-informed neural network for curvature-driven multiphase-field evolution**
+
+S. Elfetni, P. H. Seeberger, T. Tyrikos-Ergas
+[arXiv:2608.29413](https://arxiv.org/abs/2608.29413) ·
+[DOI: 10.48550/arXiv.2608.29413](https://doi.org/10.48550/arXiv.2608.29413)
+
 ## Rollout, temporal extrapolation, and generalisation
 
 PINN-Phase is evaluated along two independent axes: **time** and **initial
