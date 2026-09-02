@@ -28,7 +28,7 @@ foundations and the explicit MPF operator through training, symmetry,
 long-horizon topology, and replay. [`docs/README.md`](docs/README.md) maps the
 rest of the scientific and reproducibility documentation.
 
-## Paper
+## Related Paper
 
 **PINN-Phase: A physics-informed neural network for curvature-driven multiphase-field evolution**
 
